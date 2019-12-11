@@ -2,10 +2,10 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Provider } from 'react-redux'
-
+import Home from './home'
 import store from './redux'
 
-function App() {
+export function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -13,6 +13,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <Home />
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -22,13 +23,14 @@ function App() {
           Learn React
         </a>
       </header>
+
     </div>
   );
 }
 
-const Home = () => (<Provider store={store}>
+const Entry = () => (<Provider store={store}>
   <App />
 </Provider>);
 
 
-export default Home;
+export default Entry;

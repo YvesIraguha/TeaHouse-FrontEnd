@@ -1,0 +1,3 @@
+export const INITIAL_ACTION = "INITIAL_ACTION";
+export const API_CALL_ERROR = "API_CALL_ERROR";
+export const API_CALL_IN_ACTION = "API_CALL_IN_ACTION";
