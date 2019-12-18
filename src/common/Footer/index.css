@@ -1,0 +1,33 @@
+.footer {
+  background-color: #1c0a02;
+  width: 100%;
+  justify-content: space-evenly;
+  color: white;
+  padding: 40px 0px;
+}
+
+.footer .list_item {
+  align-items: center;
+  margin: 10px;
+}
+
+.footer .list_item p {
+  margin-left: 5px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.footer .list_item img {
+  margin-left: 5px;
+  height: 20px;
+  width: auto;
+}
+
+@media only screen and (max-width: 500px) {
+  .footer div {
+    width: 100%;
+  }
+  .footer {
+    flex-wrap: wrap;
+  }
+}

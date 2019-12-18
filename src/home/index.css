@@ -1,0 +1,60 @@
+.description {
+  margin: auto;
+  margin-top: 120px;
+  text-align: center;
+  width: 60%;
+}
+
+.description img {
+  height: 230px;
+  width: auto;
+  margin: 10%;
+  transform: rotate(-40deg);
+}
+.description p {
+  margin: 1.4%;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.scroll__icon {
+  margin: auto;
+  text-align: center;
+  width: 20%;
+}
+
+.scroll__icon img {
+  height: 50px;
+  width: auto;
+  margin: 10%;
+}
+
+.mission_vision__container {
+  margin: 10% 10%;
+}
+.mission_vision div {
+  text-align: center;
+  margin: auto;
+  min-width: 300px;
+  width: 50%;
+}
+
+.mission_vision div h2 {
+  font-size: 23px;
+  margin-top: 5%;
+  color: #742602;
+  margin-bottom: 5%;
+}
+
+.mission_vision div p {
+  font-size: large;
+}
+
+@media only screen and (max-width: 768px) {
+  .description {
+    width: 90%;
+  }
+  .mission_vision__container div {
+    flex-wrap: wrap;
+  }
+}
