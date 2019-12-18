@@ -1,0 +1,82 @@
+.submissions__container {
+  width: 60%;
+  margin: auto;
+  margin-top: 160px;
+  margin-bottom: 50px;
+}
+
+.submissions__container h1 {
+  text-align: center;
+  margin: 2.5rem;
+  font-size: 20px;
+  font-weight: 100;
+  text-decoration: underline;
+  color: #742602;
+}
+
+.submissions__container div p {
+  margin: 1rem;
+  font-size: large;
+  color: #707070;
+}
+
+.submissions__container div h2 {
+  text-align: center;
+  margin: 2rem;
+  font-size: 17px;
+  font-weight: 100;
+  text-decoration: underline;
+  color: #742602;
+}
+
+.submit_section {
+  width: 100%;
+  align-self: center;
+  flex-wrap: wrap;
+}
+
+.submit_btn {
+  width: 100%;
+  height: 50px;
+  margin: 5% 0%;
+}
+
+.submit__section__container {
+  margin-top: 5rem;
+  border: 0.5px solid rgba(177, 177, 177, 0.56);
+  border-radius: 3px;
+}
+
+.submit__section__container div h2 {
+  color: black;
+}
+
+.submit__section__container div p {
+  text-align: center;
+  font-size: smaller;
+}
+
+@media only screen and (max-width: 1045px) {
+  .submissions__container {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .inputs,
+  .buttons {
+    flex-wrap: wrap;
+  }
+  .submit_section {
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 478px) {
+  .submissions__container {
+    width: 95%;
+  }
+  .submit__section__container {
+    border: none;
+  }
+}

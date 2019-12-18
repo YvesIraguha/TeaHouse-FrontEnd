@@ -1,0 +1,43 @@
+.input {
+  border: 0.5px solid rgba(177, 177, 177, 0.56);
+  height: 30px;
+  width: 210px;
+  border-radius: 3px;
+  align-self: center;
+  font-size: small;
+  font-family: "Times New Roman", Times, serif;
+}
+.input:focus {
+  background-color: white;
+}
+.input-container {
+  width: 50%;
+}
+
+.error {
+  align-self: flex-end;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  margin-right: 25%;
+  height: 20px;
+  color: red;
+  font-size: 15px;
+}
+
+.error_input {
+  border: 0.5px solid red;
+}
+
+@media only screen and (max-width: 768px) {
+  .input-container {
+    width: 100% !important;
+  }
+
+  .input-container div p {
+    width: 60px;
+    text-align: left;
+  }
+  .input {
+    width: 200px !important;
+  }
+}

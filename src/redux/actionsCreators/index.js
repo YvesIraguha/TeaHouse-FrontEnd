@@ -12,7 +12,6 @@ export const initialActionCreator = (url) => async dispatch => {
     const data = await fetch(url);
     const response = await data.json();
     dispatch(({ type: INITIAL_ACTION, payload: { data: response } }))
-
   } catch (error) {
     dispatch(apiFailure(error.message))
   }

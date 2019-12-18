@@ -1,0 +1,18 @@
+.btn {
+  background-color: #742602;
+  padding: 10px 65px;
+  color: #fff;
+  border-radius: 4px;
+  margin: auto;
+  margin-left: auto;
+  justify-self: center;
+  box-shadow: 1px 2px #d59b80;
+}
+
+.btn:active {
+  margin-bottom: -1px;
+  box-shadow: 0px 0px #d59b80;
+}
+.btn:disabled {
+  background-color: #d59b80;
+}
