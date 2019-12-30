@@ -49,6 +49,11 @@
   padding: 7px;
 }
 
+.item__list ul li a {
+  text-decoration: none;
+  color: white;
+}
+
 @media only screen and (min-width: 768px) {
   .left img {
     align-self: flex-start;

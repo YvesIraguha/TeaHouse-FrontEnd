@@ -27,9 +27,27 @@ class NavBar extends Component {
         </div>
 
         <div className={`right row ${mobileClassName}`}>
-          <NavBarItem title="SUBMISSIONS" link1="STORIES" link2="POEMS" />
-          <NavBarItem title="INDIVIDUAL PIECES" link1="STORIES" link2="POEMS" />
-          <NavBarItem title="COLLECTIONS" link1="BOOK SERIES" link2="IMAGES" />
+          <NavBarItem
+            title="SUBMISSIONS"
+            subTitle1="STORIES"
+            subTitle2="POEMS"
+            link1="/submissions"
+            link2="/submissions"
+          />
+          <NavBarItem
+            title="INDIVIDUAL PIECES"
+            subTitle1="STORIES"
+            subTitle2="POEMS"
+            link1="/submissions"
+            link2="/submissions"
+          />
+          <NavBarItem
+            title="COLLECTIONS"
+            subTitle1="BOOK SERIES"
+            subTitle2="IMAGES"
+            link1="/submissions"
+            link2="/submissions"
+          />
         </div>
       </div>
     );

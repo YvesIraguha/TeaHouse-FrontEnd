@@ -3,6 +3,7 @@ import MissionVision from "./MissionVision";
 import "./index.css";
 import icon from "../assets/images/parchment1.svg";
 import scroll from "../assets/images/scroll.svg";
+
 export class Home extends Component {
   render() {
     return (
