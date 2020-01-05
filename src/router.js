@@ -4,6 +4,7 @@ import NavBar from "./common/NavBar";
 import Footer from "./common/Footer";
 import Home from "./home";
 import Submissions from "./submissionsDirections";
+import LogIn from "./login";
 
 export default () => (
   <Router>
@@ -11,6 +12,7 @@ export default () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/submissions" component={Submissions} />
+      <Route exact path="/login" component={LogIn} />
     </Switch>
     <Route component={Footer} />
   </Router>
