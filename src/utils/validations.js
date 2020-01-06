@@ -45,3 +45,24 @@ export const checkErrors = (submissionWork = {}) => {
   }
   return result;
 };
+
+export const validatePassword = password => {
+  const passwordFormat = /^[a-zA-Z0-9!@#$%^&*()]{3,30}$/;
+  if (passwordFormat.test(password)) {
+    return { error: null };
+  }
+  return {
+    error: "Password should have special characters,numbers, and letters"
+  };
+};
+
+export const validateLogin = (email, password) => {
+  const validEmail = validateEmail(email).error;
+  const validPassword = validatePassword(password).error;
+  if (validEmail) {
+    return { email: validEmail };
+  } else if (validPassword) {
+    return { password: validPassword };
+  }
+  return null;
+};

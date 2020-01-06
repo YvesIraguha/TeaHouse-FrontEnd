@@ -1,0 +1,28 @@
+.login_container {
+  align-content: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login_content {
+  margin: auto;
+  width: 30%;
+}
+
+.login_content .title {
+  font-size: 18px;
+  padding: 9% 0%;
+  color: #000;
+}
+
+.login_content .forgot_password {
+  color: #ff5c10;
+  text-decoration: underline;
+  margin: 20px 0px;
+}
+
+@media only screen and (max-width: 769px) {
+  .login_content {
+    width: 70%;
+  }
+}

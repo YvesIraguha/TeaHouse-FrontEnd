@@ -1,44 +1,30 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import "./index.css";
 import {
   inputChangeHandler,
   inputErrorHandler
 } from "../../redux/actionsCreators/inputChangeHandler";
-import { validateSubmissions } from "../../utils/validations";
+
 class Input extends Component {
   state = { value: "", errors: {} };
-
   onInputChange = ({ target }) => {
     const { value, name } = target;
-    const { handleInputChange, inputError } = this.props;
+    const { onChangeHandler } = this.props;
     this.setState({ value });
-    handleInputChange(name, value);
-    const error = validateSubmissions(name, value);
-    inputError(name, error);
+    onChangeHandler(name, value);
   };
-
-  displayError = ({ target }) => {
-    const { name } = target;
-    const { errors } = this.props;
-    this.setState({ errors: { [name]: errors[name] } });
-  };
-
   render() {
-    const { name, title } = this.props;
-    const {
-      value,
-      errors: { [name]: error }
-    } = this.state;
+    const { name, title, error } = this.props;
+    const { value } = this.state;
     return (
       <div className="column input-container">
-        <div className="row">
-          <p>{title}:</p>
+        <div className="column">
+          <p className="input_title">{title}</p>
           <input
+            type={name}
             name={name}
             className={`input ${error ? "error_input" : ""}`}
             value={value}
-            onBlur={e => this.displayError(e)}
             onChange={e => this.onInputChange(e)}
           />
         </div>
@@ -58,4 +44,4 @@ export const mapDispatchToProps = dispatch => ({
   inputError: (name, value) => dispatch(inputErrorHandler(name, value))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Input);
+export default Input;
