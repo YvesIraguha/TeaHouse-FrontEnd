@@ -3,7 +3,12 @@ import thunk from "redux-thunk";
 import { submitWork } from "./reducers/submitWork";
 import { loginReducer } from "./reducers/loginReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
-const reducers = combineReducers({ submitWork, login: loginReducer });
+import { createStoryPoemReducer } from "./reducers/createStoryOrPoemReducer";
+const reducers = combineReducers({
+  submitWork,
+  login: loginReducer,
+  createStoryPoem: createStoryPoemReducer
+});
 
 const store = createStore(
   reducers,

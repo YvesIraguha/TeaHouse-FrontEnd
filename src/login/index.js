@@ -1,26 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { toast } from "react-toastify";
-
 import Input from "../common/Input";
 import "./index.css";
 import Button from "../common/Button";
 import { loginHandler } from "../redux/actionsCreators/loginHanlder";
 import { validateLogin } from "../utils/validations";
+import { renderResponseOrError } from "../utils/renderToast";
 
-const renderResponseOrError = submissionResponse => {
-  const renderSuccess = message => {
-    toast.success(message);
-  };
-  const renderError = error => {
-    toast.error(error);
-  };
-  if (submissionResponse.error) {
-    return renderError(submissionResponse.error);
-  } else if (submissionResponse.message) {
-    return renderSuccess(submissionResponse.message);
-  }
-};
 class LogIn extends Component {
   state = { errors: {} };
   onInputChangeHandler = (name, value) => {

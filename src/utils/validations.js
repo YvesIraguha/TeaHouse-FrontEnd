@@ -66,3 +66,35 @@ export const validateLogin = (email, password) => {
   }
   return null;
 };
+
+const validateTitle = title => {
+  if (title.length >= 14) {
+    return { error: null };
+  }
+  return {
+    error: "Title should more than 14 characters long."
+  };
+};
+
+const validateContent = content => {
+  if (content.length >= 100) {
+    return { error: null };
+  }
+  return {
+    error: "Content should be more than 100 characters long"
+  };
+};
+
+export const validateCreatedWork = (content, title, author) => {
+  const validTitle = validateTitle(title).error;
+  const validContent = validateContent(content).error;
+  const validAuthor = validateFullName(author).error;
+  if (validTitle) {
+    return { title: validTitle };
+  } else if (validContent) {
+    return { content: validContent };
+  } else if (validAuthor) {
+    return { author: validAuthor };
+  }
+  return null;
+};

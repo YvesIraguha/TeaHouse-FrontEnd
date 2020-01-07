@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios from "../../utils/axios";
 import {
   ON_INPUT_CHANGE,
   INPUT_ERROR,
-  API_CALL_IN_ACTION,
-  API_CALL_ERROR,
+  SUBMISSIONS_REQUEST,
+  SUBMISSIONS_ERROR,
   SUBMISSIONS_SUCCESS,
   CLEAR_SUBMISSIONS_RESPONSE
 } from "../actions";
@@ -24,22 +24,19 @@ export const clearSubmissionResponse = () => ({
 
 export const sendWork = submissionWork => async dispatch => {
   try {
-    dispatch({ type: API_CALL_IN_ACTION });
+    dispatch({ type: SUBMISSIONS_REQUEST });
     const file = submissionWork.file;
     const data = new FormData();
     data.append("file", file, file.name);
     data.append("fullName", submissionWork.fullName);
     data.append("email", submissionWork.email);
     data.append("type", submissionWork.type);
-    const result = await axios.post(
-      "http://localhost:5000/api/v1/users/submission",
-      data
-    );
+    const result = await axios.post("/users/submission", data);
     dispatch({
       type: SUBMISSIONS_SUCCESS,
       payload: { message: result.data.message }
     });
   } catch (error) {
-    dispatch({ type: API_CALL_ERROR, payload: { error: error.message } });
+    dispatch({ type: SUBMISSIONS_ERROR, payload: { error: error.message } });
   }
 };
