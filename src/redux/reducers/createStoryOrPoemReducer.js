@@ -1,4 +1,8 @@
-import { CREATION_SUCCESS, CREATION_ERROR, CREATION_REQUEST } from "../actions";
+import {
+  CREATION_SUCCESS,
+  CREATION_ERROR,
+  CREATION_REQUEST
+} from "../actionsConstants";
 const initialState = { apiInProgress: 0 };
 
 export const createStoryPoemReducer = (state = initialState, action) => {

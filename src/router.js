@@ -6,6 +6,8 @@ import Home from "./home";
 import Submissions from "./submissionsDirections";
 import LogIn from "./login";
 import CreatePage from "./createPage";
+import AllPiecesPage from "./ViewAllPieces";
+import NotFound from "./NotFound";
 
 export default () => (
   <Router>
@@ -15,6 +17,9 @@ export default () => (
       <Route exact path="/submissions" component={Submissions} />
       <Route exact path="/login" component={LogIn} />
       <Route exact path="/create" component={CreatePage} />
+      <Route exact path="/short-stories" component={AllPiecesPage} />
+      <Route exact path="/poems" component={AllPiecesPage} />
+      <Route component={NotFound} />
     </Switch>
     <Route component={Footer} />
   </Router>

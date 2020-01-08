@@ -38,8 +38,8 @@ class NavBar extends Component {
             title="INDIVIDUAL PIECES"
             subTitle1="STORIES"
             subTitle2="POEMS"
-            link1="/submissions"
-            link2="/submissions"
+            link1="/short-stories"
+            link2="/poems"
           />
           <NavBarItem
             title="COLLECTIONS"

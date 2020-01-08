@@ -1,5 +1,5 @@
 import axios from "../../utils/axios";
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from "../actions";
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from "../actionsConstants";
 
 const setToken = token => localStorage.setItem("token", token);
 export const loginHandler = (email, password, history) => async dispatch => {

@@ -1,0 +1,33 @@
+.story-poem-container {
+  width: 70vw;
+  margin: 160px auto;
+}
+
+.head-separator {
+  width: 100%;
+  height: 1px;
+  margin: 5px;
+  background-color: #742602;
+}
+
+.story-card {
+  width: 23%;
+  margin: 0.5% 2.5%;
+  padding: 25px;
+  min-width: 200px;
+}
+.story-head {
+  margin: 10px;
+  text-align: center;
+}
+.page-number {
+  margin: 0px 10px;
+}
+.page-number-container {
+  width: 100px;
+  margin: 50px auto 0px auto;
+}
+
+.stories-list {
+  flex-wrap: wrap;
+}

@@ -1,5 +1,9 @@
 import axios from "../../utils/axios";
-import { CREATION_REQUEST, CREATION_SUCCESS, CREATION_ERROR } from "../actions";
+import {
+  CREATION_REQUEST,
+  CREATION_SUCCESS,
+  CREATION_ERROR
+} from "../actionsConstants";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const createStoryPoemHandler = (
