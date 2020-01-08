@@ -1,26 +1,26 @@
-import { LOGIN_SUCCESS, LOGIN_ERROR, LOGIN_REQUEST } from "../actions";
+import { CREATION_SUCCESS, CREATION_ERROR, CREATION_REQUEST } from "../actions";
 const initialState = { apiInProgress: 0 };
 
-export const loginReducer = (state = initialState, action) => {
+export const createStoryPoemReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_ERROR:
+    case CREATION_ERROR:
       return {
         ...state,
-        submissionResponse: {
+        creationResponse: {
           ...action.payload
         },
         apiInProgress: state.apiInProgress - 1
       };
-    case LOGIN_REQUEST:
+    case CREATION_REQUEST:
       return {
         ...state,
         apiInProgress: state.apiInProgress + 1
       };
 
-    case LOGIN_SUCCESS:
+    case CREATION_SUCCESS:
       return {
         ...state,
-        submissionResponse: {
+        creationResponse: {
           ...action.payload
         },
         apiInProgress: state.apiInProgress - 1
@@ -30,4 +30,4 @@ export const loginReducer = (state = initialState, action) => {
   }
 };
 
-export default loginReducer;
+export default createStoryPoemReducer;

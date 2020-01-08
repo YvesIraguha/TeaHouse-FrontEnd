@@ -1,0 +1,29 @@
+.create-story-container {
+  width: 70vw;
+  margin: 20vh auto;
+  /* height: 100vh; */
+  justify-content: center;
+}
+
+.create_piece_input {
+  height: 60px;
+}
+
+.create_piece_input input {
+  width: 100%;
+  font-size: 20px;
+  font-family: "EB Garamond", serif;
+}
+
+.btn-publish {
+  width: 30%;
+  margin: 15px 0px;
+  max-width: 200px;
+  min-width: 100px;
+}
+
+@media only screen and (max-width: 768px) {
+  .create-story-container {
+    width: 90vw;
+  }
+}
