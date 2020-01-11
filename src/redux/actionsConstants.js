@@ -25,3 +25,10 @@ export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const CREATION_SUCCESS = "CREATION_SUCCESS";
 export const CREATION_ERROR = "CREATION_ERROR";
 export const CREATION_REQUEST = "CREATION_REQUEST";
+
+/**
+ * all pieces action types
+ */
+export const ALL_PIECES_REQUEST = "ALL_PIECES_REQUEST";
+export const ALL_PIECES_ERROR = "ALL_PIECEs_ERROR";
+export const ALL_PIECES_SUCCESS = "ALL_PIECES_SUCCESS";

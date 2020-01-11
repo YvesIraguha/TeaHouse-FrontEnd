@@ -6,7 +6,7 @@ import {
   INPUT_ERROR,
   SUBMISSIONS_SUCCESS,
   CLEAR_SUBMISSIONS_RESPONSE
-} from "../actions";
+} from "../actionsConstants";
 
 const initialState = {
   apiInProgress: 0,

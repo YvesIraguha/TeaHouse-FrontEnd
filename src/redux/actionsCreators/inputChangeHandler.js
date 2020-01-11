@@ -6,7 +6,7 @@ import {
   SUBMISSIONS_ERROR,
   SUBMISSIONS_SUCCESS,
   CLEAR_SUBMISSIONS_RESPONSE
-} from "../actions";
+} from "../actionsConstants";
 
 export const inputChangeHandler = (name, value) => ({
   type: ON_INPUT_CHANGE,

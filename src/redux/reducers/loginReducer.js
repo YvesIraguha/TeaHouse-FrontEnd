@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN_ERROR, LOGIN_REQUEST } from "../actions";
+import { LOGIN_SUCCESS, LOGIN_ERROR, LOGIN_REQUEST } from "../actionsConstants";
 const initialState = { apiInProgress: 0 };
 
 export const loginReducer = (state = initialState, action) => {
