@@ -1,27 +1,16 @@
 import {
-  INITIAL_ACTION,
-  API_CALL_ERROR,
-  API_CALL_IN_ACTION,
-  ON_INPUT_CHANGE,
-  INPUT_ERROR,
-  SUBMISSIONS_SUCCESS,
-  CLEAR_SUBMISSIONS_RESPONSE
+  SUBMISSIONS_ERROR,
+  SUBMISSIONS_REQUEST,
+  SUBMISSIONS_SUCCESS
 } from "../actionsConstants";
 
 const initialState = {
-  apiInProgress: 0,
-  submissionWork: { fullName: "", email: "", file: null, type: "Short story" }
+  apiInProgress: 0
 };
 
 export const submitWork = (state = initialState, action) => {
   switch (action.type) {
-    case INITIAL_ACTION:
-      return {
-        ...state,
-        ...action.payload,
-        apiInProgress: state.apiInProgress - 1
-      };
-    case API_CALL_ERROR:
+    case SUBMISSIONS_ERROR:
       return {
         ...state,
         submissionResponse: {
@@ -29,24 +18,12 @@ export const submitWork = (state = initialState, action) => {
         },
         apiInProgress: state.apiInProgress - 1
       };
-    case API_CALL_IN_ACTION:
+    case SUBMISSIONS_REQUEST:
       return {
         ...state,
         apiInProgress: state.apiInProgress + 1
       };
-    case ON_INPUT_CHANGE:
-      return {
-        ...state,
-        submissionWork: { ...state.submissionWork, ...action.payload }
-      };
-    case INPUT_ERROR:
-      return {
-        ...state,
-        inputError: {
-          ...state.inputError,
-          ...action.payload
-        }
-      };
+
     case SUBMISSIONS_SUCCESS:
       return {
         ...state,
@@ -55,13 +32,7 @@ export const submitWork = (state = initialState, action) => {
           ...action.payload
         }
       };
-    case CLEAR_SUBMISSIONS_RESPONSE:
-      return {
-        ...state,
-        apiInProgress: state.apiInProgress,
-        submissionResponse: null
-      };
     default:
-      return initialState;
+      return state;
   }
 };

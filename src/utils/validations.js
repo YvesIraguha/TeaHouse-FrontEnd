@@ -24,28 +24,6 @@ export const validateFile = file => {
   return { error: null };
 };
 
-export const validateSubmissions = (input, value) => {
-  if (input === "email") {
-    return validateEmail(value).error;
-  } else if (input === "fullName") {
-    return validateFullName(value).error;
-  } else {
-    return validateFile(value).error;
-  }
-};
-
-export const checkErrors = (submissionWork = {}) => {
-  let result = null;
-  const workKeys = Object.keys(submissionWork);
-  for (let i = 0; i < workKeys.length; i++) {
-    if (!submissionWork[workKeys[i]]) {
-      result = `${workKeys[i]} is required`;
-      return result;
-    }
-  }
-  return result;
-};
-
 export const validatePassword = password => {
   const passwordFormat = /^[a-zA-Z0-9!@#$%^&*()]{3,30}$/;
   if (passwordFormat.test(password)) {
@@ -95,6 +73,20 @@ export const validateCreatedWork = (content, title, author) => {
     return { content: validContent };
   } else if (validAuthor) {
     return { author: validAuthor };
+  }
+  return null;
+};
+
+export const validateSubmissions = (fullName, email, file) => {
+  const validFile = validateFile(file).error;
+  const validEmail = validateEmail(email).error;
+  const validFullName = validateFullName(fullName).error;
+  if (validFile) {
+    return { file: validFile };
+  } else if (validEmail) {
+    return { email: validEmail };
+  } else if (validFullName) {
+    return { fullName: validFullName };
   }
   return null;
 };

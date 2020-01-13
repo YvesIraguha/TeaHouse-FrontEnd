@@ -5,7 +5,6 @@ import PageNumber from "./PageNumber";
 import { connect } from "react-redux";
 import { allPiecesHandler } from "../redux/actionsCreators/allPiecesHandler";
 import Loading from "./Loading";
-import convertToHtml from "../utils/stringToHtml";
 
 class AllPiecesPage extends Component {
   state = { page: 1 };
