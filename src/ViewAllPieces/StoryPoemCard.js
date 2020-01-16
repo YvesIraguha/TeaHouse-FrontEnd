@@ -3,9 +3,13 @@ import "./index.css";
 import convertToHtml from "../utils/stringToHtml";
 class StoryPoemCard extends Component {
   render() {
-    const { title, author, body } = this.props.piece;
+    const {
+      piece: { title, author, body, id },
+      onClick
+    } = this.props;
+
     return (
-      <div className="story-card">
+      <div className="story-card" onClick={() => onClick(id)}>
         <div className="story-head">
           <h3>{author.toUpperCase()}</h3>
           <div className="head-separator" />

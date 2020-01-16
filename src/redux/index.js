@@ -1,16 +1,7 @@
-import { createStore, applyMiddleware, combineReducers } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { submitWork } from "./reducers/submitWork";
-import { loginReducer } from "./reducers/loginReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { createStoryPoemReducer } from "./reducers/createStoryOrPoemReducer";
-import { allPiecesReducer } from "./reducers/allPiecesReducer";
-const reducers = combineReducers({
-  submitWork,
-  login: loginReducer,
-  createStoryPoem: createStoryPoemReducer,
-  allPieces: allPiecesReducer
-});
+import reducers from "./reducers";
 
 const store = createStore(
   reducers,
