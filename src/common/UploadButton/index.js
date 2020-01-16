@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import "./index.css";
-import { connect } from "react-redux";
-import { mapDispatchToProps } from "../Input";
 
 import filePreview from "../../assets/images/file.svg";
 class Upload extends Component {
+  state = { file: "", error: "" };
   handleFileChange = ({ target }) => {
-    const { name, files } = target;
-    const { handleInputChange } = this.props;
-    handleInputChange(name, files[0]);
+    const { files, name } = target;
+    const { onChangeHandler } = this.props;
+    this.setState({ [name]: files[0] });
+    onChangeHandler(name, files[0]);
   };
 
   render() {
-    const { error, submissionWork: { file } = {} } = this.props;
+    const { file } = this.state;
+    const { error } = this.props;
     return (
       <div className="row">
         <p>Select file:</p>
@@ -43,8 +44,4 @@ class Upload extends Component {
   }
 }
 
-export const mapStateToProps = ({ submissionWork }, ownProps) => ({
-  submissionWork,
-  ...ownProps
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Upload);
+export default Upload;

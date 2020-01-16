@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./index.css";
-
 import Input from "../common/Input";
 import UploadButton from "../common/UploadButton";
 import Button from "../common/Button";
@@ -10,37 +9,45 @@ import ShortStories from "./ShortStories";
 import Poems from "./Poems";
 import BookSeries from "./BookSeries";
 import Images from "./Images";
-import { checkErrors } from "../utils/validations";
-import {
-  sendWork,
-  clearSubmissionResponse
-} from "../redux/actionsCreators/inputChangeHandler";
-import { toast } from "react-toastify";
+import { validateSubmissions } from "../utils/validations";
+import { sendWork } from "../redux/actionsCreators/inputChangeHandler";
+import { renderResponseOrError } from "../utils/renderToast";
+
 class Submissions extends Component {
-  state = { disabled: false };
+  state = { errors: {}, type: "Short story" };
   submitWork = () => {
-    const { sendSubmission, submissionWork } = this.props;
-    const submissionError = checkErrors(submissionWork);
-
-    if (submissionError) {
-      return this.setState({ error: submissionError });
+    const { sendSubmission } = this.props;
+    const { fullName, email, type, file } = this.state;
+    const error = validateSubmissions(fullName, email, file);
+    if (error) {
+      return this.setState({ errors: { ...error } });
     }
-    sendSubmission(submissionWork);
+    sendSubmission({ fullName, email, type, file });
+  };
+  onInputChangeHandler = (name, value) => {
+    this.setState({ [name]: value });
+  };
+  onSelectorChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({ [name]: value });
   };
 
-  renderSuccess = message => {
-    const { clearResponse } = this.props;
-    toast.success(message, { onClose: () => clearResponse() });
+  onFileChange = (name, value) => {
+    this.setState({ [name]: value });
   };
-
-  renderError = error => {
-    const { clearResponse } = this.props;
-    toast.error(error, { onClose: () => clearResponse() });
+  componentWillReceiveProps = nextProps => {
+    const { submissionResponse } = nextProps;
+    if (
+      submissionResponse &&
+      submissionResponse !== this.props.submissionResponse
+    ) {
+      renderResponseOrError(submissionResponse);
+    }
   };
 
   render() {
-    const { inputError, apiInProgress, submissionResponse } = this.props;
-    const { error } = this.state;
+    const { apiInProgress } = this.props;
+    const { errors } = this.state;
     return (
       <div className="submissions__container">
         <h1>SUBMISSIONS GUIDELINES</h1>
@@ -59,46 +66,45 @@ class Submissions extends Component {
           </div>
           <div className="submit_section">
             <div className="row inputs">
-              <Input title="Full name" name="fullName" />
-              <Input title="Email" name="email" />
+              <Input
+                title="Full name"
+                name="fullName"
+                error={errors.fullName}
+                onChangeHandler={this.onInputChangeHandler}
+              />
+              <Input
+                title="Email"
+                name="email"
+                error={errors.email}
+                onChangeHandler={this.onInputChangeHandler}
+              />
             </div>
             <div className="row buttons">
-              <UploadButton error={error} />
-              <Selector />
+              <UploadButton
+                onChangeHandler={this.onFileChange}
+                error={errors.file}
+              />
+              <Selector onSelectorChange={this.onSelectorChange} />
             </div>
           </div>
           <div className="row submit_btn">
             <Button
               title="Submit"
               onClick={this.submitWork}
-              disabled={!checkErrors(inputError) || apiInProgress}
+              disabled={apiInProgress}
             />
           </div>
         </div>
-        {submissionResponse
-          ? submissionResponse.error
-            ? this.renderError(submissionResponse.error)
-            : this.renderSuccess(submissionResponse.message)
-          : null}
       </div>
     );
   }
 }
-export const mapStateToProps = ({
-  inputError,
-  submissionWork,
-  apiInProgress,
-  submissionResponse
-}) => ({
-  inputError,
-  submissionWork,
-  apiInProgress,
-  submissionResponse
+export const mapStateToProps = ({ submitWork }) => ({
+  ...submitWork
 });
 
 export const mapDispatchToProps = dispatch => ({
-  sendSubmission: submissionWork => dispatch(sendWork(submissionWork)),
-  clearResponse: () => dispatch(clearSubmissionResponse())
+  sendSubmission: submissionWork => dispatch(sendWork(submissionWork))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Submissions);

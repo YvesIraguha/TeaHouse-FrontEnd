@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import "./index.css";
-import {
-  inputChangeHandler,
-  inputErrorHandler
-} from "../../redux/actionsCreators/inputChangeHandler";
 
 class Input extends Component {
   state = { value: "", errors: {} };
@@ -35,13 +31,5 @@ class Input extends Component {
     );
   }
 }
-
-export const mapStateToProps = ({ inputError }) => ({
-  errors: inputError
-});
-export const mapDispatchToProps = dispatch => ({
-  handleInputChange: (name, value) => dispatch(inputChangeHandler(name, value)),
-  inputError: (name, value) => dispatch(inputErrorHandler(name, value))
-});
 
 export default Input;
