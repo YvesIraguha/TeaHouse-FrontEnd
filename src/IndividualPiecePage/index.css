@@ -1,0 +1,30 @@
+.piece-container {
+  width: 40%;
+  font-size: larger;
+  margin: 180px auto;
+}
+
+.piece-body p {
+  margin: 3em 1em;
+  text-align: justify;
+  line-height: 35px;
+}
+
+.piece-content .head-separator {
+  width: 90%;
+  margin: 8px auto;
+}
+.piece-content .story-head {
+  width: 70%;
+  margin: auto;
+}
+
+.loading-content {
+  margin-left: -7em;
+}
+
+@media only screen and (max-width: 768px) {
+  .piece-container {
+    width: 85%;
+  }
+}

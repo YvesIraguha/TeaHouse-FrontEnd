@@ -8,6 +8,7 @@ import LogIn from "./login";
 import CreatePage from "./createPage";
 import AllPiecesPage from "./ViewAllPieces";
 import NotFound from "./NotFound";
+import IndividualPiecePage from "./IndividualPiecePage";
 
 export default () => (
   <Router>
@@ -19,6 +20,11 @@ export default () => (
       <Route exact path="/create" component={CreatePage} />
       <Route exact path="/short-stories" component={AllPiecesPage} />
       <Route exact path="/poems" component={AllPiecesPage} />
+      <Route
+        exact
+        path="/individual-pieces/:id"
+        component={IndividualPiecePage}
+      />
       <Route component={NotFound} />
     </Switch>
     <Route component={Footer} />

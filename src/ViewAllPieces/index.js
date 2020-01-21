@@ -31,7 +31,7 @@ class AllPiecesPage extends Component {
     }
   };
 
-  loadMoreArticles = direction => {
+  loadMorePieces = direction => {
     const {
       fetchAllPieces,
       location: { pathname },
@@ -42,6 +42,11 @@ class AllPiecesPage extends Component {
     const filter = pathname === "/poems" ? "Poem" : "Short story";
     fetchAllPieces(nextPage, filter, history);
     this.setState({ page: nextPage });
+  };
+
+  fetchOnePiece = pieceId => {
+    const { history } = this.props;
+    history.replace(`/individual-pieces/${pieceId}`);
   };
 
   render() {
@@ -58,7 +63,11 @@ class AllPiecesPage extends Component {
           allPiecesResponse.data.individualPieces ? (
           <div className="stories-list row">
             {allPiecesResponse.data.individualPieces.map((piece, index) => (
-              <StoryPoemCard piece={piece} key={piece.id} />
+              <StoryPoemCard
+                piece={piece}
+                key={piece.id}
+                onClick={this.fetchOnePiece}
+              />
             ))}
           </div>
         ) : (
@@ -68,7 +77,7 @@ class AllPiecesPage extends Component {
         allPiecesResponse.data &&
         allPiecesResponse.data.totalPages ? (
           <PageNumber
-            onClick={this.loadMoreArticles}
+            onClick={this.loadMorePieces}
             currentPage={page}
             totalPages={allPiecesResponse.data.totalPages}
           />
