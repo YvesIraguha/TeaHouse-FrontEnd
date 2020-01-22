@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./index.css";
-import Input from "../common/Input";
-import UploadButton from "../common/UploadButton";
-import Button from "../common/Button";
-import Selector from "../common/Selector";
+import Input from "../Common/Input";
+import UploadButton from "../Common/UploadButton";
+import Button from "../Common/Button";
+import Selector from "../Common/Selector";
 import ShortStories from "./ShortStories";
 import Poems from "./Poems";
 import BookSeries from "./BookSeries";

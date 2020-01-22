@@ -8,7 +8,7 @@ export const loginHandler = (email, password, history) => async dispatch => {
     const response = await axios.post("/auth/login", { email, password });
     setToken(response.data.token);
     dispatch({ type: LOGIN_SUCCESS, payload: response.data });
-    history.replace("/create");
+    history.replace("/admin");
   } catch (error) {
     if (error.response) {
       dispatch({

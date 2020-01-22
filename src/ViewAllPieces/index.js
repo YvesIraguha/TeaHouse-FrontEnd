@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./index.css";
 import StoryPoemCard from "./StoryPoemCard";
-import PageNumber from "./PageNumber";
+import PageNumber from "../Common/PageNumber/PageNumber";
 import { connect } from "react-redux";
 import { allPiecesHandler } from "../redux/actionsCreators/allPiecesHandler";
 import Loading from "./Loading";

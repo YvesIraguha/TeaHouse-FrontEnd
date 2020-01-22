@@ -44,7 +44,7 @@ class NavBar extends Component {
           <NavBarItem
             title="COLLECTIONS"
             subTitle1="BOOK SERIES"
-            subTitle2="IMAGES"
+            subTitle2="ISSUES"
             link1="/submissions"
             link2="/submissions"
           />

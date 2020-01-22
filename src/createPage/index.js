@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import "./index.css";
-import Selector from "../common/Selector";
-import Button from "../common/Button";
+import Selector from "../Common/Selector";
+import Button from "../Common/Button";
 import { connect } from "react-redux";
 import { createStoryPoemHandler } from "../redux/actionsCreators/createStoryPoem";
 import { renderResponseOrError } from "../utils/renderToast";
