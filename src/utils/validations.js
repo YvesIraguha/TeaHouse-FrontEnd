@@ -50,7 +50,7 @@ const validateTitle = title => {
     return { error: null };
   }
   return {
-    error: "Title should more than 14 characters long."
+    error: "Title should be more than 14 characters long."
   };
 };
 
