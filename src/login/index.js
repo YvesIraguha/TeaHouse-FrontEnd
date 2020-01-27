@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Input from "../common/Input";
+import Input from "../Common/Input";
 import "./index.css";
-import Button from "../common/Button";
+import Button from "../Common/Button";
 import { loginHandler } from "../redux/actionsCreators/loginHanlder";
 import { validateLogin } from "../utils/validations";
 import { renderResponseOrError } from "../utils/renderToast";
@@ -37,7 +37,6 @@ class LogIn extends Component {
     const {
       login: { apiInProgress }
     } = this.props;
-
     return (
       <div className="login_container column">
         <div className="login_content">
