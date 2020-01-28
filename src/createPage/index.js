@@ -4,7 +4,7 @@ import "./index.css";
 import Selector from "../Common/Selector";
 import Button from "../Common/Button";
 import { connect } from "react-redux";
-import { createStoryPoemHandler } from "../redux/actionsCreators/createStoryPoem";
+import { createStoryPoemHandler } from "../redux/actionsCreators/createDeleteStoryPoem";
 import { renderResponseOrError } from "../utils/renderToast";
 import { validateCreatedWork } from "../utils/validations";
 import Input from "./Input";
