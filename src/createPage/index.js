@@ -5,17 +5,41 @@ import Selector from "../Common/Selector";
 import Button from "../Common/Button";
 import { connect } from "react-redux";
 import { createStoryPoemHandler } from "../redux/actionsCreators/createDeleteStoryPoem";
+import { individualPieceHandler } from "../redux/actionsCreators/individualPieceHandler";
+import { editPieceActionHandler } from "../redux/actionsCreators/editPiece";
 import { renderResponseOrError } from "../utils/renderToast";
 import { validateCreatedWork } from "../utils/validations";
 import Input from "./Input";
+import editorConfig from "./editorConfigurations";
+
 class CreatePage extends Component {
   state = {
     content: "",
     title: "",
     type: "Short story",
     author: "",
-    errors: {}
+    errors: {},
+    editMode: false
   };
+  componentDidMount = async () => {
+    const {
+      fetchIndividualPiece,
+      match: {
+        params: { id }
+      },
+      history
+    } = this.props;
+    if (id) {
+      const response = await fetchIndividualPiece(id, history);
+      const {
+        data: {
+          individualPiece: { title, type, body, author }
+        }
+      } = response;
+      this.setState({ title, type, author, editMode: true, content: body });
+    }
+  };
+
   handleEditorChange = content => {
     this.setState({ content });
   };
@@ -26,11 +50,21 @@ class CreatePage extends Component {
   };
 
   onSubmit = () => {
-    const { content, title, type, author } = this.state;
-    const { submitStoryOrPoem, history } = this.props;
+    const { content, title, type, author, editMode } = this.state;
+    const {
+      submitStoryOrPoem,
+      editPiece,
+      history,
+      match: {
+        params: { id }
+      }
+    } = this.props;
     const error = validateCreatedWork(content, title, author);
     if (error) {
       return this.setState({ errors: { ...error } });
+    }
+    if (editMode) {
+      return editPiece(id, content, title, type, author, history);
     }
     submitStoryOrPoem(content, title, type, author, history);
   };
@@ -47,11 +81,11 @@ class CreatePage extends Component {
   };
 
   render() {
-    const { content, title, errors, author } = this.state;
+    const { content, title, errors, author, editMode, type } = this.state;
     const {
       createStoryPoem: { apiInProgress }
     } = this.props;
-
+    const options = ["Short story", "Poem"];
     return (
       <div className="create-story-container">
         <Input
@@ -68,28 +102,19 @@ class CreatePage extends Component {
           onChange={e => this.onInputChange(e)}
           errors={errors}
         />
-        <Selector onSelectorChange={this.onInputChange} />
+        <Selector
+          onSelectorChange={this.onInputChange}
+          value={type}
+          options={options}
+        />
         <p className="error">{errors.content}</p>
         <Editor
           value={content}
-          init={{
-            height: 500,
-            menubar: false,
-            plugins: [
-              "advlist autolink lists link image charmap print preview anchor",
-              "searchreplace visualblocks code fullscreen",
-              "insertdatetime media table paste code help wordcount",
-              "autoresize"
-            ],
-            toolbar:
-              "undo redo | fontselect fontsizeselect formatselect | bold italic underline backcolor | \
-            alignleft aligncenter alignright alignjustify | \
-            bullist numlist outdent indent | removeformat | help"
-          }}
+          init={editorConfig}
           onEditorChange={this.handleEditorChange}
         />
         <Button
-          title="Publish"
+          title={editMode ? "Save" : "Publish"}
           disabled={apiInProgress}
           onClick={this.onSubmit}
           className="btn-publish"
@@ -99,11 +124,19 @@ class CreatePage extends Component {
   }
 }
 
-const mapStateToProps = ({ createStoryPoem }) => ({ createStoryPoem });
+const mapStateToProps = ({ createStoryPoem }) => ({
+  createStoryPoem
+});
 
 const mapDispatchToProps = dispatch => ({
   submitStoryOrPoem: (content, title, type, author, history) =>
-    dispatch(createStoryPoemHandler(content, title, type, author, history))
+    dispatch(createStoryPoemHandler(content, title, type, author, history)),
+  editPiece: (pieceId, content, title, type, author, history) =>
+    dispatch(
+      editPieceActionHandler(pieceId, content, title, type, author, history)
+    ),
+  fetchIndividualPiece: (pieceId, history) =>
+    dispatch(individualPieceHandler(pieceId, history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreatePage);

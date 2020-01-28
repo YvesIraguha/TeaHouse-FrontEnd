@@ -48,6 +48,7 @@ class Submissions extends Component {
   render() {
     const { apiInProgress } = this.props;
     const { errors } = this.state;
+    const options = ["Shorty story", "Poem", "Book series", "Issue"];
     return (
       <div className="submissions__container">
         <h1>SUBMISSIONS GUIDELINES</h1>
@@ -84,7 +85,10 @@ class Submissions extends Component {
                 onChangeHandler={this.onFileChange}
                 error={errors.file}
               />
-              <Selector onSelectorChange={this.onSelectorChange} />
+              <Selector
+                onSelectorChange={this.onSelectorChange}
+                options={options}
+              />
             </div>
           </div>
           <div className="row submit_btn">

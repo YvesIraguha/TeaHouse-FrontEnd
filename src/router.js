@@ -27,6 +27,11 @@ export default () => (
         path="/individual-pieces/:id"
         component={IndividualPiecePage}
       />
+      <Route
+        exact
+        path="/individual-pieces/edit/:id"
+        component={CheckAuth(CreatePage)}
+      />
       <Route exact path="/admin" component={CheckAuth(AdminDashboard)} />
       <Route component={NotFound} />
     </Switch>

@@ -10,6 +10,7 @@ export const individualPieceHandler = (pieceId, history) => async dispatch => {
     dispatch({ type: INDIVIDUAL_PIECE_REQUEST });
     const response = await axios.get(`/individual-pieces/${pieceId}`);
     dispatch({ type: INDIVIDUAL_PIECE_SUCCESS, payload: response.data });
+    return response;
   } catch (error) {
     if (error.response) {
       dispatch({

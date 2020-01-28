@@ -30,7 +30,7 @@ export const createStoryPoemHandler = (
       { headers: { Authorization: `Bearer ${token}` } }
     );
     dispatch({ type: CREATION_SUCCESS, payload: response.data });
-    history.replace("/");
+    history.replace(`/individual-pieces/${response.data.individualPiece.id}`);
   } catch (error) {
     if (error.response) {
       dispatch({
