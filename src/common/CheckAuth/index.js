@@ -10,7 +10,8 @@ const CheckAuth = WrappedComponent => {
       }
     };
     render() {
-      return <WrappedComponent />;
+      const { history } = this.props;
+      return <WrappedComponent history={history} />;
     }
   };
 };

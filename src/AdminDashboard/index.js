@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import "./index.css";
 import PieceCard from "./PieceCard";
 import { allPiecesHandler } from "../redux/actionsCreators/allPiecesHandler";
+import { deleteIndividualPiece } from "../redux/actionsCreators/createStoryPoem";
 import { connect } from "react-redux";
 import Item from "./AdminNavBarItem";
 import Loading from "../IndividualPiecePage/Loading";
 import PageNumber from "../Common/PageNumber/PageNumber";
 import NewPiece from "./NewPiece";
-
+import { renderResponseOrError } from "../utils/renderToast";
 class AdminDashboard extends Component {
   state = { page: 1, activeContent: "Short story" };
   componentDidMount = () => {
@@ -29,6 +30,22 @@ class AdminDashboard extends Component {
     const { page } = this.state;
     fetchAllPieces(page, nextActiveContent, history);
     this.setState({ activeContent: nextActiveContent });
+  };
+
+  onDeletePieceHandler = pieceId => {
+    const { deleteStoryPoem, history } = this.props;
+    deleteStoryPoem(pieceId, history);
+  };
+
+  componentWillReceiveProps = nextProps => {
+    const { deletedPiece } = nextProps;
+    if (
+      deletedPiece.deletePieceResponse &&
+      deletedPiece.deletePieceResponse !==
+        this.props.deletedPiece.deletePieceResponse
+    ) {
+      renderResponseOrError(deletedPiece.deletePieceResponse);
+    }
   };
 
   render() {
@@ -62,6 +79,8 @@ class AdminDashboard extends Component {
                   <PieceCard
                     title={piece.title}
                     body={piece.body}
+                    id={piece.id}
+                    onClick={this.onDeletePieceHandler}
                     key={piece.id}
                   />
                 ))}
@@ -85,11 +104,16 @@ class AdminDashboard extends Component {
     );
   }
 }
-const mapStateToProps = ({ allPieces }) => ({ allPieces });
+const mapStateToProps = ({ allPieces, deletedPiece }) => ({
+  allPieces,
+  deletedPiece
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchAllPieces: (page, genre, history) =>
-    dispatch(allPiecesHandler(page, genre, history))
+    dispatch(allPiecesHandler(page, genre, history)),
+  deleteStoryPoem: (pieceId, history) =>
+    dispatch(deleteIndividualPiece(pieceId, history))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminDashboard);

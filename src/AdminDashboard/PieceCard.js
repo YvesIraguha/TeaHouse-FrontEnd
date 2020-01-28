@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import convertToHtml from "../utils/stringToHtml";
-const PieceCard = ({ title, body }) => {
+
+const PieceCard = ({ title, id, body, onClick }) => {
   return (
     <div className="piece-card row">
       <div className="row">
@@ -22,6 +23,7 @@ const PieceCard = ({ title, body }) => {
           size="lg"
           color="#742602"
           className="icon"
+          onClick={() => onClick(id)}
         />
       </div>
     </div>

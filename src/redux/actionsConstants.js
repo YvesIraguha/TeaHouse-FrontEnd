@@ -34,9 +34,17 @@ export const ALL_PIECES_ERROR = "ALL_PIECEs_ERROR";
 export const ALL_PIECES_SUCCESS = "ALL_PIECES_SUCCESS";
 
 /**
- * individual pieces action types
+ * fetch individual piece action types
  */
 
 export const INDIVIDUAL_PIECE_REQUEST = "INDIVIDUAL_PIECE_REQUEST";
 export const INDIVIDUAL_PIECE_ERROR = "INDIVIDUAL_PIECE_ERROR";
 export const INDIVIDUAL_PIECE_SUCCESS = "INDIVIDUAL_PIECE_SUCCESS";
+
+/**
+ * delete individual piece action types
+ */
+
+export const DELETE_PIECE_REQUEST = "DELETE_PIECE_REQUEST";
+export const DELETE_PIECE_ERROR = "DELETE_PIECE_ERROR";
+export const DELETE_PIECE_SUCCESS = "DELETE_PIECE_SUCCESS";
