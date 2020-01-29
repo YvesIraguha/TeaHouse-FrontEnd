@@ -6,12 +6,11 @@ const CheckAuth = WrappedComponent => {
       const token = localStorage.getItem("token");
       const { history } = this.props;
       if (!token) {
-        history.replace("login");
+        history.replace("/login");
       }
     };
     render() {
-      const { history } = this.props;
-      return <WrappedComponent history={history} />;
+      return <WrappedComponent {...this.props} />;
     }
   };
 };

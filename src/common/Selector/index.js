@@ -4,17 +4,21 @@ import "./index.css";
 
 class Selector extends Component {
   render() {
-    const { onSelectorChange } = this.props;
+    const { onSelectorChange, value, options } = this.props;
     return (
       <div className="selector row">
         <p>Type:</p>
         <select
           name="type"
+          value={value}
           onChange={e => onSelectorChange(e)}
           className="selector_button"
         >
-          <option value="Short story">Short story</option>
-          <option value="Poem">Poem</option>
+          {options.map(option => (
+            <option value={option} key={option}>
+              {option}
+            </option>
+          ))}
         </select>
       </div>
     );

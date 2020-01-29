@@ -4,7 +4,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import convertToHtml from "../utils/stringToHtml";
 
-const PieceCard = ({ title, id, body, onClick }) => {
+const PieceCard = ({ title, id, body, onDeletePiece, onEditPiece }) => {
   return (
     <div className="piece-card row">
       <div className="row">
@@ -17,13 +17,14 @@ const PieceCard = ({ title, id, body, onClick }) => {
           size="lg"
           color="#5131DE"
           className="icon"
+          onClick={() => onEditPiece(id)}
         />
         <FontAwesomeIcon
           icon={faTrash}
           size="lg"
           color="#742602"
           className="icon"
-          onClick={() => onClick(id)}
+          onClick={() => onDeletePiece(id)}
         />
       </div>
     </div>

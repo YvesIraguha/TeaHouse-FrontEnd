@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./index.css";
 import PieceCard from "./PieceCard";
 import { allPiecesHandler } from "../redux/actionsCreators/allPiecesHandler";
-import { deleteIndividualPiece } from "../redux/actionsCreators/createStoryPoem";
+import { deleteIndividualPiece } from "../redux/actionsCreators/createDeleteStoryPoem";
 import { connect } from "react-redux";
 import Item from "./AdminNavBarItem";
 import Loading from "../IndividualPiecePage/Loading";
@@ -48,6 +48,11 @@ class AdminDashboard extends Component {
     }
   };
 
+  onEditPiece = pieceId => {
+    const { history } = this.props;
+    history.replace(`/individual-pieces/edit/${pieceId}`);
+  };
+
   render() {
     const { allPieces: { apiInProgress, allPiecesResponse } = {} } = this.props;
     const { activeContent, page } = this.state;
@@ -80,7 +85,8 @@ class AdminDashboard extends Component {
                     title={piece.title}
                     body={piece.body}
                     id={piece.id}
-                    onClick={this.onDeletePieceHandler}
+                    onEditPiece={this.onEditPiece}
+                    onDeleteClick={this.onDeletePieceHandler}
                     key={piece.id}
                   />
                 ))}
