@@ -8,6 +8,7 @@ import { allPiecesReducer } from "./allPiecesReducer";
 import { individualPieceReducer } from "./individualPieceReducer";
 import { deleteStoryPoemReducer } from "./deleteStoryPoemReducer";
 import { editPieceReducer } from "./editPieceReducer";
+import { createCollectionReducer } from "./createCollectionReducer";
 
 export default combineReducers({
   submitWork,
@@ -16,5 +17,6 @@ export default combineReducers({
   allPieces: allPiecesReducer,
   individualPiece: individualPieceReducer,
   deletedPiece: deleteStoryPoemReducer,
-  editedPiece: editPieceReducer
+  editedPiece: editPieceReducer,
+  createCollection: createCollectionReducer
 });

@@ -9,6 +9,7 @@ import Loading from "./Loading";
 class AllPiecesPage extends Component {
   state = { page: 1 };
   componentDidMount = () => {
+    console.log("not working");
     const {
       fetchAllPieces,
       location: { pathname },

@@ -27,14 +27,7 @@ class Submissions extends Component {
   onInputChangeHandler = (name, value) => {
     this.setState({ [name]: value });
   };
-  onSelectorChange = ({ target }) => {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  };
 
-  onFileChange = (name, value) => {
-    this.setState({ [name]: value });
-  };
   componentWillReceiveProps = nextProps => {
     const { submissionResponse } = nextProps;
     if (
@@ -82,11 +75,13 @@ class Submissions extends Component {
             </div>
             <div className="row buttons">
               <UploadButton
-                onChangeHandler={this.onFileChange}
+                name="file"
+                title="Select a file"
+                onChangeHandler={this.onInputChangeHandler}
                 error={errors.file}
               />
               <Selector
-                onSelectorChange={this.onSelectorChange}
+                onSelectorChange={this.onInputChangeHandler}
                 options={options}
               />
             </div>

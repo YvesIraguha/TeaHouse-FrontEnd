@@ -3,24 +3,25 @@ import "./index.css";
 
 import filePreview from "../../assets/images/file.svg";
 class Upload extends Component {
-  state = { file: "", error: "" };
+  state = { error: "", value: "" };
   handleFileChange = ({ target }) => {
     const { files, name } = target;
     const { onChangeHandler } = this.props;
-    this.setState({ [name]: files[0] });
+    this.setState({ value: files[0] });
     onChangeHandler(name, files[0]);
   };
 
   render() {
-    const { file } = this.state;
-    const { error } = this.props;
+    const { error, name, title } = this.props;
+    const { value } = this.state;
     return (
       <div className="row">
-        <p>Select file:</p>
-        {file ? (
+        <p>{title}</p>
+
+        {value ? (
           <div className="row file_preview">
             <img src={filePreview} alt="File Preview" />
-            <span>{file.name}</span>
+            <span>{value.name}</span>
           </div>
         ) : (
           <div className="upload_btn_container">
@@ -28,17 +29,17 @@ class Upload extends Component {
               <input
                 className="upload_button"
                 type="file"
-                name="file"
-                id="file"
+                name={name}
+                id={name}
                 onChange={this.handleFileChange}
               />
-              <label htmlFor="file">Choose a file</label>
-            </div>
-            <div className="error">
-              <span>{error}</span>
+              <label htmlFor={name}>Choose a file</label>
             </div>
           </div>
         )}
+        <div className="error">
+          <span>{error}</span>
+        </div>
       </div>
     );
   }

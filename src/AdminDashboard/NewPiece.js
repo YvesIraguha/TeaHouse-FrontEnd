@@ -18,7 +18,7 @@ class NewPiece extends Component {
             <Link to="/create">New story/poem</Link>
           </li>
           <li>
-            <Link to="/create">New book/issue</Link>
+            <Link to="/createCollection">New book/issue</Link>
           </li>
         </ul>
         <p

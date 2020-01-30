@@ -44,9 +44,8 @@ class CreatePage extends Component {
     this.setState({ content });
   };
 
-  onInputChange = ({ target }) => {
-    const { name, value } = target;
-    this.setState({ [name]: value });
+  onInputChange = (name, value) => {
+    this.setState(name, value);
   };
 
   onSubmit = () => {
@@ -92,14 +91,14 @@ class CreatePage extends Component {
           placeholder="Title goes here"
           name="title"
           value={title}
-          onChange={e => this.onInputChange(e)}
+          onChange={e => this.onInputChange(e.target.name, e.target.value)}
           errors={errors}
         />
         <Input
           placeholder="Author's name goes here"
           name="author"
           value={author}
-          onChange={e => this.onInputChange(e)}
+          onChange={e => this.onInputChange(e.target.name, e.target.value)}
           errors={errors}
         />
         <Selector
