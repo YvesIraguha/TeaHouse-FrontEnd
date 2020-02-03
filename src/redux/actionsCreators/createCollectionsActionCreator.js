@@ -25,7 +25,7 @@ export const createCollectionActionCreator = (
       headers: { Authorization: `Bearer ${token}` }
     });
     dispatch({ type: CREATE_COLLECTION_SUCCESS, payload: response.data });
-    history.replace(`/collections/${response.data.createdCollection.id}`);
+    history.push(`/collections/${response.data.createdCollection.id}`);
   } catch (error) {
     if (error.response) {
       dispatch({

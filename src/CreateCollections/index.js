@@ -7,9 +7,13 @@ import UploadButton from "../Common/UploadButton";
 import Button from "../Common/Button";
 import "./index.css";
 import { validateCreatedCollection } from "../utils/validations";
+import { renderResponseOrError } from "../utils/renderToast";
 
 const CreateCollections = props => {
   const options = ["Book series", "Issue"];
+  const {
+    createCollection: { apiInProgress, createCollectionResponse }
+  } = props;
   const [collection, setCollection] = useState({ type: "Book series" });
   const [errors, setErrors] = useState({});
   const handleInputChange = (name, value) => {
@@ -17,23 +21,21 @@ const CreateCollections = props => {
   };
 
   const submitCollection = () => {
-    const { createCollection, history } = props;
+    const { sendCollection, history } = props;
     const error = validateCreatedCollection(collection);
     if (error) {
       return setErrors({ ...error });
     }
-    createCollection(collection, history);
+    sendCollection(collection, history);
   };
+  if (createCollectionResponse) {
+    renderResponseOrError(createCollectionResponse);
+  }
 
   return (
     <div className="column create-collection">
-      <div>
-        <h4>Got a book to publish?</h4>
-        <p>
-          You can send a short story, poem, book series, and image collections
-          book. Fill out the form below and submit your work to be reviewed by
-          admin.
-        </p>
+      <div className="intro">
+        <h4>Upload a Book/Issue</h4>
       </div>
       <Input
         name="title"
@@ -60,16 +62,20 @@ const CreateCollections = props => {
         error={errors.previewImage}
       />
       <Selector options={options} onSelectorChange={handleInputChange} />
-      <Button title="Submit" onClick={submitCollection} disabled={false} />
+      <Button
+        title="Submit"
+        onClick={submitCollection}
+        disabled={apiInProgress}
+      />
     </div>
   );
 };
 
-const mapStateToProps = ({ createCollectionResponse }) => ({
-  createCollectionResponse
+const mapStateToProps = ({ createCollection }) => ({
+  createCollection
 });
 const mapDispatchToProps = dispatch => ({
-  createCollection: (newCollection, history) =>
+  sendCollection: (newCollection, history) =>
     dispatch(createCollectionActionCreator(newCollection, history))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CreateCollections);

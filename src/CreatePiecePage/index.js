@@ -45,7 +45,7 @@ class CreatePage extends Component {
   };
 
   onInputChange = (name, value) => {
-    this.setState(name, value);
+    this.setState({ [name]: value });
   };
 
   onSubmit = () => {

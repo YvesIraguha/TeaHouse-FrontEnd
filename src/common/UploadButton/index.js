@@ -15,7 +15,7 @@ class Upload extends Component {
     const { error, name, title } = this.props;
     const { value } = this.state;
     return (
-      <div className="row">
+      <div className="row upload_btn_container">
         <p>{title}</p>
 
         {value ? (
@@ -24,7 +24,7 @@ class Upload extends Component {
             <span>{value.name}</span>
           </div>
         ) : (
-          <div className="upload_btn_container">
+          <div>
             <div>
               <input
                 className="upload_button"

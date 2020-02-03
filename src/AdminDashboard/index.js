@@ -50,7 +50,7 @@ class AdminDashboard extends Component {
 
   onEditPiece = pieceId => {
     const { history } = this.props;
-    history.replace(`/individual-pieces/edit/${pieceId}`);
+    history.push(`/individual-pieces/edit/${pieceId}`);
   };
 
   render() {
@@ -86,7 +86,7 @@ class AdminDashboard extends Component {
                     body={piece.body}
                     id={piece.id}
                     onEditPiece={this.onEditPiece}
-                    onDeleteClick={this.onDeletePieceHandler}
+                    onDeletePiece={this.onDeletePieceHandler}
                     key={piece.id}
                   />
                 ))}

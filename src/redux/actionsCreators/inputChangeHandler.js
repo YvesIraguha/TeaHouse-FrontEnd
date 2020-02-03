@@ -37,6 +37,9 @@ export const sendWork = submissionWork => async dispatch => {
       payload: { message: result.data.message }
     });
   } catch (error) {
-    dispatch({ type: SUBMISSIONS_ERROR, payload: { error: error.message } });
+    dispatch({
+      type: SUBMISSIONS_ERROR,
+      payload: { error: error.response.data.error }
+    });
   }
 };

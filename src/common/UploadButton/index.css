@@ -1,11 +1,14 @@
 .upload_button {
-  margin-top: 15px;
+  margin-left: 15px;
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
   z-index: -1;
 }
-
+.upload_btn_container {
+  margin: 20px 0px;
+  color: #707070;
+}
 .upload_button + label {
   border: 1px solid rgba(177, 177, 177, 0.16);
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.16);
@@ -23,6 +26,7 @@
 }
 
 .file_preview {
+  margin-left: 10px;
   align-items: center;
 }
 

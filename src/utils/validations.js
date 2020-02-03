@@ -107,7 +107,10 @@ export const validateCreatedCollection = ({
   const validTitle = validateTitle(title).error;
   const validAuthor = validateFullName(author).error;
   const validFile = validateFile(file, ".pdf").error;
-  const validPreviewImage = validateFile(previewImage, (".JPEG", "JPG")).error;
+  const validPreviewImage = validateFile(
+    previewImage,
+    (".JPEG", ".JPG", ".jpg")
+  ).error;
   if (validTitle) {
     return { title: validTitle };
   } else if (validAuthor) {

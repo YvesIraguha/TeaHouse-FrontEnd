@@ -9,7 +9,6 @@ import Loading from "./Loading";
 class AllPiecesPage extends Component {
   state = { page: 1 };
   componentDidMount = () => {
-    console.log("not working");
     const {
       fetchAllPieces,
       location: { pathname },
@@ -47,7 +46,7 @@ class AllPiecesPage extends Component {
 
   fetchOnePiece = pieceId => {
     const { history } = this.props;
-    history.replace(`/individual-pieces/${pieceId}`);
+    history.push(`/individual-pieces/${pieceId}`);
   };
 
   render() {
