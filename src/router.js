@@ -5,12 +5,13 @@ import Footer from "./Common/Footer";
 import Home from "./Home";
 import Submissions from "./DirectionsPage";
 import LogIn from "./Login";
-import CreatePage from "./CreatePage";
+import CreatePiecePage from "./CreatePiecePage";
 import AllPiecesPage from "./ViewAllPieces";
 import NotFound from "./NotFound";
 import IndividualPiecePage from "./IndividualPiecePage";
 import AdminDashboard from "./AdminDashboard";
 import CheckAuth from "./Common/CheckAuth";
+import CreateCollections from "./CreateCollections";
 
 export default () => (
   <Router>
@@ -19,7 +20,12 @@ export default () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/submissions" component={Submissions} />
       <Route exact path="/login" component={LogIn} />
-      <Route exact path="/create" component={CheckAuth(CreatePage)} />
+      <Route exact path="/create" component={CheckAuth(CreatePiecePage)} />
+      <Route
+        exact
+        path="/createCollection"
+        component={CheckAuth(CreateCollections)}
+      />
       <Route exact path="/short-stories" component={AllPiecesPage} />
       <Route exact path="/poems" component={AllPiecesPage} />
       <Route
@@ -30,7 +36,7 @@ export default () => (
       <Route
         exact
         path="/individual-pieces/edit/:id"
-        component={CheckAuth(CreatePage)}
+        component={CheckAuth(CreatePiecePage)}
       />
       <Route exact path="/admin" component={CheckAuth(AdminDashboard)} />
       <Route component={NotFound} />

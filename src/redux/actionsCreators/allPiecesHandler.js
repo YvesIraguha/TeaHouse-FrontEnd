@@ -18,13 +18,13 @@ export const allPiecesHandler = (page, genre, history) => async dispatch => {
         type: ALL_PIECES_ERROR,
         payload: { error: error.response.data.error }
       });
-      history.replace("/not-found");
+      history.push("/not-found");
     } else {
       dispatch({
         type: ALL_PIECES_ERROR,
         payload: { error: error.message }
       });
-      history.replace("/not-found");
+      history.push("/not-found");
     }
   }
 };

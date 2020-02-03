@@ -9,6 +9,7 @@ import { renderResponseOrError } from "../utils/renderToast";
 
 class LogIn extends Component {
   state = { errors: {} };
+
   onInputChangeHandler = (name, value) => {
     this.setState({ [name]: value });
   };

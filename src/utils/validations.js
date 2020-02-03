@@ -1,5 +1,8 @@
 export const validateEmail = email => {
   const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  if (!email) {
+    return { error: "Provide an email" };
+  }
   if (emailFormat.test(email)) {
     return { error: null };
   }
@@ -9,6 +12,10 @@ export const validateEmail = email => {
 export const validateFullName = fullName => {
   const nameFormat = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
   let error = null;
+  if (!fullName) {
+    error = "Provide a full name";
+    return { error };
+  }
   fullName.split(" ").map(name => {
     if (!nameFormat.test(name)) {
       error = "Invalid name";
@@ -17,9 +24,11 @@ export const validateFullName = fullName => {
   });
   return { error };
 };
-export const validateFile = file => {
+export const validateFile = (file, formats) => {
   if (!file) {
     return { error: "Please select a file" };
+  } else if (!file.name.endsWith(formats)) {
+    return { error: `File format should be one of the formats ${formats}` };
   }
   return { error: null };
 };
@@ -46,12 +55,10 @@ export const validateLogin = (email, password) => {
 };
 
 const validateTitle = title => {
-  if (title.length >= 14) {
-    return { error: null };
+  if (!title || title.length <= 14) {
+    return { error: "Title should be more than 14 characters long." };
   }
-  return {
-    error: "Title should be more than 14 characters long."
-  };
+  return { error: null };
 };
 
 const validateContent = content => {
@@ -78,7 +85,7 @@ export const validateCreatedWork = (content, title, author) => {
 };
 
 export const validateSubmissions = (fullName, email, file) => {
-  const validFile = validateFile(file).error;
+  const validFile = validateFile(file, ".pdf").error;
   const validEmail = validateEmail(email).error;
   const validFullName = validateFullName(fullName).error;
   if (validFile) {
@@ -87,6 +94,31 @@ export const validateSubmissions = (fullName, email, file) => {
     return { email: validEmail };
   } else if (validFullName) {
     return { fullName: validFullName };
+  }
+  return null;
+};
+
+export const validateCreatedCollection = ({
+  file,
+  previewImage,
+  title,
+  author
+}) => {
+  const validTitle = validateTitle(title).error;
+  const validAuthor = validateFullName(author).error;
+  const validFile = validateFile(file, ".pdf").error;
+  const validPreviewImage = validateFile(
+    previewImage,
+    (".JPEG", ".JPG", ".jpg")
+  ).error;
+  if (validTitle) {
+    return { title: validTitle };
+  } else if (validAuthor) {
+    return { author: validAuthor };
+  } else if (validFile) {
+    return { file: validFile };
+  } else if (validPreviewImage) {
+    return { previewImage: validPreviewImage };
   }
   return null;
 };

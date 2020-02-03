@@ -46,7 +46,7 @@ class AllPiecesPage extends Component {
 
   fetchOnePiece = pieceId => {
     const { history } = this.props;
-    history.replace(`/individual-pieces/${pieceId}`);
+    history.push(`/individual-pieces/${pieceId}`);
   };
 
   render() {

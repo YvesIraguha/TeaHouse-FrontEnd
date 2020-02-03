@@ -17,7 +17,7 @@ export const individualPieceHandler = (pieceId, history) => async dispatch => {
         type: INDIVIDUAL_PIECE_ERROR,
         payload: { error: error.response.data.error }
       });
-      history.replace("/not-found");
+      history.push("/not-found");
     } else {
       dispatch({
         type: INDIVIDUAL_PIECE_ERROR,

@@ -3,15 +3,24 @@ import React, { Component } from "react";
 import "./index.css";
 
 class Selector extends Component {
+  state = { value: "", errors: {} };
+  onInputChange = ({ target }) => {
+    const { value, name } = target;
+    const { onSelectorChange } = this.props;
+    this.setState({ value });
+    onSelectorChange(name, value);
+  };
   render() {
-    const { onSelectorChange, value, options } = this.props;
+    const { options } = this.props;
+    const { value } = this.state;
+
     return (
       <div className="selector row">
         <p>Type:</p>
         <select
           name="type"
           value={value}
-          onChange={e => onSelectorChange(e)}
+          onChange={e => this.onInputChange(e)}
           className="selector_button"
         >
           {options.map(option => (

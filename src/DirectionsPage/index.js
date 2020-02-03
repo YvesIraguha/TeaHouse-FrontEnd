@@ -27,14 +27,7 @@ class Submissions extends Component {
   onInputChangeHandler = (name, value) => {
     this.setState({ [name]: value });
   };
-  onSelectorChange = ({ target }) => {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  };
 
-  onFileChange = (name, value) => {
-    this.setState({ [name]: value });
-  };
   componentWillReceiveProps = nextProps => {
     const { submissionResponse } = nextProps;
     if (
@@ -48,7 +41,7 @@ class Submissions extends Component {
   render() {
     const { apiInProgress } = this.props;
     const { errors } = this.state;
-    const options = ["Shorty story", "Poem", "Book series", "Issue"];
+    const options = ["Short story", "Poem", "Book series", "Issue"];
     return (
       <div className="submissions__container">
         <h1>SUBMISSIONS GUIDELINES</h1>
@@ -82,11 +75,13 @@ class Submissions extends Component {
             </div>
             <div className="row buttons">
               <UploadButton
-                onChangeHandler={this.onFileChange}
+                name="file"
+                title="Select a file"
+                onChangeHandler={this.onInputChangeHandler}
                 error={errors.file}
               />
               <Selector
-                onSelectorChange={this.onSelectorChange}
+                onSelectorChange={this.onInputChangeHandler}
                 options={options}
               />
             </div>
