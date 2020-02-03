@@ -45,8 +45,8 @@ class NavBar extends Component {
             title="COLLECTIONS"
             subTitle1="BOOK SERIES"
             subTitle2="ISSUES"
-            link1="/submissions"
-            link2="/submissions"
+            link1="/book-series"
+            link2="/issues"
           />
         </div>
       </div>
