@@ -12,6 +12,7 @@ import IndividualPiecePage from "./IndividualPiecePage";
 import AdminDashboard from "./AdminDashboard";
 import CheckAuth from "./Common/CheckAuth";
 import CreateCollections from "./CreateCollections";
+import ViewCollections from "./ViewCollections";
 
 export default () => (
   <Router>
@@ -38,6 +39,8 @@ export default () => (
         path="/individual-pieces/edit/:id"
         component={CheckAuth(CreatePiecePage)}
       />
+      <Route exact path="/book-series" component={ViewCollections} />
+      <Route exact path="/issues" component={ViewCollections} />
       <Route exact path="/admin" component={CheckAuth(AdminDashboard)} />
       <Route component={NotFound} />
     </Switch>

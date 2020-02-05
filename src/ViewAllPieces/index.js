@@ -4,7 +4,7 @@ import StoryPoemCard from "./StoryPoemCard";
 import PageNumber from "../Common/PageNumber/PageNumber";
 import { connect } from "react-redux";
 import { allPiecesHandler } from "../redux/actionsCreators/allPiecesHandler";
-import Loading from "./Loading";
+import Loading from "../Common/Loading";
 
 class AllPiecesPage extends Component {
   state = { page: 1 };
