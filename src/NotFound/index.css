@@ -6,3 +6,28 @@
   top: 0px;
   z-index: 999;
 }
+
+.not-found__content {
+  width: 350px;
+  margin: 30vh auto;
+}
+
+.not-found__content h1 {
+  font-weight: 300;
+  font-size: 45px;
+}
+.not-found__content h5 {
+  font-size: larger;
+  font-weight: 100;
+}
+.not-found__content h2 {
+  font-size: 170px;
+  font-weight: 200;
+}
+
+.not-found__content h1,
+h2,
+h5,
+p {
+  margin: 10px;
+}
