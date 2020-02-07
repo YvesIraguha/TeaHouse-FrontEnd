@@ -1,24 +1,27 @@
 import { combineReducers } from "redux";
 
-import { submitWork } from "./submitWork";
-import { loginReducer } from "./loginReducer";
+import submitWork from "./submitWork";
+import login from "./loginReducer";
 
-import { createStoryPoemReducer } from "./createStoryOrPoemReducer";
-import { allPiecesReducer } from "./allPiecesReducer";
-import { individualPieceReducer } from "./individualPieceReducer";
-import { deleteStoryPoemReducer } from "./deleteStoryPoemReducer";
-import { editPieceReducer } from "./editPieceReducer";
-import { createCollectionReducer } from "./createCollectionReducer";
-import { allCollectionsReducer } from "./allCollectionsReducer";
+import createStoryPoem from "./createStoryOrPoemReducer";
+import allPieces from "./allPiecesReducer";
+import individualPiece from "./individualPieceReducer";
+import deletedPiece from "./deleteStoryPoemReducer";
+import editedPiece from "./editPieceReducer";
+import createCollection from "./createCollectionReducer";
+import allCollections from "./allCollectionsReducer";
+
+import resetPassword from "./resetPasswordReducer";
 
 export default combineReducers({
   submitWork,
-  login: loginReducer,
-  createStoryPoem: createStoryPoemReducer,
-  allPieces: allPiecesReducer,
-  individualPiece: individualPieceReducer,
-  deletedPiece: deleteStoryPoemReducer,
-  editedPiece: editPieceReducer,
-  createCollection: createCollectionReducer,
-  allCollections: allCollectionsReducer
+  login,
+  createStoryPoem,
+  allPieces,
+  individualPiece,
+  deletedPiece,
+  editedPiece,
+  createCollection,
+  allCollections,
+  resetPassword
 });

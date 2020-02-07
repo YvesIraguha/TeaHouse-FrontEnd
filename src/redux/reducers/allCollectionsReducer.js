@@ -6,7 +6,7 @@ import {
 
 const initialState = { apiInProgress: 0 };
 
-export const allCollectionsReducer = (state = initialState, action) => {
+const allCollectionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ALL_COLLECTIONS_REQUEST:
       return {
@@ -34,3 +34,5 @@ export const allCollectionsReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default allCollectionsReducer;

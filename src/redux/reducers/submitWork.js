@@ -8,7 +8,7 @@ const initialState = {
   apiInProgress: 0
 };
 
-export const submitWork = (state = initialState, action) => {
+const submitWork = (state = initialState, action) => {
   switch (action.type) {
     case SUBMISSIONS_ERROR:
       return {
@@ -36,3 +36,5 @@ export const submitWork = (state = initialState, action) => {
       return state;
   }
 };
+
+export default submitWork;
