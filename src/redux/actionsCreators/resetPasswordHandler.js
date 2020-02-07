@@ -30,13 +30,18 @@ export const requestResetPasswordHandler = email => async dispatch => {
   }
 };
 
-export const resetPasswordHandler = (newPassword, token) => async dispatch => {
+export const resetPasswordHandler = (
+  newPassword,
+  token,
+  history
+) => async dispatch => {
   try {
     dispatch({ type: RESET_PASSWORD_REQUEST });
     const result = await axios.put(`users/reset-password/${token}`, {
       password: newPassword
     });
     dispatch({ type: RESET_PASSWORD_SUCCESS, payload: result.data });
+    history.replace("/login");
   } catch (error) {
     if (error.response) {
       dispatch({

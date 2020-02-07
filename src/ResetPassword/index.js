@@ -5,45 +5,61 @@ import { resetPasswordHandler } from "../redux/actionsCreators/resetPasswordHand
 import Input from "../Common/Input";
 import Button from "../Common/Button";
 import { validatePassword } from "../utils/validations";
+import { renderResponseOrError } from "../utils/renderToast";
 
 const ResetPassword = props => {
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({});
+  const [error, setError] = useState();
   const handleInputChange = (name, value) => {
     setPassword(value);
   };
 
+  const {
+    sendNewPassword,
+    history,
+    match: {
+      params: { token }
+    },
+    resetPassword: { apiInProgress, resetPasswordResponse }
+  } = props;
   const sendChangePassword = () => {
-    const { sendNewPassword } = props;
-    const error = validatePassword(password);
+    const { error } = validatePassword(password);
     if (error) {
-      return setErrors({ ...error });
+      return setError(error);
     }
-    sendNewPassword(password);
+    sendNewPassword(password, token, history);
   };
 
+  if (resetPasswordResponse) {
+    renderResponseOrError(resetPasswordResponse);
+  }
   return (
-    <div>
+    <div className="reset-password__container">
       <Input
         title="Type your new password"
         name="password"
-        error={errors.password}
+        error={error}
         onChangeHandler={handleInputChange}
       />
-      <Input
+      {/* <Input
         title="Confirm your new password"
         name="password"
         error={errors.password}
         onChangeHandler={handleInputChange}
+      /> */}
+      <Button
+        title="Send"
+        onClick={sendChangePassword}
+        disabled={apiInProgress}
+        className="reset-password__button"
       />
-      <Button title="Send" onClick={sendChangePassword} disabled={false} />
     </div>
   );
 };
 
 const mapStateToProps = ({ resetPassword }) => ({ resetPassword });
 const mapDispatchToProps = dispatch => ({
-  sendNewPassword: (newPassword, token) =>
-    dispatch(resetPasswordHandler(newPassword, token))
+  sendNewPassword: (newPassword, token, history) =>
+    dispatch(resetPasswordHandler(newPassword, token, history))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(ResetPassword);
