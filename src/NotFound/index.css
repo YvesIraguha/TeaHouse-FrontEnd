@@ -27,7 +27,6 @@
 
 .not-found__content h1,
 h2,
-h5,
-p {
+h5 {
   margin: 10px;
 }

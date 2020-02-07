@@ -4,6 +4,10 @@
   justify-content: space-evenly;
   color: white;
   padding: 40px 0px;
+  position: absolute;
+  bottom: 0;
+
+  height: 8.5rem;
 }
 
 .footer .list_item {

@@ -4,37 +4,48 @@ import { requestResetPasswordHandler } from "../redux/actionsCreators/resetPassw
 import Input from "../Common/Input";
 import Button from "../Common/Button";
 import { validateEmail } from "../utils/validations";
+import { renderResponseOrError } from "../utils/renderToast";
+import "./index.css";
 
 const RequestResetPassword = props => {
   const [email, setEmail] = useState("");
-  const [errors, setErrors] = useState({});
+  const [error, setError] = useState("");
   const handleInputChange = (name, value) => {
     setEmail(value);
   };
 
   const sendChangePasswordRequest = () => {
     const { resetPasswordRequest } = props;
-    const error = validateEmail(email);
+    const { error } = validateEmail(email);
+
     if (error) {
-      return setErrors({ ...error });
+      return setError(error);
     }
     resetPasswordRequest(email);
   };
-
+  const {
+    resetPassword: { apiInProgress, requestResetPasswordResponse }
+  } = props;
+  if (requestResetPasswordResponse) {
+    renderResponseOrError(requestResetPasswordResponse);
+  }
   return (
-    <div>
-      <Input
-        title="Type your email"
-        name="email"
-        error={errors.email}
-        onChangeHandler={handleInputChange}
-      />
+    <div className="reset-password__container">
+      <div>
+        <Input
+          title="Type your email"
+          name="email"
+          error={error}
+          onChangeHandler={handleInputChange}
+        />
 
-      <Button
-        title="Send"
-        onClick={sendChangePasswordRequest}
-        disabled={false}
-      />
+        <Button
+          title="Send"
+          onClick={sendChangePasswordRequest}
+          disabled={apiInProgress}
+          className="reset-password__button"
+        />
+      </div>
     </div>
   );
 };

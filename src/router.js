@@ -13,6 +13,8 @@ import AdminDashboard from "./AdminDashboard";
 import CheckAuth from "./Common/CheckAuth";
 import CreateCollections from "./CreateCollections";
 import ViewCollections from "./ViewCollections";
+import RequestResetPassword from "./RequestResetPassword";
+import ResetPassword from "./ResetPassword";
 
 export default () => (
   <Router>
@@ -42,6 +44,8 @@ export default () => (
       <Route exact path="/book-series" component={ViewCollections} />
       <Route exact path="/issues" component={ViewCollections} />
       <Route exact path="/admin" component={CheckAuth(AdminDashboard)} />
+      <Route exact path="/reset-password" component={RequestResetPassword} />
+      <Route exact path="/reset-password/:token" component={ResetPassword} />
       <Route component={NotFound} />
     </Switch>
     <Route component={Footer} />

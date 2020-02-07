@@ -17,9 +17,14 @@
   flex-direction: column;
 }
 
-/* #root {
-  height: 100vh;
-} */
+#root {
+  padding-bottom: 8.5rem;
+}
+
+#content-wrap {
+  position: relative;
+  min-height: 100vh;
+}
 
 body {
   margin: 0;
