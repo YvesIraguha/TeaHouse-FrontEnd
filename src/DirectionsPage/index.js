@@ -41,7 +41,7 @@ class Submissions extends Component {
   render() {
     const { apiInProgress } = this.props;
     const { errors } = this.state;
-    const options = ["Short story", "Poem", "Book series", "Issue"];
+    const options = ["Short story", "Poem", "Book series", "Issues"];
     return (
       <div className="submissions__container">
         <h1>SUBMISSIONS GUIDELINES</h1>

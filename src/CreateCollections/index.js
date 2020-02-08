@@ -10,7 +10,7 @@ import { validateCreatedCollection } from "../utils/validations";
 import { renderResponseOrError } from "../utils/renderToast";
 
 const CreateCollections = props => {
-  const options = ["Book series", "Issue"];
+  const options = ["Book series", "Issues"];
   const {
     createCollection: { apiInProgress, createCollectionResponse }
   } = props;

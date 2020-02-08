@@ -6,7 +6,7 @@ import {
 
 const initialState = { apiInProgress: 0 };
 
-export const allPiecesReducer = (state = initialState, action) => {
+const allPiecesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ALL_PIECES_REQUEST:
       return {
@@ -34,3 +34,5 @@ export const allPiecesReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default allPiecesReducer;

@@ -5,7 +5,7 @@ import {
 } from "../actionsConstants";
 const initialState = { apiInProgress: 0 };
 
-export const individualPieceReducer = (state = initialState, action) => {
+const individualPieceReducer = (state = initialState, action) => {
   switch (action.type) {
     case INDIVIDUAL_PIECE_REQUEST:
       return {
@@ -32,3 +32,5 @@ export const individualPieceReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default individualPieceReducer;

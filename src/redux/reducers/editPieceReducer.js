@@ -5,7 +5,7 @@ import {
 } from "../actionsConstants";
 const initialState = { apiInProgress: 0 };
 
-export const editPieceReducer = (state = initialState, action) => {
+const editPieceReducer = (state = initialState, action) => {
   switch (action.type) {
     case EDIT_PIECE_ERROR:
       return {

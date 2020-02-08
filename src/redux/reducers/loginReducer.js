@@ -1,7 +1,7 @@
 import { LOGIN_SUCCESS, LOGIN_ERROR, LOGIN_REQUEST } from "../actionsConstants";
 const initialState = { apiInProgress: 0 };
 
-export const loginReducer = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_ERROR:
       return {

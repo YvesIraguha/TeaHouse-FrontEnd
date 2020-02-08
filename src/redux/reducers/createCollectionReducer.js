@@ -8,7 +8,7 @@ const initialState = {
   apiInProgress: 0
 };
 
-export const createCollectionReducer = (state = initialState, action) => {
+const createCollectionReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_COLLECTION_ERROR:
       return {
@@ -36,3 +36,5 @@ export const createCollectionReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default createCollectionReducer;

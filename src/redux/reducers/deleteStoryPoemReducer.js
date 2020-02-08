@@ -5,7 +5,7 @@ import {
 } from "../actionsConstants";
 const initialState = { apiInProgress: 0 };
 
-export const deleteStoryPoemReducer = (state = initialState, action) => {
+const deleteStoryPoemReducer = (state = initialState, action) => {
   switch (action.type) {
     case DELETE_PIECE_ERROR:
       return {
