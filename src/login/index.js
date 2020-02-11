@@ -6,7 +6,7 @@ import Button from "../Common/Button";
 import { loginHandler } from "../redux/actionsCreators/loginHanlder";
 import { validateLogin } from "../utils/validations";
 import { renderResponseOrError } from "../utils/renderToast";
-
+import { Link } from "react-router-dom";
 class LogIn extends Component {
   state = { errors: {} };
 
@@ -59,7 +59,11 @@ class LogIn extends Component {
             onClick={this.onSubmit}
             disabled={apiInProgress}
           />
-          <p className="forgot_password">Forgot password?</p>
+          <p>
+            <Link to="/reset-password" className="forgot_password">
+              Forgot password?
+            </Link>
+          </p>
         </div>
       </div>
     );

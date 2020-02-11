@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
-import arrow from "../../assets/images/back.svg";
 
 class NavBar extends Component {
   render() {
     const { title, link1, link2, subTitle1, subTitle2 } = this.props;
     return (
       <div className="group">
-        <div className="item__title row">
+        <div className="item__title">
           <p>{title}</p>
-          <img src={arrow} alt="arrow" />
         </div>
         <div className="item__list row">
           <ul>

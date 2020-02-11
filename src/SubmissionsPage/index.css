@@ -1,0 +1,58 @@
+.submit_section {
+  width: 400px;
+  margin: 230px auto;
+  align-self: center;
+  flex-wrap: wrap;
+}
+.inputs {
+  justify-content: space-around;
+}
+
+.inputs .input_title {
+  margin-left: 0rem;
+}
+.submit_btn {
+  width: 350px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #230d82;
+  font-size: medium;
+  font-weight: 500;
+}
+
+.submit__section__container {
+  margin-top: 5rem;
+  border: 0.5px solid rgba(177, 177, 177, 0.56);
+  border-radius: 3px;
+}
+
+.submit__section__container div h2 {
+  color: black;
+}
+
+.submit__section__container div p {
+  font-size: smaller;
+}
+
+.buttons {
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 768px) {
+  .inputs,
+  .buttons {
+    flex-wrap: wrap;
+  }
+  .submit_section {
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 478px) {
+  .submissions__container {
+    width: 95%;
+  }
+  .submit__section__container {
+    border: none;
+  }
+}

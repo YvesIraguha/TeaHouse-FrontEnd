@@ -3,7 +3,6 @@ import React from "react";
 const shortStories = () => {
   return (
     <div>
-      <h2>SHORT STORIES</h2>
       <p>A short story must be the original, unpublished work of the author.</p>
       <p>Submit a short story of between 2,000 and 5,000 words.</p>
       <p>A short story can be about any theme or themes of your choice.</p>

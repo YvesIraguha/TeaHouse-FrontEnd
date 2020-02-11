@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./index.css";
 import NavBarItem from "./NavBarItem";
 import hamburger from "../../assets/images/hamburger_icon6.svg";
+import pencil from "../../assets/images/pencil.svg";
 
 class NavBar extends Component {
   state = {
@@ -17,9 +18,20 @@ class NavBar extends Component {
     const { mobileClassName } = this.state;
     return (
       <div className="navBar row">
+        <div className="triangle"></div>
         <div className="left row">
-          <h1>TEAHOUSE</h1>
+          <div className="logo__container row">
+            <h1>TEAHOUSE</h1>
+            <img
+              className="logo__image"
+              src={pencil}
+              alt="hamburger icon"
+              onClick={this.showHideNavigation}
+            />
+          </div>
+
           <img
+            className="hamburger__icon"
             src={hamburger}
             alt="hamburger icon"
             onClick={this.showHideNavigation}
