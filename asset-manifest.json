@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/TeaHouse-FrontEnd/static/css/main.868dc930.chunk.css",
+    "main.js": "/TeaHouse-FrontEnd/static/js/main.717860d3.chunk.js",
+    "main.js.map": "/TeaHouse-FrontEnd/static/js/main.717860d3.chunk.js.map",
+    "runtime-main.js": "/TeaHouse-FrontEnd/static/js/runtime-main.b9de58d6.js",
+    "runtime-main.js.map": "/TeaHouse-FrontEnd/static/js/runtime-main.b9de58d6.js.map",
+    "static/css/2.5dbdccff.chunk.css": "/TeaHouse-FrontEnd/static/css/2.5dbdccff.chunk.css",
+    "static/js/2.f9e00ca4.chunk.js": "/TeaHouse-FrontEnd/static/js/2.f9e00ca4.chunk.js",
+    "static/js/2.f9e00ca4.chunk.js.map": "/TeaHouse-FrontEnd/static/js/2.f9e00ca4.chunk.js.map",
+    "index.html": "/TeaHouse-FrontEnd/index.html",
+    "precache-manifest.c7cc59ae9256d2c8f2503d51390e504a.js": "/TeaHouse-FrontEnd/precache-manifest.c7cc59ae9256d2c8f2503d51390e504a.js",
+    "service-worker.js": "/TeaHouse-FrontEnd/service-worker.js",
+    "static/css/2.5dbdccff.chunk.css.map": "/TeaHouse-FrontEnd/static/css/2.5dbdccff.chunk.css.map",
+    "static/css/main.868dc930.chunk.css.map": "/TeaHouse-FrontEnd/static/css/main.868dc930.chunk.css.map",
+    "static/js/2.f9e00ca4.chunk.js.LICENSE": "/TeaHouse-FrontEnd/static/js/2.f9e00ca4.chunk.js.LICENSE",
+    "static/media/books-stack-of-three.svg": "/TeaHouse-FrontEnd/static/media/books-stack-of-three.17f5a986.svg",
+    "static/media/email.svg": "/TeaHouse-FrontEnd/static/media/email.51c44790.svg",
+    "static/media/folder.svg": "/TeaHouse-FrontEnd/static/media/folder.67c465e1.svg",
+    "static/media/hamburger_icon6.svg": "/TeaHouse-FrontEnd/static/media/hamburger_icon6.6013bfe8.svg",
+    "static/media/location.svg": "/TeaHouse-FrontEnd/static/media/location.50bc3871.svg",
+    "static/media/index.css": "/TeaHouse-FrontEnd/static/media/play.c65f6a86.svg",
+    "static/media/pencil.svg": "/TeaHouse-FrontEnd/static/media/pencil.f04da1e8.svg",
+    "static/media/phone-call.svg": "/TeaHouse-FrontEnd/static/media/phone-call.9e1788e9.svg",
+    "static/media/reading.svg": "/TeaHouse-FrontEnd/static/media/reading.2cef3e94.svg",
+    "static/media/rules.svg": "/TeaHouse-FrontEnd/static/media/rules.abe3b8d7.svg",
+    "static/media/scroll.svg": "/TeaHouse-FrontEnd/static/media/scroll.54823090.svg",
+    "static/media/short.svg": "/TeaHouse-FrontEnd/static/media/short.06808a74.svg",
+    "static/media/submissions.svg": "/TeaHouse-FrontEnd/static/media/submissions.7a7d00bb.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b9de58d6.js",
+    "static/css/2.5dbdccff.chunk.css",
+    "static/js/2.f9e00ca4.chunk.js",
+    "static/css/main.868dc930.chunk.css",
+    "static/js/main.717860d3.chunk.js"
+  ]
+}
