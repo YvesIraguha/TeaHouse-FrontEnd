@@ -3,7 +3,6 @@ import React from "react";
 export const BookSeries = () => {
   return (
     <div>
-      <h2>BOOK SERIES</h2>
       <p>
         {" "}
         A manuscript should be between 30 and 60 pages, not including title

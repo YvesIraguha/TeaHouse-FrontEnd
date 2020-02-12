@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
 
-import filePreview from "../../assets/images/file.svg";
 class Upload extends Component {
   state = { error: "", value: "" };
   handleFileChange = ({ target }) => {
@@ -13,30 +12,19 @@ class Upload extends Component {
 
   render() {
     const { error, name, title } = this.props;
-    const { value } = this.state;
     return (
-      <div className="row upload_btn_container">
+      <div className="upload_btn_container">
         <p>{title}</p>
-
-        {value ? (
-          <div className="row file_preview">
-            <img src={filePreview} alt="File Preview" />
-            <span>{value.name}</span>
+        <div>
+          <div className="upload_button">
+            <input
+              type="file"
+              name={name}
+              id={name}
+              onChange={this.handleFileChange}
+            />
           </div>
-        ) : (
-          <div>
-            <div>
-              <input
-                className="upload_button"
-                type="file"
-                name={name}
-                id={name}
-                onChange={this.handleFileChange}
-              />
-              <label htmlFor={name}>Choose a file</label>
-            </div>
-          </div>
-        )}
+        </div>
         <div className="error">
           <span>{error}</span>
         </div>

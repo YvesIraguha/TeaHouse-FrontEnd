@@ -15,8 +15,8 @@ class Selector extends Component {
     const { value } = this.state;
 
     return (
-      <div className="selector row">
-        <p>Type:</p>
+      <div className="selector">
+        <p>Type</p>
         <select
           name="type"
           value={value}

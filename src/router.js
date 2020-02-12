@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from "./Common/NavBar";
 import Footer from "./Common/Footer";
 import Home from "./Home";
-import Submissions from "./DirectionsPage";
+import DirectionsPage from "./DirectionsPage";
 import LogIn from "./Login";
 import CreatePiecePage from "./CreatePiecePage";
 import AllPiecesPage from "./ViewAllPieces";
@@ -15,13 +15,15 @@ import CreateCollections from "./CreateCollections";
 import ViewCollections from "./ViewCollections";
 import RequestResetPassword from "./RequestResetPassword";
 import ResetPassword from "./ResetPassword";
+import SubmissionPage from "./SubmissionsPage";
 
 export default () => (
   <Router>
     <Route component={NavBar} />
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/submissions" component={Submissions} />
+      <Route exact path="/directions" component={DirectionsPage} />
+      <Route exact path="/submissions" component={SubmissionPage} />
       <Route exact path="/login" component={LogIn} />
       <Route exact path="/create" component={CheckAuth(CreatePiecePage)} />
       <Route

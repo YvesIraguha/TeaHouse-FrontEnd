@@ -1,12 +1,11 @@
 .navBar {
-  background-color: #742602;
-  color: white;
   width: 100%;
+  background-color: white;
   justify-content: space-around;
-  padding: 1.2em;
+  padding: 2em;
   position: fixed;
   top: 0px;
-  z-index: 1;
+  z-index: 6;
 }
 
 .left h1 {
@@ -18,19 +17,26 @@
 }
 
 .group .item__title {
+  color: "red";
   justify-content: stretch;
 }
 .group .item__title img {
-  width: 15px;
   display: none;
   margin-left: 10px;
   height: auto;
   transform: rotate(-90deg);
 }
 
-.group .item__title p {
-  font-size: large;
+.group .item__title p:after {
+  height: 10px;
+  width: 10px;
+  transform: rotate(90deg);
+  background: url("../../assets/images/play.svg") no-repeat;
+  float: right;
+  content: "";
+  margin: 7px 5px;
 }
+
 .group {
   margin: 0 20px;
 }
@@ -40,7 +46,7 @@
 
 .group .item__list ul {
   margin-top: 5px;
-  list-style-image: url("../../assets/images/back.svg");
+  list-style-image: url("../../assets/images/play.svg");
 }
 
 .item__list ul li {
@@ -51,13 +57,36 @@
 
 .item__list ul li a {
   text-decoration: none;
-  color: white;
+  color: black;
+}
+.triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 130px solid #742602;
+  border-right: 130px solid transparent;
 }
 
+.logo__image {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 10px;
+}
 @media only screen and (min-width: 768px) {
-  .left img {
+  .hamburger__icon {
     align-self: flex-start;
     display: none;
+  }
+  .triangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 100px solid #742602;
+    border-right: 100px solid transparent;
   }
 }
 
@@ -90,5 +119,14 @@
     align-self: flex-start;
     display: visible;
     margin-right: 1.6rem;
+  }
+  .triangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 50px solid #742602;
+    border-right: 50px solid transparent;
   }
 }
