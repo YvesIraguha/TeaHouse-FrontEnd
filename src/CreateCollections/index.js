@@ -53,10 +53,12 @@ const CreateCollections = props => {
         name="file"
         onChangeHandler={handleInputChange}
         title="Select file"
+        type=".pdf"
         error={errors.file}
       />
       <UploadButton
         name="previewImage"
+        type="image/*"
         onChangeHandler={handleInputChange}
         title="Select preview image"
         error={errors.previewImage}

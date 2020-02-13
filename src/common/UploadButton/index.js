@@ -11,7 +11,7 @@ class Upload extends Component {
   };
 
   render() {
-    const { error, name, title } = this.props;
+    const { error, name, title, type } = this.props;
     return (
       <div className="upload_btn_container">
         <p>{title}</p>
@@ -22,6 +22,7 @@ class Upload extends Component {
               name={name}
               id={name}
               onChange={this.handleFileChange}
+              accept={type}
             />
           </div>
         </div>

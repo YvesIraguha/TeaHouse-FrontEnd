@@ -24,12 +24,11 @@ export const validateFullName = fullName => {
   });
   return { error };
 };
-export const validateFile = (file, formats) => {
+export const validateFile = file => {
   if (!file) {
     return { error: "Please select a file" };
-  } else if (!file.name.endsWith(formats)) {
-    return { error: `File format should be one of the formats ${formats}` };
   }
+
   return { error: null };
 };
 
@@ -85,7 +84,7 @@ export const validateCreatedWork = (content, title, author) => {
 };
 
 export const validateSubmissions = (fullName, email, file) => {
-  const validFile = validateFile(file, ".pdf").error;
+  const validFile = validateFile(file).error;
   const validEmail = validateEmail(email).error;
   const validFullName = validateFullName(fullName).error;
   if (validFile) {
@@ -106,11 +105,8 @@ export const validateCreatedCollection = ({
 }) => {
   const validTitle = validateTitle(title).error;
   const validAuthor = validateFullName(author).error;
-  const validFile = validateFile(file, ".pdf").error;
-  const validPreviewImage = validateFile(
-    previewImage,
-    (".JPEG", ".JPG", ".jpg")
-  ).error;
+  const validFile = validateFile(file).error;
+  const validPreviewImage = validateFile(previewImage).error;
   if (validTitle) {
     return { title: validTitle };
   } else if (validAuthor) {
