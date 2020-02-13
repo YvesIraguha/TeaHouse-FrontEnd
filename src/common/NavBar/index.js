@@ -22,12 +22,7 @@ class NavBar extends Component {
         <div className="left row">
           <div className="logo__container row">
             <h1>TEAHOUSE</h1>
-            <img
-              className="logo__image"
-              src={pencil}
-              alt="hamburger icon"
-              onClick={this.showHideNavigation}
-            />
+            <img className="logo__image" src={pencil} alt="pencil" />
           </div>
 
           <img
@@ -41,9 +36,9 @@ class NavBar extends Component {
         <div className={`right row ${mobileClassName}`}>
           <NavBarItem
             title="SUBMISSIONS"
-            subTitle1="STORIES"
-            subTitle2="POEMS"
-            link1="/submissions"
+            subTitle1="TERMS AND POLICIES"
+            subTitle2="SUBMIT"
+            link1="/directions"
             link2="/submissions"
           />
           <NavBarItem
