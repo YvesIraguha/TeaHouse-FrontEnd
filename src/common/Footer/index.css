@@ -15,8 +15,10 @@
   margin: 10px;
 }
 
-.footer .list_item p {
+.footer .list_item p,
+.footer .list_item a {
   margin-left: 5px;
+  color: white;
   font-weight: 400;
   text-decoration: underline;
 }

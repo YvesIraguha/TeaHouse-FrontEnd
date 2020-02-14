@@ -11,7 +11,9 @@ export class Home extends Component {
           <div class="image-box__background"></div>
           <div class="image-box__overlay"></div>
           <div class="image-box__content">
-            <h1>Enjoy Poetry from East African Artists</h1>
+            <h1>
+              Exhibiting Works of East African Community Artists and Writers
+            </h1>
           </div>
         </div>
         <div className="description">
@@ -25,11 +27,14 @@ export class Home extends Component {
             </p>
             <p>
               In the same idea of a tea house, this magazine is a space where
-              Rwandan young artists and writers meet to produce and discuss
-              creative works. We focus on contemporary art and literature by
-              publishing individual pieces such as short stories and poems, and
-              works in collections such as collections of poetry and collections
-              of photography.
+              East African Community young artists and writers meet to produce
+              and discuss creative works. By EAC, we mean nationals of Burundi,
+              Kenya, Rwanda, South Sudan, Tanzania, and Uganda.
+            </p>
+            <p>
+              We focus on contemporary art and literature by publishing
+              individual pieces such as short stories and poems, and works in
+              collections such as anthologies of poetry and of photography.{" "}
             </p>
           </div>
         </div>
@@ -49,7 +54,6 @@ export class Home extends Component {
               alt=""
             />
           </div>
-
           <h2>Joe Doe</h2>
           <h3>Founder & Reviewer</h3>
           <p>

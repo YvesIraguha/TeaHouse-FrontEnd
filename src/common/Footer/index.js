@@ -14,14 +14,18 @@ import rules from "../../assets/images/rules.svg";
 const Footer = () => (
   <div className="footer row">
     <FooterItems
-      firstItem={{ title: "Guidelines", image: rules }}
-      secondItem={{ title: "Submissions", image: submissions }}
-      thirdItem={{ title: "Collections", image: folder }}
+      firstItem={{ title: "Guidelines", image: rules, link: "/directions" }}
+      secondItem={{
+        title: "Submissions",
+        image: submissions,
+        link: "/submissions"
+      }}
+      thirdItem={{ title: "Collections", image: folder, link: "/book-series" }}
     />
     <FooterItems
-      firstItem={{ title: "Stories", image: stories }}
-      secondItem={{ title: "Poems", image: reading }}
-      thirdItem={{ title: "Book series", image: books }}
+      firstItem={{ title: "Stories", image: stories, link: "/short-stories" }}
+      secondItem={{ title: "Poems", image: reading, link: "/poems" }}
+      thirdItem={{ title: "Book series", image: books, link: "/book-series" }}
     />
     <FooterItems
       firstItem={{ title: "joedoe@gmail.com", image: envelope }}

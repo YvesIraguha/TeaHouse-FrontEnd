@@ -46,7 +46,7 @@
 
 .group .item__list ul {
   margin-top: 5px;
-  list-style-image: url("../../assets/images/play.svg");
+  list-style: none;
 }
 
 .item__list ul li {
@@ -86,6 +86,12 @@
   width: 30px;
   margin-bottom: 10px;
 }
+.navbar-home__link {
+  color: #000;
+  margin-right: 30px;
+  text-decoration: none;
+}
+
 @media only screen and (min-width: 768px) {
   .hamburger__icon {
     align-self: flex-start;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./index.css";
 import NavBarItem from "./NavBarItem";
+import { Link } from "react-router-dom";
 import hamburger from "../../assets/images/hamburger_icon6.svg";
 import pencil from "../../assets/images/pencil.svg";
 
@@ -14,17 +15,20 @@ class NavBar extends Component {
     this.setState({ mobileClassName: nextValue });
   };
 
+  onLogoClick = () => {
+    const { history } = this.props;
+    history.push("/");
+  };
   render() {
     const { mobileClassName } = this.state;
     return (
       <div className="navBar row">
         <div className="triangle"></div>
         <div className="left row">
-          <div className="logo__container row">
+          <div className="logo__container row" onClick={this.onLogoClick}>
             <h1>TEAHOUSE</h1>
             <img className="logo__image" src={pencil} alt="pencil" />
           </div>
-
           <img
             className="hamburger__icon"
             src={hamburger}
@@ -34,6 +38,9 @@ class NavBar extends Component {
         </div>
 
         <div className={`right row ${mobileClassName}`}>
+          <Link to="/" className="navbar-home__link">
+            HOME
+          </Link>
           <NavBarItem
             title="SUBMISSIONS"
             subTitle1="TERMS AND POLICIES"
