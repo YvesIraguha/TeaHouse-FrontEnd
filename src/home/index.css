@@ -20,21 +20,18 @@
 
 .image-box__overlay {
   background: rgba(10, 3, 0, 0.78);
-
   z-index: 4;
 }
 
 .image-box__content {
   position: relative;
-
   z-index: 5;
+  width: 75%;
+  margin: auto;
   font-size: 10vh;
-
   color: white;
   min-height: 90vh;
-
   letter-spacing: 3%;
-
   text-align: center;
   display: flex;
   align-items: center;
@@ -98,8 +95,6 @@
 
 .theme {
   margin-top: 160px;
-  /* width: 100vw;
-  margin-left: 20vw; */
   height: 100vh;
   background: url("../assets/images/parchment1.svg") no-repeat;
   background-color: rgba(0, 0, 0, 0.7);
@@ -111,7 +106,9 @@
   text-align: center;
   margin: 20px auto 90px auto;
 }
-
+#about {
+  margin-bottom: 70px;
+}
 .team_members__section {
   width: 40%;
   padding: 30px;
@@ -138,7 +135,8 @@
 
 .team_members__section p {
   text-align: center;
-  width: 70%;
+  width: 60%;
+  font-size: large;
   margin: 30px auto;
 }
 .team_member__image {
