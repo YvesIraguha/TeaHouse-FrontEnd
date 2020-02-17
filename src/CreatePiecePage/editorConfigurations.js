@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-str */
 export default {
   height: 500,
   menubar: false,

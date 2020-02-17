@@ -4,6 +4,7 @@ import {
   ALL_PIECES_SUCCESS,
   ALL_PIECES_ERROR
 } from "../actionsConstants";
+import handleErrors from "../helpers/errorHandlers";
 
 export const allPiecesHandler = (page, genre, history) => async dispatch => {
   try {
@@ -13,18 +14,6 @@ export const allPiecesHandler = (page, genre, history) => async dispatch => {
     );
     dispatch({ type: ALL_PIECES_SUCCESS, payload: result.data });
   } catch (error) {
-    if (error.response) {
-      dispatch({
-        type: ALL_PIECES_ERROR,
-        payload: { error: error.response.data.error }
-      });
-      history.push("/not-found");
-    } else {
-      dispatch({
-        type: ALL_PIECES_ERROR,
-        payload: { error: error.message }
-      });
-      history.push("/not-found");
-    }
+    handleErrors(ALL_PIECES_ERROR, error, history, dispatch);
   }
 };

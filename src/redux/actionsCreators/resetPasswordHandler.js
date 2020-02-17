@@ -7,8 +7,12 @@ import {
   RESET_PASSWORD_ERROR,
   RESET_PASSWORD_REQUEST
 } from "../actionsConstants";
+import handleErrors from "../helpers/errorHandlers";
 
-export const requestResetPasswordHandler = email => async dispatch => {
+export const requestResetPasswordHandler = (
+  email,
+  history
+) => async dispatch => {
   try {
     dispatch({ type: REQUEST_RESET_PASSWORD_REQUEST });
     const result = await axios.post("/users/reset-password", {
@@ -16,17 +20,7 @@ export const requestResetPasswordHandler = email => async dispatch => {
     });
     dispatch({ type: REQUEST_RESET_PASSWORD_SUCCESS, payload: result.data });
   } catch (error) {
-    if (error.response) {
-      dispatch({
-        type: REQUEST_RESET_PASSWORD_ERROR,
-        payload: { error: error.response.data.error }
-      });
-    } else {
-      dispatch({
-        type: REQUEST_RESET_PASSWORD_ERROR,
-        payload: { error: error.message }
-      });
-    }
+    handleErrors(REQUEST_RESET_PASSWORD_ERROR, error, history, dispatch);
   }
 };
 
@@ -43,16 +37,6 @@ export const resetPasswordHandler = (
     dispatch({ type: RESET_PASSWORD_SUCCESS, payload: result.data });
     history.replace("/login");
   } catch (error) {
-    if (error.response) {
-      dispatch({
-        type: RESET_PASSWORD_ERROR,
-        payload: { error: error.response.data.error }
-      });
-    } else {
-      dispatch({
-        type: RESET_PASSWORD_ERROR,
-        payload: { error: error.message }
-      });
-    }
+    handleErrors(RESET_PASSWORD_ERROR, error, history, dispatch);
   }
 };

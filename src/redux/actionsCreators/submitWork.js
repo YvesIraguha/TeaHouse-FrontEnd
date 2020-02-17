@@ -1,26 +1,9 @@
 import axios from "../../utils/axios";
 import {
-  ON_INPUT_CHANGE,
-  INPUT_ERROR,
   SUBMISSIONS_REQUEST,
   SUBMISSIONS_ERROR,
-  SUBMISSIONS_SUCCESS,
-  CLEAR_SUBMISSIONS_RESPONSE
+  SUBMISSIONS_SUCCESS
 } from "../actionsConstants";
-
-export const inputChangeHandler = (name, value) => ({
-  type: ON_INPUT_CHANGE,
-  payload: { [name]: value }
-});
-
-export const inputErrorHandler = (name, error) => ({
-  type: INPUT_ERROR,
-  payload: { [name]: error }
-});
-
-export const clearSubmissionResponse = () => ({
-  type: CLEAR_SUBMISSIONS_RESPONSE
-});
 
 export const sendWork = submissionWork => async dispatch => {
   try {

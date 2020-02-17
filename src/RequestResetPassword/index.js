@@ -15,13 +15,13 @@ const RequestResetPassword = props => {
   };
 
   const sendChangePasswordRequest = () => {
-    const { resetPasswordRequest } = props;
+    const { resetPasswordRequest, history } = props;
     const { error } = validateEmail(email);
 
     if (error) {
       return setError(error);
     }
-    resetPasswordRequest(email);
+    resetPasswordRequest(email, history);
   };
   const {
     resetPassword: { apiInProgress, requestResetPasswordResponse }
@@ -52,7 +52,8 @@ const RequestResetPassword = props => {
 
 const mapStateToProps = ({ resetPassword }) => ({ resetPassword });
 const mapDispatchToProps = dispatch => ({
-  resetPasswordRequest: email => dispatch(requestResetPasswordHandler(email))
+  resetPasswordRequest: (email, history) =>
+    dispatch(requestResetPasswordHandler(email, history))
 });
 export default connect(
   mapStateToProps,
