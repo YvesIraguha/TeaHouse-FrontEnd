@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "89d07ff3295cca880527901c2df58178",
+    "revision": "21e6e79f4b70e7891cef795d4cf4c956",
     "url": "/TeaHouse-FrontEnd/index.html"
   },
   {
-    "revision": "c14ef380bdc443eb43c7",
+    "revision": "436973deed1a3dff72f1",
     "url": "/TeaHouse-FrontEnd/static/css/2.5dbdccff.chunk.css"
   },
   {
-    "revision": "83abec2f94c24bba6577",
-    "url": "/TeaHouse-FrontEnd/static/css/main.868dc930.chunk.css"
+    "revision": "d1b044df82fb9cbbf2ab",
+    "url": "/TeaHouse-FrontEnd/static/css/main.aaa30946.chunk.css"
   },
   {
-    "revision": "c14ef380bdc443eb43c7",
-    "url": "/TeaHouse-FrontEnd/static/js/2.f9e00ca4.chunk.js"
+    "revision": "436973deed1a3dff72f1",
+    "url": "/TeaHouse-FrontEnd/static/js/2.7c658925.chunk.js"
   },
   {
     "revision": "2933bc7440003894c73e754566123cfe",
-    "url": "/TeaHouse-FrontEnd/static/js/2.f9e00ca4.chunk.js.LICENSE"
+    "url": "/TeaHouse-FrontEnd/static/js/2.7c658925.chunk.js.LICENSE"
   },
   {
-    "revision": "83abec2f94c24bba6577",
-    "url": "/TeaHouse-FrontEnd/static/js/main.717860d3.chunk.js"
+    "revision": "d1b044df82fb9cbbf2ab",
+    "url": "/TeaHouse-FrontEnd/static/js/main.691fedde.chunk.js"
   },
   {
     "revision": "a5054e8471aefede2e7c",
@@ -40,8 +40,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TeaHouse-FrontEnd/static/media/folder.67c465e1.svg"
   },
   {
-    "revision": "6013bfe87413f0a919a0f0f8fad90435",
-    "url": "/TeaHouse-FrontEnd/static/media/hamburger_icon6.6013bfe8.svg"
+    "revision": "93a4bd623b754a6b75cdb2c61fe296f5",
+    "url": "/TeaHouse-FrontEnd/static/media/hamburger_icon6.93a4bd62.svg"
   },
   {
     "revision": "50bc3871c56b34f2f2c64e868982f5ce",
