@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "21e6e79f4b70e7891cef795d4cf4c956",
+    "revision": "3ed350d25de84db229e8e2710622b4ad",
     "url": "/TeaHouse-FrontEnd/index.html"
   },
   {
-    "revision": "436973deed1a3dff72f1",
+    "revision": "fbf230ee6c7aeeff73ae",
     "url": "/TeaHouse-FrontEnd/static/css/2.5dbdccff.chunk.css"
   },
   {
-    "revision": "d1b044df82fb9cbbf2ab",
+    "revision": "d94273ca5b2726cb377d",
     "url": "/TeaHouse-FrontEnd/static/css/main.aaa30946.chunk.css"
   },
   {
-    "revision": "436973deed1a3dff72f1",
-    "url": "/TeaHouse-FrontEnd/static/js/2.7c658925.chunk.js"
+    "revision": "fbf230ee6c7aeeff73ae",
+    "url": "/TeaHouse-FrontEnd/static/js/2.60853a9d.chunk.js"
   },
   {
     "revision": "2933bc7440003894c73e754566123cfe",
-    "url": "/TeaHouse-FrontEnd/static/js/2.7c658925.chunk.js.LICENSE"
+    "url": "/TeaHouse-FrontEnd/static/js/2.60853a9d.chunk.js.LICENSE"
   },
   {
-    "revision": "d1b044df82fb9cbbf2ab",
-    "url": "/TeaHouse-FrontEnd/static/js/main.691fedde.chunk.js"
+    "revision": "d94273ca5b2726cb377d",
+    "url": "/TeaHouse-FrontEnd/static/js/main.4b4a2e48.chunk.js"
   },
   {
     "revision": "a5054e8471aefede2e7c",

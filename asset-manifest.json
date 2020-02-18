@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/TeaHouse-FrontEnd/static/css/main.aaa30946.chunk.css",
-    "main.js": "/TeaHouse-FrontEnd/static/js/main.691fedde.chunk.js",
-    "main.js.map": "/TeaHouse-FrontEnd/static/js/main.691fedde.chunk.js.map",
+    "main.js": "/TeaHouse-FrontEnd/static/js/main.4b4a2e48.chunk.js",
+    "main.js.map": "/TeaHouse-FrontEnd/static/js/main.4b4a2e48.chunk.js.map",
     "runtime-main.js": "/TeaHouse-FrontEnd/static/js/runtime-main.b9de58d6.js",
     "runtime-main.js.map": "/TeaHouse-FrontEnd/static/js/runtime-main.b9de58d6.js.map",
     "static/css/2.5dbdccff.chunk.css": "/TeaHouse-FrontEnd/static/css/2.5dbdccff.chunk.css",
-    "static/js/2.7c658925.chunk.js": "/TeaHouse-FrontEnd/static/js/2.7c658925.chunk.js",
-    "static/js/2.7c658925.chunk.js.map": "/TeaHouse-FrontEnd/static/js/2.7c658925.chunk.js.map",
+    "static/js/2.60853a9d.chunk.js": "/TeaHouse-FrontEnd/static/js/2.60853a9d.chunk.js",
+    "static/js/2.60853a9d.chunk.js.map": "/TeaHouse-FrontEnd/static/js/2.60853a9d.chunk.js.map",
     "index.html": "/TeaHouse-FrontEnd/index.html",
-    "precache-manifest.f2081073da4a1cf6545b74dc038f14dd.js": "/TeaHouse-FrontEnd/precache-manifest.f2081073da4a1cf6545b74dc038f14dd.js",
+    "precache-manifest.9d3e39708a3bb00d436036ecb8a7a66e.js": "/TeaHouse-FrontEnd/precache-manifest.9d3e39708a3bb00d436036ecb8a7a66e.js",
     "service-worker.js": "/TeaHouse-FrontEnd/service-worker.js",
     "static/css/2.5dbdccff.chunk.css.map": "/TeaHouse-FrontEnd/static/css/2.5dbdccff.chunk.css.map",
     "static/css/main.aaa30946.chunk.css.map": "/TeaHouse-FrontEnd/static/css/main.aaa30946.chunk.css.map",
-    "static/js/2.7c658925.chunk.js.LICENSE": "/TeaHouse-FrontEnd/static/js/2.7c658925.chunk.js.LICENSE",
+    "static/js/2.60853a9d.chunk.js.LICENSE": "/TeaHouse-FrontEnd/static/js/2.60853a9d.chunk.js.LICENSE",
     "static/media/books-stack-of-three.svg": "/TeaHouse-FrontEnd/static/media/books-stack-of-three.17f5a986.svg",
     "static/media/email.svg": "/TeaHouse-FrontEnd/static/media/email.51c44790.svg",
     "static/media/folder.svg": "/TeaHouse-FrontEnd/static/media/folder.67c465e1.svg",
@@ -31,8 +31,8 @@
   "entrypoints": [
     "static/js/runtime-main.b9de58d6.js",
     "static/css/2.5dbdccff.chunk.css",
-    "static/js/2.7c658925.chunk.js",
+    "static/js/2.60853a9d.chunk.js",
     "static/css/main.aaa30946.chunk.css",
-    "static/js/main.691fedde.chunk.js"
+    "static/js/main.4b4a2e48.chunk.js"
   ]
 }
