@@ -1,7 +1,3 @@
-export const ON_INPUT_CHANGE = "ON_INPUT_CHANGE";
-export const INPUT_ERROR = "INPUT_ERROR";
-export const CLEAR_SUBMISSIONS_RESPONSE = "CLEAR_SUBMISSIONS_RESPONSE";
-
 /**
  * @description Submissions actions types
  */
@@ -27,7 +23,7 @@ export const CREATION_REQUEST = "CREATION_REQUEST";
  * @description all pieces action types
  */
 export const ALL_PIECES_REQUEST = "ALL_PIECES_REQUEST";
-export const ALL_PIECES_ERROR = "ALL_PIECEs_ERROR";
+export const ALL_PIECES_ERROR = "ALL_PIECES_ERROR";
 export const ALL_PIECES_SUCCESS = "ALL_PIECES_SUCCESS";
 
 /**

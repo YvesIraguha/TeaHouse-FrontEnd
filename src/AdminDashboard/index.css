@@ -1,42 +1,42 @@
 .admin-navbar {
   width: 200px;
-  background-color: #1c0a02;
+  position: fixed;
+  z-index: 8;
+  min-height: 110vh;
+  box-shadow: 2px 0px 4px #ae775e0d;
+  background-color: white;
 }
 .admin-page {
-  margin-top: 127px;
-  min-height: 100vh;
+  min-height: 110vh;
 }
 .admin-navbar__item {
-  color: #fff;
-  justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: solid 1px #707070;
+  margin-left: 20px;
 }
 
-.admin-navbar__item .item__number {
-  border: solid 1px #707070;
+.admin-navbar__title {
+  padding: 5px;
+  margin: 30px 5px;
+  justify-content: space-between;
+}
+.admin-navbar__item span {
   margin-left: 10px;
-  line-height: 30px;
-  text-align: center;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
 }
 
 .admin-content {
   margin: 0px auto;
+  margin-top: 127px;
+  width: 85%;
 }
 
 .piece-card {
-  justify-content: space-between;
-  border-bottom: solid 1px #707070;
-  margin: auto;
-  padding: 13px 0px;
-}
-
-.piece-card p {
-  margin: 0px 10px;
+  background: #ffffff;
+  margin: 30px auto;
+  width: 80%;
+  justify-content: space-around;
+  box-shadow: 0px 2px 2px rgba(186, 160, 160, 0.25);
+  border-radius: 3px;
 }
 
 .icons {
@@ -44,15 +44,38 @@
 }
 
 .icon {
-  margin: auto 5px;
+  margin: auto 10px;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 4px #f1fcfc;
+  border-radius: 5px;
 }
 
-.admin-content .title {
-  font-size: xx-large;
-  padding: 50px 0px 2px 0px;
-  text-decoration: underline;
+.card-content {
+  padding: 1.5rem;
+  align-self: center;
+  max-width: 50%;
+}
+.cover-image img {
+  height: 130px;
+  margin: 30px;
+  width: 180px;
+  object-fit: cover;
 }
 
+.card-content h1 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 23px;
+}
+
+.time-stamp {
+  margin-top: 30px;
+  margin-left: -5px;
+}
 .new__piece {
   position: fixed;
   background-color: #5131de;
@@ -60,6 +83,7 @@
   padding: 8px 15px;
   border-radius: 5px;
   top: 87vh;
+  z-index: 9;
   left: 80vw;
 }
 .new__piece ul {
@@ -73,6 +97,25 @@
   display: none;
 }
 
+.active-content__title {
+  font-weight: 500;
+  font-size: xx-large;
+  text-align: center;
+}
+
+.logout-btn {
+  margin-left: 30px;
+  margin-top: 68vh;
+}
+.logout-btn span,
+.time-stamp span {
+  margin-left: 5px;
+}
+
+.time-stamp {
+  margin-left: 2px;
+  align-items: center;
+}
 @media only screen and (max-width: 768px) {
   .admin-page {
     margin-top: 70px;

@@ -4,6 +4,7 @@ import {
   CREATE_COLLECTION_SUCCESS,
   CREATE_COLLECTION_ERROR
 } from "../actionsConstants";
+import handleErrors from "../helpers/errorHandlers";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const createCollectionActionCreator = (
@@ -27,16 +28,6 @@ export const createCollectionActionCreator = (
     dispatch({ type: CREATE_COLLECTION_SUCCESS, payload: response.data });
     history.push(`/collections/${response.data.createdCollection.id}`);
   } catch (error) {
-    if (error.response) {
-      dispatch({
-        type: CREATE_COLLECTION_ERROR,
-        payload: { error: error.response.data.error }
-      });
-    } else {
-      dispatch({
-        type: CREATE_COLLECTION_ERROR,
-        payload: { error: error.message }
-      });
-    }
+    handleErrors(CREATE_COLLECTION_ERROR, error, history, dispatch);
   }
 };

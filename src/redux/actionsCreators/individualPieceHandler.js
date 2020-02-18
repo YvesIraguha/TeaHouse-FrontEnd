@@ -4,6 +4,7 @@ import {
   INDIVIDUAL_PIECE_REQUEST,
   INDIVIDUAL_PIECE_SUCCESS
 } from "../actionsConstants";
+import handleErrors from "../helpers/errorHandlers";
 
 export const individualPieceHandler = (pieceId, history) => async dispatch => {
   try {
@@ -12,17 +13,6 @@ export const individualPieceHandler = (pieceId, history) => async dispatch => {
     dispatch({ type: INDIVIDUAL_PIECE_SUCCESS, payload: response.data });
     return response;
   } catch (error) {
-    if (error.response) {
-      dispatch({
-        type: INDIVIDUAL_PIECE_ERROR,
-        payload: { error: error.response.data.error }
-      });
-      history.push("/not-found");
-    } else {
-      dispatch({
-        type: INDIVIDUAL_PIECE_ERROR,
-        payload: { error: error.message }
-      });
-    }
+    handleErrors(INDIVIDUAL_PIECE_ERROR, error, history, dispatch);
   }
 };

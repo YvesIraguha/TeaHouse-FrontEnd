@@ -7,6 +7,7 @@ import {
   DELETE_PIECE_REQUEST,
   DELETE_PIECE_SUCCESS
 } from "../actionsConstants";
+import handleErrors from "../helpers/errorHandlers";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const createStoryPoemHandler = (
@@ -32,17 +33,7 @@ export const createStoryPoemHandler = (
     dispatch({ type: CREATION_SUCCESS, payload: response.data });
     history.push(`/individual-pieces/${response.data.individualPiece.id}`);
   } catch (error) {
-    if (error.response) {
-      dispatch({
-        type: CREATION_ERROR,
-        payload: { error: error.response.data.error }
-      });
-    } else {
-      dispatch({
-        type: CREATION_ERROR,
-        payload: { error: error.message }
-      });
-    }
+    handleErrors(CREATION_ERROR, error, history, dispatch);
   }
 };
 
@@ -58,17 +49,6 @@ export const deleteIndividualPiece = (pieceId, history) => async dispatch => {
     dispatch({ type: DELETE_PIECE_SUCCESS, payload: response.data });
     window.location.reload();
   } catch (error) {
-    if (error.response) {
-      dispatch({
-        type: DELETE_PIECE_ERROR,
-        payload: { error: error.response.data.error }
-      });
-      history.replace("/not-found");
-    } else {
-      dispatch({
-        type: DELETE_PIECE_ERROR,
-        payload: { error: error.message }
-      });
-    }
+    handleErrors(DELETE_PIECE_ERROR, error, history, dispatch);
   }
 };

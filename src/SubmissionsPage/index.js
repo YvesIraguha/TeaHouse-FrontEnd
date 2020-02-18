@@ -6,7 +6,7 @@ import UploadButton from "../Common/UploadButton";
 import Button from "../Common/Button";
 import Selector from "../Common/Selector";
 import { validateSubmissions } from "../utils/validations";
-import { sendWork } from "../redux/actionsCreators/inputChangeHandler";
+import { sendWork } from "../redux/actionsCreators/submitWork";
 import { renderResponseOrError } from "../utils/renderToast";
 
 class Submissions extends Component {

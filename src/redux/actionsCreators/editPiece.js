@@ -4,6 +4,7 @@ import {
   EDIT_PIECE_SUCCESS,
   EDIT_PIECE_ERROR
 } from "../actionsConstants";
+import handleErrors from "../helpers/errorHandlers";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const editPieceActionHandler = (
@@ -30,16 +31,6 @@ export const editPieceActionHandler = (
     dispatch({ type: EDIT_PIECE_SUCCESS, payload: response.data });
     history.replace(`/individual-pieces/${pieceId}`);
   } catch (error) {
-    if (error.response) {
-      dispatch({
-        type: EDIT_PIECE_ERROR,
-        payload: { error: error.response.data.error }
-      });
-    } else {
-      dispatch({
-        type: EDIT_PIECE_ERROR,
-        payload: { error: error.message }
-      });
-    }
+    handleErrors(EDIT_PIECE_ERROR, error, history, dispatch);
   }
 };

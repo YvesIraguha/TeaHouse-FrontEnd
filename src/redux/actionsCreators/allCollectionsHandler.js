@@ -4,6 +4,7 @@ import {
   ALL_COLLECTIONS_SUCCESS,
   ALL_COLLECTIONS_ERROR
 } from "../actionsConstants";
+import handleErrors from "../helpers/errorHandlers";
 
 export const allCollectionsHandler = (
   page,
@@ -15,18 +16,6 @@ export const allCollectionsHandler = (
     const result = await axios.get(`/collections?page=${page}&type=${genre}`);
     dispatch({ type: ALL_COLLECTIONS_SUCCESS, payload: result.data });
   } catch (error) {
-    if (error.response) {
-      dispatch({
-        type: ALL_COLLECTIONS_ERROR,
-        payload: { error: error.response.data.error }
-      });
-      history.push("/not-found");
-    } else {
-      dispatch({
-        type: ALL_COLLECTIONS_ERROR,
-        payload: { error: error.message }
-      });
-      history.push("/not-found");
-    }
+    handleErrors(ALL_COLLECTIONS_ERROR, error, history, dispatch);
   }
 };

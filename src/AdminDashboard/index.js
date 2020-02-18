@@ -8,6 +8,9 @@ import Item from "./AdminNavBarItem";
 import Loading from "../IndividualPiecePage/Loading";
 import PageNumber from "../Common/PageNumber/PageNumber";
 import NewPiece from "./NewPiece";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { renderResponseOrError } from "../utils/renderToast";
 class AdminDashboard extends Component {
   state = { page: 1, activeContent: "Short story" };
@@ -52,24 +55,50 @@ class AdminDashboard extends Component {
     const { history } = this.props;
     history.push(`/individual-pieces/edit/${pieceId}`);
   };
-
+  logOut = () => {
+    const { history } = this.props;
+    localStorage.removeItem("token");
+    history.push("/");
+  };
   render() {
     const { allPieces: { apiInProgress, allPiecesResponse } = {} } = this.props;
     const { activeContent, page } = this.state;
     return (
       <div className="admin-page row">
-        <div className="admin-navbar">
-          <Item
-            title="STORIES"
-            onClick={this.changeActiveContent}
-            type="Short story"
-          />
-          <Item title="POEMS" onClick={this.changeActiveContent} type="Poem" />
-          <Item
-            title="COLLECTIONS"
-            onClick={this.changeActiveContent}
-            type="Collection"
-          />
+        <div className="admin-navbar column">
+          <div className="admin-navbar__title row">
+            <h1>TEAHOUSE</h1>
+            <FontAwesomeIcon
+              icon={faBars}
+              size="lg"
+              color="rgba(186, 160, 160,0.8)"
+            />
+          </div>
+          <div>
+            <Item
+              title="STORIES"
+              onClick={this.changeActiveContent}
+              type="Short story"
+            />
+            <Item
+              title="POEMS"
+              onClick={this.changeActiveContent}
+              type="Poem"
+            />
+            <Item
+              title="COLLECTIONS"
+              onClick={this.changeActiveContent}
+              type="Collection"
+            />
+          </div>
+          <div className="logout-btn" onClick={this.logOut}>
+            <FontAwesomeIcon
+              icon={faSignOutAlt}
+              size="lg"
+              color="rgba(0,0,0,0.25)"
+            />
+            <span className="item__title">LOGOUT</span>
+          </div>
         </div>
         <div className="admin-content">
           <div>
@@ -79,9 +108,10 @@ class AdminDashboard extends Component {
               allPiecesResponse.data &&
               allPiecesResponse.data.individualPieces ? (
               <div>
-                <p className="title">{activeContent}</p>
+                <h1 className="active-content__title">{activeContent}</h1>
                 {allPiecesResponse.data.individualPieces.map((piece, index) => (
                   <PieceCard
+                    createdAt={piece.createdAt}
                     title={piece.title}
                     body={piece.body}
                     id={piece.id}

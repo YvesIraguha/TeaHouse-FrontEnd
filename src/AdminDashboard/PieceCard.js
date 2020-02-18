@@ -1,31 +1,53 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import parachment from "../assets/images/parchment1.svg";
+import {
+  faTrash,
+  faPen,
+  faCalendarAlt
+} from "@fortawesome/free-solid-svg-icons";
+import convertToReadableDate from "../utils/convertDate";
 import convertToHtml from "../utils/stringToHtml";
 
-const PieceCard = ({ title, id, body, onDeletePiece, onEditPiece }) => {
+const PieceCard = ({
+  createdAt,
+  title,
+  id,
+  body,
+  onDeletePiece,
+  onEditPiece
+}) => {
   return (
     <div className="piece-card row">
-      <div className="row">
-        <h6>{title}</h6>
-        {convertToHtml(body.slice(0, 70))}
+      <div className="cover-image">
+        <img src={parachment} alt="" />
+      </div>
+      <div className="card-content">
+        <h1>{title}</h1>
+        {convertToHtml(body.slice(0, 150))}
+        <div className="row time-stamp">
+          <FontAwesomeIcon icon={faCalendarAlt} size="1x" color="#230D82" />
+          <span>{convertToReadableDate(createdAt)}</span>
+        </div>
       </div>
       <div className="icons row">
-        <FontAwesomeIcon
-          icon={faEdit}
-          size="lg"
-          color="#5131DE"
-          className="icon"
-          onClick={() => onEditPiece(id)}
-        />
-        <FontAwesomeIcon
-          icon={faTrash}
-          size="lg"
-          color="#742602"
-          className="icon"
-          onClick={() => onDeletePiece(id)}
-        />
+        <div className="icon row">
+          <FontAwesomeIcon
+            icon={faPen}
+            size="lg"
+            color="#230D82"
+            onClick={() => onEditPiece(id)}
+          />
+        </div>
+        <div className="icon row">
+          <FontAwesomeIcon
+            icon={faTrash}
+            size="lg"
+            color="#742602"
+            className="icon"
+            onClick={() => onDeletePiece(id)}
+          />
+        </div>
       </div>
     </div>
   );

@@ -7,10 +7,10 @@ export class Home extends Component {
   render() {
     return (
       <div className="home__container">
-        <div class="image-box">
-          <div class="image-box__background"></div>
-          <div class="image-box__overlay"></div>
-          <div class="image-box__content">
+        <div className="image-box">
+          <div className="image-box__background"></div>
+          <div className="image-box__overlay"></div>
+          <div className="image-box__content">
             <h1>
               Exhibiting Works of East African Community Artists and Writers
             </h1>

@@ -1,5 +1,6 @@
 import axios from "../../utils/axios";
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from "../actionsConstants";
+import handleErrors from "../helpers/errorHandlers";
 
 const setToken = token => localStorage.setItem("token", token);
 export const loginHandler = (email, password, history) => async dispatch => {
@@ -10,16 +11,6 @@ export const loginHandler = (email, password, history) => async dispatch => {
     dispatch({ type: LOGIN_SUCCESS, payload: response.data });
     history.replace("/admin");
   } catch (error) {
-    if (error.response) {
-      dispatch({
-        type: LOGIN_ERROR,
-        payload: { error: error.response.data.error }
-      });
-    } else {
-      dispatch({
-        type: LOGIN_ERROR,
-        payload: { error: error.message }
-      });
-    }
+    handleErrors(LOGIN_ERROR, error, history, dispatch);
   }
 };
