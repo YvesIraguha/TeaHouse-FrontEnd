@@ -1,0 +1,24 @@
+.empty-data__container {
+  align-items: center;
+}
+
+.empty-data__container img {
+  width: 300px;
+  height: 400px;
+  object-fit: fill;
+}
+
+.empty-data__container div {
+  width: 60%;
+  object-fit: fill;
+}
+
+.empty-data__container h6 {
+  font-size: 40px;
+  font-weight: 200;
+}
+
+.empty-data__container p {
+  margin-top: 20px;
+  font-size: larger;
+}

@@ -30,7 +30,7 @@ export default () => (
     <BookSeries />
     <h2>Photographers’ Bar Book Series (Collections of Photography)</h2>
     <Images />
-    <h1> Submitting an Issue</h1>
+    <h1> Submitting for an Issue</h1>
     <p>
       Our issues will be tentatively an annual themed issue. Currently, we would
       like to receive your poems, short stories, essays, articles, songs,
