@@ -1,6 +1,6 @@
 .image-box {
   position: relative;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 .image-box__background,
@@ -13,8 +13,7 @@
 }
 
 .image-box__background {
-  background: url("../assets/images/parchment1.svg") no-repeat center center;
-  transform: rotate(-45deg);
+  background: url("../assets/images/study.svg") no-repeat center center;
   z-index: 0;
 }
 
@@ -37,7 +36,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .description {
   margin: auto;
   margin-top: 120px;
@@ -97,7 +95,7 @@
   margin-top: 160px;
   height: 100vh;
   background: url("../assets/images/parchment1.svg") no-repeat;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(231, 226, 226, 0.7);
 }
 
 .about_section__title,
@@ -149,5 +147,13 @@
   }
   .mission_vision__container div {
     flex-wrap: wrap;
+  }
+  .team_members__section {
+    width: 80%;
+    margin-bottom: 300px;
+  }
+
+  .home__container {
+    width: 100vw;
   }
 }
