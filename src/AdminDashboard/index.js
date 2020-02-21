@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { renderResponseOrError } from "../utils/renderToast";
+import NoContent from "../Common/NoContent";
 class AdminDashboard extends Component {
   state = { page: 1, activeContent: "Short story" };
   componentDidMount = () => {
@@ -86,9 +87,14 @@ class AdminDashboard extends Component {
               type="Poem"
             />
             <Item
-              title="COLLECTIONS"
+              title="BOOK SERIES"
               onClick={this.changeActiveContent}
-              type="Collection"
+              type="Book series"
+            />
+            <Item
+              title="ISSUES"
+              onClick={this.changeActiveContent}
+              type="Issues"
             />
           </div>
           <div className="logout-btn" onClick={this.logOut}>
@@ -106,7 +112,7 @@ class AdminDashboard extends Component {
               <Loading />
             ) : allPiecesResponse &&
               allPiecesResponse.data &&
-              allPiecesResponse.data.individualPieces ? (
+              allPiecesResponse.data.individualPieces.length ? (
               <div>
                 <h1 className="active-content__title">{activeContent}</h1>
                 {allPiecesResponse.data.individualPieces.map((piece, index) => (
@@ -122,7 +128,7 @@ class AdminDashboard extends Component {
                 ))}
               </div>
             ) : (
-              ""
+              <NoContent />
             )}
           </div>
           {allPiecesResponse &&

@@ -5,14 +5,15 @@ import { connect } from "react-redux";
 import { allCollectionsHandler } from "../redux/actionsCreators/allCollectionsHandler";
 import Book from "./Book";
 import Loading from "../Common/Loading";
+import NoContent from "../Common/NoContent";
 
 const filterPathname = (pathname, history) => {
   if (pathname === "/book-series") {
     return "Book series";
   } else if (pathname === "/issues") {
-    return "Images";
+    return "Issues";
   } else {
-    return "/not-found";
+    history.push("/not-found");
   }
 };
 const AllCollectionsPage = props => {
@@ -24,7 +25,7 @@ const AllCollectionsPage = props => {
     allCollections: { apiInProgress, allCollectionsResponse }
   } = props;
 
-  const filter = filterPathname(pathname);
+  const filter = filterPathname(pathname, history);
   useEffect(() => {
     fetchAllCollections(page, filter, history);
   }, [fetchAllCollections, filter, history, page]);
@@ -41,7 +42,7 @@ const AllCollectionsPage = props => {
         <Loading />
       ) : allCollectionsResponse &&
         allCollectionsResponse.data &&
-        allCollectionsResponse.data.collections ? (
+        allCollectionsResponse.data.collections.length ? (
         <div>
           <div className="collections-list row">
             {allCollectionsResponse.data.collections.map(collection => (
@@ -57,7 +58,7 @@ const AllCollectionsPage = props => {
           />
         </div>
       ) : (
-        ""
+        <NoContent />
       )}
     </div>
   );

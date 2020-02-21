@@ -5,6 +5,7 @@ import PageNumber from "../Common/PageNumber/PageNumber";
 import { connect } from "react-redux";
 import { allPiecesHandler } from "../redux/actionsCreators/allPiecesHandler";
 import Loading from "../Common/Loading";
+import NoContent from "../Common/NoContent";
 
 class AllPiecesPage extends Component {
   state = { page: 1 };
@@ -60,7 +61,7 @@ class AllPiecesPage extends Component {
           <Loading />
         ) : allPiecesResponse &&
           allPiecesResponse.data &&
-          allPiecesResponse.data.individualPieces ? (
+          allPiecesResponse.data.individualPieces.length ? (
           <div className="stories-list row">
             {allPiecesResponse.data.individualPieces.map((piece, index) => (
               <StoryPoemCard
@@ -71,7 +72,7 @@ class AllPiecesPage extends Component {
             ))}
           </div>
         ) : (
-          ""
+          <NoContent />
         )}
         {allPiecesResponse &&
         allPiecesResponse.data &&
