@@ -4,8 +4,7 @@ export const BookSeries = () => {
   return (
     <div>
       <p>
-        {" "}
-        A manuscript should be between 30 and 60 pages, not including title
+        A manuscript should be between 25 and 30 pages, not including title
         page, acknowledgments, table of contents, etc. The entire manuscript
         must be single-spaced and in 12-point Times New Roman font. Do not use
         colors.
@@ -18,8 +17,7 @@ export const BookSeries = () => {
       </p>
       <p>
         After submitting, wait for a period of two to three months to hear from
-        us. If you do not hear back, know your manuscript did not meet the
-        editors’ criteria for acceptance.
+        us.
       </p>
       <p>
         Note that once accepted, you can’t make any alterations to your

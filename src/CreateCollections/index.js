@@ -9,10 +9,10 @@ import "./index.css";
 import { validateCreatedCollection } from "../utils/validations";
 import { renderResponseOrError } from "../utils/renderToast";
 
-const CreateCollections = props => {
+const CreateCollections = (props) => {
   const options = ["Book series", "Issues"];
   const {
-    createCollection: { apiInProgress, createCollectionResponse }
+    createCollection: { apiInProgress, createCollectionResponse },
   } = props;
   const [collection, setCollection] = useState({ type: "Book series" });
   const [errors, setErrors] = useState({});
@@ -74,10 +74,10 @@ const CreateCollections = props => {
 };
 
 const mapStateToProps = ({ createCollection }) => ({
-  createCollection
+  createCollection,
 });
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   sendCollection: (newCollection, history) =>
-    dispatch(createCollectionActionCreator(newCollection, history))
+    dispatch(createCollectionActionCreator(newCollection, history)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CreateCollections);

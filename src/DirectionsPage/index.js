@@ -23,27 +23,16 @@ export default () => (
     <Poems />
     <h1> Submitting a Collection</h1>
     <p>
-      Each poem or photograph in its respective collection must be the original
-      work of the author, might be previously published or unpublished.
+      Each poem in a chapbook must be the original work of the author.
+      Individual poems might be previously published or unpublished, but the
+      whole chapbook must have not been published elsewhere before.
     </p>
-    <h2>Poets’ Bar Book Series (Collections of Poetry)</h2>
     <BookSeries />
-    <h2>Photographers’ Bar Book Series (Collections of Photography)</h2>
-    <Images />
+
     <h1> Submitting for an Issue</h1>
     <p>
-      Our issues will be tentatively an annual themed issue. Currently, we would
-      like to receive your poems, short stories, essays, articles, songs,
-      photographs, paintings, just any piece of high artistic and literary merit
-      on the title We Need New Names. We Need New Names is a novel by NoViolet
-      Bulawayo, a Zimbabwean author. Even though we do not want to imitate the
-      themes she explores in the novel, we want to explore another side of what
-      the title might imply, that we need new names, to be precise, in
-      presidential offices. In the East African Community, we have been
-      struggling with the problem of presidents who hold onto power. We do not
-      want to explain about these presidents. It will be your delight to explore
-      and explain it. With the title of the issue, We Need New Names, our side
-      on the problem is implied, proudly against.
+      Our issues will be tentatively an annual themed issue. Currently, there is
+      no call for submission.
     </p>
   </div>
 );
