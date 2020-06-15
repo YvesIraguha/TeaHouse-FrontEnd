@@ -27,7 +27,8 @@
   z-index: 5;
   width: 75%;
   margin: auto;
-  font-size: 10vh;
+  font-size: 7vh;
+  font-weight: 200;
   color: white;
   min-height: 90vh;
   letter-spacing: 3%;

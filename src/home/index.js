@@ -11,30 +11,23 @@ export class Home extends Component {
           <div className="image-box__background"></div>
           <div className="image-box__overlay"></div>
           <div className="image-box__content">
-            <h1>
-              Exhibiting Works of East African Community Artists and Writers
-            </h1>
+            <h3>Exhibiting Works of Rwandan Writers</h3>
           </div>
         </div>
         <div className="description">
           <div id="about">
             <h1 className="about_section__title">About</h1>
             <p>
-              In the eighteenth century, the tea house would be a forum for
+              In the eighteenth century, a tea house would be a forum for
               intellectual encounters. They would read books and circulate
-              magazines, talk about ideas, discoveries, and science while they
-              are drinking their tea.
+              magazines, talk about ideas, discoveries, and science while
+              drinking their tea.
             </p>
             <p>
               In the same idea of a tea house, this magazine is a space where
-              East African Community young artists and writers meet to produce
-              and discuss creative works. By EAC, we mean nationals of Burundi,
-              Kenya, Rwanda, South Sudan, Tanzania, and Uganda.
-            </p>
-            <p>
-              We focus on contemporary art and literature by publishing
-              individual pieces such as short stories and poems, and works in
-              collections such as anthologies of poetry and of photography.{" "}
+              Rwandan writers meet to produce and discuss creative works. We
+              focus on contemporary literature in the form of short stories,
+              poems, essays, and poetry chapbooks.
             </p>
           </div>
         </div>

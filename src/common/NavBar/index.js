@@ -3,11 +3,11 @@ import "./index.css";
 import NavBarItem from "./NavBarItem";
 import { Link } from "react-router-dom";
 import hamburger from "../../assets/images/hamburger_icon6.svg";
-import pencil from "../../assets/images/pencil.svg";
+import logo from "../../assets/images/tea-house-logo.jpg";
 
 class NavBar extends Component {
   state = {
-    mobileClassName: ""
+    mobileClassName: "",
   };
 
   showHideNavigation = () => {
@@ -23,7 +23,7 @@ class NavBar extends Component {
   render() {
     const { mobileClassName } = this.state;
     const {
-      location: { pathname }
+      location: { pathname },
     } = this.props;
     return (
       <div>
@@ -32,8 +32,7 @@ class NavBar extends Component {
           <div className="left row">
             {pathname === "/admin" ? null : (
               <div className="logo__container row" onClick={this.onLogoClick}>
-                <h1>TEAHOUSE</h1>
-                <img className="logo__image" src={pencil} alt="pencil" />
+                <img className="logo__image" src={logo} alt="pencil" />
               </div>
             )}
 
@@ -60,8 +59,10 @@ class NavBar extends Component {
               title="INDIVIDUAL PIECES"
               subTitle1="STORIES"
               subTitle2="POEMS"
+              subTitle3="ESSAYS"
               link1="/short-stories"
               link2="/poems"
+              link3="/essays"
             />
             <NavBarItem
               title="COLLECTIONS"

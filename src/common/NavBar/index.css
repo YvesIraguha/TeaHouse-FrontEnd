@@ -1,8 +1,9 @@
 .navBar {
   width: 100%;
-  background-color: seashell;
+  background-color: white;
   justify-content: space-around;
-  padding: 2em;
+  align-items: center;
+  padding: 1.1em;
   position: fixed;
   top: 0px;
   z-index: 6;
@@ -77,14 +78,12 @@
   left: 0;
   width: 0;
   height: 0;
-  border-top: 130px solid #742602;
-  border-right: 130px solid transparent;
+  border-top: 90px solid #742602;
+  border-right: 90px solid transparent;
 }
 
 .logo__image {
-  height: 30px;
-  width: 30px;
-  margin-bottom: 10px;
+  height: 50px;
 }
 .navbar-home__link {
   color: #000;
