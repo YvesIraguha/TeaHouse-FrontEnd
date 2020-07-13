@@ -23,7 +23,7 @@ class LogIn extends Component {
     SubmitLoginCredentials(email, password, history);
   };
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps = (nextProps) => {
     const { login } = nextProps;
     if (
       login.submissionResponse &&
@@ -36,7 +36,7 @@ class LogIn extends Component {
   render() {
     const { errors } = this.state;
     const {
-      login: { apiInProgress }
+      login: { apiInProgress },
     } = this.props;
     return (
       <div className="login_container column">
@@ -70,11 +70,11 @@ class LogIn extends Component {
   }
 }
 const mapStateToProps = ({ login }) => ({
-  login
+  login,
 });
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   SubmitLoginCredentials: (email, password, history) =>
-    dispatch(loginHandler(email, password, history))
+    dispatch(loginHandler(email, password, history)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
