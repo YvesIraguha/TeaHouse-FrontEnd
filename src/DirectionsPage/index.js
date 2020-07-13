@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import ShortStories from "./ShortStories";
 import Poems from "./Poems";
 import BookSeries from "./BookSeries";
-import Images from "./Images";
+
 export default () => (
   <div className="submissions__container">
     <div className="welcome__section">
