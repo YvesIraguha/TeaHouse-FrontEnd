@@ -13,6 +13,10 @@ import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { renderResponseOrError } from "../utils/renderToast";
 import NoContent from "../Common/NoContent";
+import { mapCategoryToTitle } from "../utils/categoryToTitle";
+import MediaCard from "./Card";
+import Grid from "@material-ui/core/Grid";
+
 class AdminDashboard extends Component {
   state = { page: 1, activeContent: "Short story" };
   componentDidMount = () => {
@@ -21,7 +25,7 @@ class AdminDashboard extends Component {
     fetchAllPieces(page, activeContent, history);
   };
 
-  loadMorePieces = direction => {
+  loadMorePieces = (direction) => {
     const { fetchAllPieces, history } = this.props;
     const { page, activeContent } = this.state;
     const nextPage = page + direction;
@@ -29,19 +33,19 @@ class AdminDashboard extends Component {
     this.setState({ page: nextPage });
   };
 
-  changeActiveContent = nextActiveContent => {
+  changeActiveContent = (nextActiveContent) => {
     const { fetchAllPieces, history } = this.props;
     const { page } = this.state;
     fetchAllPieces(page, nextActiveContent, history);
     this.setState({ activeContent: nextActiveContent });
   };
 
-  onDeletePieceHandler = pieceId => {
+  onDeletePieceHandler = (pieceId) => {
     const { deleteStoryPoem, history } = this.props;
     deleteStoryPoem(pieceId, history);
   };
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps = (nextProps) => {
     const { deletedPiece } = nextProps;
     if (
       deletedPiece.deletePieceResponse &&
@@ -52,7 +56,7 @@ class AdminDashboard extends Component {
     }
   };
 
-  onEditPiece = pieceId => {
+  onEditPiece = (pieceId) => {
     const { history } = this.props;
     history.push(`/individual-pieces/edit/${pieceId}`);
   };
@@ -96,6 +100,21 @@ class AdminDashboard extends Component {
               onClick={this.changeActiveContent}
               type="Issues"
             />
+            <Item
+              title="INTERVIEWS"
+              onClick={this.changeActiveContent}
+              type="Interviews"
+            />
+            <Item
+              title="LIT NEWS"
+              onClick={this.changeActiveContent}
+              type="lit-news"
+            />
+            <Item
+              title="GOSSIPING"
+              onClick={this.changeActiveContent}
+              type="gossips"
+            />
           </div>
           <div className="logout-btn" onClick={this.logOut}>
             <FontAwesomeIcon
@@ -114,18 +133,28 @@ class AdminDashboard extends Component {
               allPiecesResponse.data &&
               allPiecesResponse.data.individualPieces.length ? (
               <div>
-                <h1 className="active-content__title">{activeContent}</h1>
-                {allPiecesResponse.data.individualPieces.map((piece, index) => (
-                  <PieceCard
-                    createdAt={piece.createdAt}
-                    title={piece.title}
-                    body={piece.body}
-                    id={piece.id}
-                    onEditPiece={this.onEditPiece}
-                    onDeletePiece={this.onDeletePieceHandler}
-                    key={piece.id}
-                  />
-                ))}
+                <h1 className="active-content__title">
+                  {mapCategoryToTitle(activeContent)}
+                </h1>
+                <div>
+                  <Grid container spacing={3}>
+                    {allPiecesResponse.data.individualPieces.map(
+                      (piece, index) => (
+                        <Grid item xs={12} md={4} lg={3}>
+                          <MediaCard
+                            createdAt={piece.createdAt}
+                            title={piece.title}
+                            body={piece.body}
+                            id={piece.id}
+                            onEditPiece={this.onEditPiece}
+                            onDeletePiece={this.onDeletePieceHandler}
+                            key={piece.id}
+                          />
+                        </Grid>
+                      )
+                    )}
+                  </Grid>
+                </div>
               </div>
             ) : (
               <NoContent />
@@ -148,14 +177,14 @@ class AdminDashboard extends Component {
 }
 const mapStateToProps = ({ allPieces, deletedPiece }) => ({
   allPieces,
-  deletedPiece
+  deletedPiece,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchAllPieces: (page, genre, history) =>
     dispatch(allPiecesHandler(page, genre, history)),
   deleteStoryPoem: (pieceId, history) =>
-    dispatch(deleteIndividualPiece(pieceId, history))
+    dispatch(deleteIndividualPiece(pieceId, history)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminDashboard);

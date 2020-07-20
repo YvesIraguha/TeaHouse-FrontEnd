@@ -26,8 +26,9 @@
 
 .admin-content {
   margin: 0px auto;
+  margin-left: 15%;
   margin-top: 127px;
-  width: 85%;
+  width: 80%;
 }
 
 .piece-card {
