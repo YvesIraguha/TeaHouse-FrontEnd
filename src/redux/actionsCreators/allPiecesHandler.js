@@ -2,11 +2,11 @@ import axios from "../../utils/axios";
 import {
   ALL_PIECES_REQUEST,
   ALL_PIECES_SUCCESS,
-  ALL_PIECES_ERROR
+  ALL_PIECES_ERROR,
 } from "../actionsConstants";
 import handleErrors from "../helpers/errorHandlers";
 
-export const allPiecesHandler = (page, genre, history) => async dispatch => {
+export const allPiecesHandler = (page, genre, history) => async (dispatch) => {
   try {
     dispatch({ type: ALL_PIECES_REQUEST });
     const result = await axios.get(
