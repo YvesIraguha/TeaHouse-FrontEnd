@@ -3,18 +3,18 @@ const categories = {
   "Short story": "SHORT STORIES",
   Issues: "ISSUES",
   "Book series": "BOOK SERIES",
-  interviews: "INTERVIEWS",
-  "lit-news": "LIT NEWS",
-  gossips: "GOSSIPS",
+  Interview: "INTERVIEWS",
+  "Lit news": "LIT NEWS",
+  Gossip: "GOSSIPS",
 };
 const categoryToLink = {
   Poem: "/individual-pieces",
   "Short story": "/individual-pieces",
   Issues: "/collections",
   "Book series": "/collections",
-  interviews: "/collections",
-  "lit-news": "/collections",
-  gossips: "/collections",
+  Interview: "/individual-pieces",
+  "Lit news": "/individual-pieces",
+  Gossip: "/individual-pieces",
 };
 
 export const mapCategoryToTitle = (category) => categories[category];

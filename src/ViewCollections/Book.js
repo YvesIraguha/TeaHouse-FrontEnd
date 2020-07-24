@@ -2,10 +2,8 @@ import React from "react";
 import "./index.css";
 import convertToReadableDate from "../utils/convertDate";
 
-const Book = props => {
-  const {
-    collection: { previewUrl, collectionUrl, title, author, createdAt }
-  } = props;
+const Book = ({ collection }) => {
+  const { previewUrl, collectionUrl, title, author, createdAt } = collection;
 
   return (
     <div className="book-card">

@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import convertToHtml from "../utils/stringToHtml";
+import convertToReadableDate from "../utils/convertDate";
 
 const useStyles = makeStyles({
   root: {
@@ -15,14 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MediaCard = ({
-  createdAt,
-  title,
-  id,
-  body,
-  onDeletePiece,
-  onEditPiece,
-}) => {
+const MediaCard = ({ previewUrl, collectionUrl, title, author, createdAt }) => {
   const classes = useStyles();
 
   return (
@@ -40,16 +33,16 @@ const MediaCard = ({
             {title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {convertToHtml(body.slice(0, 150))}
+            Author: {author}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Published: {convertToReadableDate(createdAt)}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={() => onEditPiece(id)}>
-          Edit
-        </Button>
-        <Button size="small" color="primary" onClick={() => onDeletePiece(id)}>
-          Delete
+        <Button size="small" color="primary">
+          View
         </Button>
       </CardActions>
     </Card>

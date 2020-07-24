@@ -12,6 +12,7 @@ const AdminDashboard = ({ history }) => {
   const [activeContent, setActiveContent] = useState("Short story");
 
   const changeActiveContent = (newContent) => {
+    console.log({ newContent });
     setActiveContent(newContent);
   };
 
@@ -47,18 +48,14 @@ const AdminDashboard = ({ history }) => {
           <Item
             title="INTERVIEWS"
             onClick={changeActiveContent}
-            type="Interviews"
+            type="Interview"
           />
           <Item
             title="LIT NEWS"
             onClick={changeActiveContent}
-            type="lit-news"
+            type="Lit news"
           />
-          <Item
-            title="GOSSIPING"
-            onClick={changeActiveContent}
-            type="gossips"
-          />
+          <Item title="GOSSIPING" onClick={changeActiveContent} type="Gossip" />
         </div>
         <div className="logout-btn" onClick={logOut}>
           <FontAwesomeIcon
