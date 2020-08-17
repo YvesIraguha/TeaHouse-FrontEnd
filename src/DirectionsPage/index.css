@@ -1,21 +1,20 @@
 .submissions__container {
   width: 36%;
   margin: auto;
-  margin-top: 200px;
   margin-bottom: 7rem;
 }
-.welcome__section {
-  margin: 4rem auto;
-}
+/* .welcome__section {
+  margin: auto;
+} */
 
 .welcome__section h1 {
   font-size: 32px;
-  margin: 20px auto;
+  margin: auto;
   font-weight: 100;
 }
 .submissions__container h1 {
   font-size: 28px;
-  margin: 10px auto;
+  margin: auto;
   font-weight: 100;
 }
 

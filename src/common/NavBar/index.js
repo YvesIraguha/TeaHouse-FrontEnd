@@ -1,81 +1,189 @@
-import React, { Component } from "react";
-import "./index.css";
-import NavBarItem from "./NavBarItem";
-import { Link } from "react-router-dom";
-import hamburger from "../../assets/images/hamburger_icon6.svg";
+import React, { useState } from "react";
+
+import { Link as RouterLink, useLocation, useHistory } from "react-router-dom";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import MenuIcon from "@material-ui/icons/Menu";
+import Grid from "@material-ui/core/Grid";
+import { Typography } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
+import Hidden from "@material-ui/core/Hidden";
 import logo from "../../assets/images/tea-house-logo.jpg";
+import useStyles from "./styles";
 
-class NavBar extends Component {
-  state = {
-    mobileClassName: "",
-  };
+const submissionLinks = [
+  { title: "TERMS AND POLICIES", link: "/directions" },
+  { title: "SUBMIT", link: "/submissions" },
+];
+const piecesLinks = [
+  { title: "STORIES", link: "/short-stories" },
+  { title: "POEMS", link: "/poems" },
+  { title: "ESSAYS", link: "/essays" },
+  { title: "INTERVIEWS", link: "/interviews" },
+  { title: "LIT NEWS", link: "/lit-news" },
+  { title: "GOSSIPS", link: "/gossips" },
+];
+const collectionsLinks = [
+  { title: "BOOK SERIES", link: "/book-series" },
+  { title: "issues", link: "/issues" },
+];
+const AppHeader = () => {
+  const location = useLocation();
+  const classes = useStyles();
+  const history = useHistory();
+  const [anchorElLinks, setAnchorElLinks] = useState(null);
+  const [anchorPiecesLinks, setAnchorPiecesLinks] = useState(null);
+  const [anchorSubmissionLinks, setAnchorSubmissionLinks] = useState(null);
+  const [anchorCollectionLinks, setAnchorCollectionLinks] = useState(null);
 
-  showHideNavigation = () => {
-    const nextValue = this.state.mobileClassName === "" ? "right__mobile" : "";
-    this.setState({ mobileClassName: nextValue });
-  };
+  const isActive = (name) => location.pathname?.split("/")[1] === name;
 
-  onLogoClick = () => {
-    const { history } = this.props;
-    history.push("/");
-  };
-
-  render() {
-    const { mobileClassName } = this.state;
-    const {
-      location: { pathname },
-    } = this.props;
-    return (
-      <div>
-        <div className="navBar row">
-          <div className="triangle"></div>
-          <div className="left row">
-            {pathname === "/admin" ? null : (
-              <div className="logo__container row" onClick={this.onLogoClick}>
-                <img className="logo__image" src={logo} alt="pencil" />
-              </div>
-            )}
-
-            <img
-              className="hamburger__icon"
-              src={hamburger}
-              alt="hamburger icon"
-              onClick={this.showHideNavigation}
-            />
+  return (
+    <div className={classes.root}>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar>
+          <Hidden only={["lg", "md", "xl"]}>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-controls="links-menu"
+              aria-haspopup="true"
+              onClick={(e) => setAnchorElLinks(e.currentTarget)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="links-menu"
+              anchorEl={anchorElLinks}
+              keepMounted
+              open={Boolean(anchorElLinks)}
+              onClose={() => setAnchorElLinks(null)}
+            >
+              {["Submissions", "Individual pieces", "Collections"].map(
+                (item) => (
+                  <MenuItem key={item} selected={isActive(item)}>
+                    <Button
+                      color="inherit"
+                      component={RouterLink}
+                      to={`/${item}`}
+                      key={item}
+                    >
+                      {item}
+                    </Button>
+                  </MenuItem>
+                )
+              )}
+            </Menu>
+          </Hidden>
+          <div className={classes.brandContainer}>
+            <Avatar alt="logo" src={logo} className={classes.logo} />
           </div>
+          <Grid container justify="flex-end" alignItems="center">
+            <Grid
+              container
+              item
+              xs={6}
+              className={classes.sectionDesktop}
+              spacing={3}
+            >
+              <Grid item>
+                <Typography onClick={() => history.replace("/")}>
+                  HOME
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography
+                  onClick={(e) => setAnchorSubmissionLinks(e.currentTarget)}
+                >
+                  SUBMISSIONS
+                </Typography>
+                <Menu
+                  id="links-menu"
+                  anchorEl={anchorSubmissionLinks}
+                  keepMounted
+                  open={Boolean(anchorSubmissionLinks)}
+                  onClose={() => setAnchorSubmissionLinks(null)}
+                >
+                  {submissionLinks.map(({ title, link }) => (
+                    <MenuItem key={title} selected={isActive(title)}>
+                      <Button
+                        color="inherit"
+                        component={RouterLink}
+                        to={`${link}`}
+                        key={link}
+                      >
+                        {title}
+                      </Button>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Grid>
 
-          <div className={`right row ${mobileClassName}`}>
-            <Link to="/" className="navbar-home__link">
-              HOME
-            </Link>
-            <NavBarItem
-              title="SUBMISSIONS"
-              subTitle1="TERMS AND POLICIES"
-              subTitle2="SUBMIT"
-              link1="/directions"
-              link2="/submissions"
-            />
-            <NavBarItem
-              title="INDIVIDUAL PIECES"
-              subTitle1="STORIES"
-              subTitle2="POEMS"
-              subTitle3="ESSAYS"
-              link1="/short-stories"
-              link2="/poems"
-              link3="/essays"
-            />
-            <NavBarItem
-              title="COLLECTIONS"
-              subTitle1="BOOK SERIES"
-              subTitle2="ISSUES"
-              link1="/book-series"
-              link2="/issues"
-            />
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+              <Grid item>
+                <Typography
+                  onClick={(e) => setAnchorPiecesLinks(e.currentTarget)}
+                >
+                  INDIVIDUAL PIECES
+                </Typography>
+                <Menu
+                  id="links-menu"
+                  anchorEl={anchorPiecesLinks}
+                  keepMounted
+                  open={Boolean(anchorPiecesLinks)}
+                  onClose={() => setAnchorPiecesLinks(null)}
+                >
+                  {piecesLinks.map(({ title, link }) => (
+                    <MenuItem key={title} selected={isActive(title)}>
+                      <Button
+                        color="inherit"
+                        component={RouterLink}
+                        to={`${link}`}
+                        key={link}
+                      >
+                        {title}
+                      </Button>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Grid>
+              <Grid item>
+                <Typography
+                  onClick={(e) => setAnchorCollectionLinks(e.currentTarget)}
+                >
+                  COLLECTIONS
+                </Typography>
+                <Menu
+                  id="links-menu"
+                  anchorEl={anchorCollectionLinks}
+                  keepMounted
+                  open={Boolean(anchorCollectionLinks)}
+                  onClose={() => setAnchorCollectionLinks(null)}
+                >
+                  {collectionsLinks.map(({ title, link }) => (
+                    <MenuItem key={title} selected={isActive(title)}>
+                      <Button
+                        color="inherit"
+                        component={RouterLink}
+                        to={`${link}`}
+                        key={link}
+                      >
+                        {title}
+                      </Button>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
+};
 
-export default NavBar;
+export default AppHeader;

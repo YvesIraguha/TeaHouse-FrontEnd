@@ -48,7 +48,7 @@ const IndividualPieces = ({
 
   const { apiInProgress, allPiecesResponse = {} } = allPieces;
   return (
-    <div className="admin-content">
+    <div>
       <div>
         {apiInProgress ? (
           <Loading />
@@ -62,7 +62,7 @@ const IndividualPieces = ({
             <div>
               <Grid container spacing={3}>
                 {allPiecesResponse.data.individualPieces.map((piece, index) => (
-                  <Grid item xs={12} md={4} lg={3}>
+                  <Grid item xs={12} md={4} lg={4}>
                     <MediaCard
                       createdAt={piece.createdAt}
                       title={piece.title}

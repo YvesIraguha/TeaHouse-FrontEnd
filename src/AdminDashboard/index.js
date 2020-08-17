@@ -12,7 +12,6 @@ const AdminDashboard = ({ history }) => {
   const [activeContent, setActiveContent] = useState("Short story");
 
   const changeActiveContent = (newContent) => {
-    console.log({ newContent });
     setActiveContent(newContent);
   };
 
@@ -66,7 +65,7 @@ const AdminDashboard = ({ history }) => {
           <span className="item__title">LOGOUT</span>
         </div>
       </div>
-      <div>
+      <div className="admin-content">
         {isCollection ? (
           <Collections activeContent={activeContent} />
         ) : (

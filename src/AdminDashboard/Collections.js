@@ -29,7 +29,7 @@ const Collections = ({
   const { apiInProgress, allCollectionsResponse = {} } = allCollections;
 
   return (
-    <div className="admin-content">
+    <div>
       <div>
         {apiInProgress ? (
           <Loading />

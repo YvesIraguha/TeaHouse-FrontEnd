@@ -11,7 +11,7 @@ import convertToHtml from "../utils/stringToHtml";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    width: 345,
   },
 });
 
