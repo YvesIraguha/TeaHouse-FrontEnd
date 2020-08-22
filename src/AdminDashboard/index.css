@@ -1,13 +1,9 @@
 .admin-navbar {
-  width: 200px;
-  position: fixed;
   z-index: 8;
-  min-height: 110vh;
   box-shadow: 2px 0px 4px #ae775e0d;
-  background-color: white;
 }
 .admin-page {
-  min-height: 110vh;
+  display: flex;
 }
 .admin-navbar__item {
   align-items: center;
@@ -25,9 +21,10 @@
 }
 
 .admin-content {
-  margin: 0px auto;
+  margin: auto;
+  margin-left: 30px;
+
   margin-top: 127px;
-  width: 85%;
 }
 
 .piece-card {
@@ -104,8 +101,8 @@
 }
 
 .logout-btn {
-  margin-left: 30px;
-  margin-top: 68vh;
+  /* margin-left: 30px;
+  margin-top: 68vh; */
 }
 .logout-btn span,
 .time-stamp span {
@@ -119,8 +116,5 @@
 @media only screen and (max-width: 768px) {
   .admin-page {
     margin-top: 70px;
-  }
-  .admin-content {
-    width: 60%;
   }
 }

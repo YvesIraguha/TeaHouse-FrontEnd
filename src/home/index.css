@@ -1,6 +1,9 @@
+/* .home__container {
+  margin-top: 100px;
+} */
 .image-box {
   position: relative;
-  margin-top: 100px;
+  height: 98vh;
 }
 
 .image-box__background,
