@@ -18,9 +18,13 @@ const Footer = () => (
       secondItem={{
         title: "Submissions",
         image: submissions,
-        link: "/submissions"
+        link: "/submissions",
       }}
-      thirdItem={{ title: "Collections", image: folder, link: "/book-series" }}
+      thirdItem={{
+        title: "Collections",
+        image: folder,
+        link: "/book-series",
+      }}
     />
     <FooterItems
       firstItem={{ title: "Stories", image: stories, link: "/short-stories" }}

@@ -19,37 +19,55 @@ import SubmissionPage from "./SubmissionsPage";
 
 export default () => (
   <Router>
-    <Route component={NavBar} />
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/directions" component={DirectionsPage} />
-      <Route exact path="/submissions" component={SubmissionPage} />
-      <Route exact path="/login" component={LogIn} />
-      <Route exact path="/create" component={CheckAuth(CreatePiecePage)} />
-      <Route
-        exact
-        path="/createCollection"
-        component={CheckAuth(CreateCollections)}
-      />
-      <Route exact path="/short-stories" component={AllPiecesPage} />
-      <Route exact path="/poems" component={AllPiecesPage} />
-      <Route
-        exact
-        path="/individual-pieces/:id"
-        component={IndividualPiecePage}
-      />
-      <Route
-        exact
-        path="/individual-pieces/edit/:id"
-        component={CheckAuth(CreatePiecePage)}
-      />
-      <Route exact path="/book-series" component={ViewCollections} />
-      <Route exact path="/issues" component={ViewCollections} />
-      <Route exact path="/admin" component={CheckAuth(AdminDashboard)} />
-      <Route exact path="/reset-password" component={RequestResetPassword} />
-      <Route exact path="/reset-password/:token" component={ResetPassword} />
-      <Route component={NotFound} />
-    </Switch>
+    <div
+      style={{
+        paddingBottom: "7rem",
+      }}
+    >
+      <div>
+        <NavBar />
+      </div>
+      <div style={{ marginTop: 65 }}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/directions" component={DirectionsPage} />
+          <Route exact path="/submissions" component={SubmissionPage} />
+          <Route exact path="/login" component={LogIn} />
+          <Route exact path="/create" component={CheckAuth(CreatePiecePage)} />
+          <Route
+            exact
+            path="/createCollection"
+            component={CheckAuth(CreateCollections)}
+          />
+          <Route exact path="/short-stories" component={AllPiecesPage} />
+          <Route exact path="/poems" component={AllPiecesPage} />
+          <Route
+            exact
+            path="/individual-pieces/:id"
+            component={IndividualPiecePage}
+          />
+          <Route
+            exact
+            path="/individual-pieces/edit/:id"
+            component={CheckAuth(CreatePiecePage)}
+          />
+          <Route exact path="/book-series" component={ViewCollections} />
+          <Route exact path="/issues" component={ViewCollections} />
+          <Route exact path="/admin" component={CheckAuth(AdminDashboard)} />
+          <Route
+            exact
+            path="/reset-password"
+            component={RequestResetPassword}
+          />
+          <Route
+            exact
+            path="/reset-password/:token"
+            component={ResetPassword}
+          />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
+    </div>
     <Route component={Footer} />
   </Router>
 );

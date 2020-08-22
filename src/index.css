@@ -18,12 +18,8 @@
 }
 
 #root {
-  padding-bottom: 7rem;
-}
-
-#content-wrap {
   position: relative;
-  /* min-height: 100vh; */
+  min-height: 100vh;
 }
 
 body {

@@ -4,6 +4,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: "rgb(37,37,37)",
     position: "fixed",
+    top: 0,
     zIndex: theme.zIndex.drawer + 1,
     width: "100%",
   },
