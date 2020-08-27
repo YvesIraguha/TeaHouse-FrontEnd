@@ -1,9 +1,6 @@
-/* .home__container {
-  margin-top: 100px;
-} */
 .image-box {
   position: relative;
-  height: 98vh;
+  height: 50vh;
 }
 
 .image-box__background,
@@ -33,7 +30,7 @@
   font-size: 7vh;
   font-weight: 200;
   color: white;
-  min-height: 90vh;
+  min-height: 100%;
   letter-spacing: 3%;
   text-align: center;
   display: flex;
@@ -42,7 +39,7 @@
 }
 .description {
   margin: auto;
-  margin-top: 120px;
+  margin-top: 60px;
   text-align: center;
   width: 60%;
 }
@@ -58,18 +55,6 @@
   color: #535050;
   font-size: 22px;
   letter-spacing: 0.5px;
-}
-
-.scroll__icon {
-  margin: auto;
-  text-align: center;
-  width: 20%;
-}
-
-.scroll__icon img {
-  height: 50px;
-  width: auto;
-  margin: 10%;
 }
 
 .mission_vision__container {
@@ -102,7 +87,6 @@
   background-color: rgba(231, 226, 226, 0.7);
 }
 
-.about_section__title,
 .team_members__section h1 {
   font-size: 32px;
   text-align: center;

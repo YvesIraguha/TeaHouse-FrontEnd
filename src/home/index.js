@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import MissionVision from "./MissionVision";
 import "./index.css";
-import scroll from "../assets/images/scroll.svg";
 
 export class Home extends Component {
   render() {
@@ -16,7 +15,6 @@ export class Home extends Component {
         </div>
         <div className="description">
           <div id="about">
-            <h1 className="about_section__title">About</h1>
             <p>
               In the eighteenth century, a tea house would be a forum for
               intellectual encounters. They would read books and circulate
@@ -31,28 +29,16 @@ export class Home extends Component {
             </p>
           </div>
         </div>
-        <div className="scroll__icon">
-          <img src={scroll} alt="Project icon" />
-        </div>
         <div className="mission_vision__container">
           <MissionVision />
         </div>
         <div className="team_members__section">
-          <h1>TEAHOUSE TEAM</h1>
-          <div className="team_member__image">
-            <img
-              src={
-                "https://images.unsplash.com/photo-1455274111113-575d080ce8cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-              }
-              alt=""
-            />
-          </div>
-          <h2>Joe Doe</h2>
-          <h3>Founder & Reviewer</h3>
+          <h1>Founder/Editor</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu
-            quisque ullamcorper pulvinar cursus nascetur sem faucibus urna. Nibh
-            proin viverra in non.
+            Alain-Jules has work in The Carolina Quarterly, Lolwe, Jalada. It is
+            forthcoming through Wasafiri and 20.35 Africa: An Anthology of
+            Contemporary Poetry. He is pursuing an MFA in poetry at Texas State
+            University.
           </p>
         </div>
       </div>

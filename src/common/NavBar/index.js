@@ -27,10 +27,7 @@ const piecesLinks = [
   { title: "LIT NEWS", link: "/lit-news" },
   { title: "GOSSIPS", link: "/gossips" },
 ];
-const collectionsLinks = [
-  { title: "BOOK SERIES", link: "/book-series" },
-  { title: "issues", link: "/issues" },
-];
+
 const AppHeader = () => {
   const location = useLocation();
   const classes = useStyles();
@@ -38,7 +35,6 @@ const AppHeader = () => {
   const [anchorElLinks, setAnchorElLinks] = useState(null);
   const [anchorPiecesLinks, setAnchorPiecesLinks] = useState(null);
   const [anchorSubmissionLinks, setAnchorSubmissionLinks] = useState(null);
-  const [anchorCollectionLinks, setAnchorCollectionLinks] = useState(null);
 
   const isActive = (name) => location.pathname?.split("/")[1] === name;
 
@@ -64,20 +60,18 @@ const AppHeader = () => {
               open={Boolean(anchorElLinks)}
               onClose={() => setAnchorElLinks(null)}
             >
-              {["Submissions", "Individual pieces", "Collections"].map(
-                (item) => (
-                  <MenuItem key={item} selected={isActive(item)}>
-                    <Button
-                      color="inherit"
-                      component={RouterLink}
-                      to={`/${item}`}
-                      key={item}
-                    >
-                      {item}
-                    </Button>
-                  </MenuItem>
-                )
-              )}
+              {["Submissions", "Individual pieces", "Issues"].map((item) => (
+                <MenuItem key={item} selected={isActive(item)}>
+                  <Button
+                    color="inherit"
+                    component={RouterLink}
+                    to={`/${item}`}
+                    key={item}
+                  >
+                    {item}
+                  </Button>
+                </MenuItem>
+              ))}
             </Menu>
           </Hidden>
           <div className={classes.brandContainer}>
@@ -93,14 +87,14 @@ const AppHeader = () => {
             >
               <Grid item>
                 <Typography onClick={() => history.replace("/")}>
-                  HOME
+                  Home
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography
                   onClick={(e) => setAnchorSubmissionLinks(e.currentTarget)}
                 >
-                  SUBMISSIONS
+                  Submissions
                 </Typography>
                 <Menu
                   id="links-menu"
@@ -123,12 +117,11 @@ const AppHeader = () => {
                   ))}
                 </Menu>
               </Grid>
-
               <Grid item>
                 <Typography
                   onClick={(e) => setAnchorPiecesLinks(e.currentTarget)}
                 >
-                  INDIVIDUAL PIECES
+                  Individual pieces
                 </Typography>
                 <Menu
                   id="links-menu"
@@ -153,30 +146,12 @@ const AppHeader = () => {
               </Grid>
               <Grid item>
                 <Typography
-                  onClick={(e) => setAnchorCollectionLinks(e.currentTarget)}
+                  color="inherit"
+                  component={RouterLink}
+                  to={`issues`}
                 >
-                  COLLECTIONS
+                  Issues
                 </Typography>
-                <Menu
-                  id="links-menu"
-                  anchorEl={anchorCollectionLinks}
-                  keepMounted
-                  open={Boolean(anchorCollectionLinks)}
-                  onClose={() => setAnchorCollectionLinks(null)}
-                >
-                  {collectionsLinks.map(({ title, link }) => (
-                    <MenuItem key={title} selected={isActive(title)}>
-                      <Button
-                        color="inherit"
-                        component={RouterLink}
-                        to={`${link}`}
-                        key={link}
-                      >
-                        {title}
-                      </Button>
-                    </MenuItem>
-                  ))}
-                </Menu>
               </Grid>
             </Grid>
           </Grid>
