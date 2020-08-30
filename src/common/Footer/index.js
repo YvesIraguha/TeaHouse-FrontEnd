@@ -32,9 +32,9 @@ const Footer = () => (
       thirdItem={{ title: "Book series", image: books, link: "/book-series" }}
     />
     <FooterItems
-      firstItem={{ title: "joedoe@gmail.com", image: envelope }}
+      firstItem={{ title: "teahouseeditor@gmail.com", image: envelope }}
       secondItem={{ title: "Kigali, Rwanda", image: placeholder }}
-      thirdItem={{ title: "+250780093893", image: phone }}
+      thirdItem={{ title: "+250788595704", image: phone }}
     />
   </div>
 );
