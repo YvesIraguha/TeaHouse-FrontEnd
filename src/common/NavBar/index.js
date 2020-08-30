@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-import { Link as RouterLink, useLocation, useHistory } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
@@ -15,26 +14,20 @@ import Hidden from "@material-ui/core/Hidden";
 import logo from "../../assets/images/tea-house-logo.jpg";
 import useStyles from "./styles";
 
-const submissionLinks = [
-  { title: "TERMS AND POLICIES", link: "/directions" },
-  { title: "SUBMIT", link: "/submissions" },
-];
 const piecesLinks = [
   { title: "STORIES", link: "/short-stories" },
   { title: "POEMS", link: "/poems" },
   { title: "ESSAYS", link: "/essays" },
   { title: "INTERVIEWS", link: "/interviews" },
   { title: "LIT NEWS", link: "/lit-news" },
-  { title: "GOSSIPS", link: "/gossips" },
+  { title: "GOSSIP", link: "/gossips" },
 ];
 
 const AppHeader = () => {
   const location = useLocation();
   const classes = useStyles();
-  const history = useHistory();
   const [anchorElLinks, setAnchorElLinks] = useState(null);
   const [anchorPiecesLinks, setAnchorPiecesLinks] = useState(null);
-  const [anchorSubmissionLinks, setAnchorSubmissionLinks] = useState(null);
 
   const isActive = (name) => location.pathname?.split("/")[1] === name;
 
@@ -86,40 +79,23 @@ const AppHeader = () => {
               spacing={3}
             >
               <Grid item>
-                <Typography onClick={() => history.replace("/")}>
+                <Typography color="inherit" component={RouterLink} to={`/`}>
                   Home
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography
-                  onClick={(e) => setAnchorSubmissionLinks(e.currentTarget)}
+                  color="inherit"
+                  component={RouterLink}
+                  to={`directions`}
                 >
                   Submissions
                 </Typography>
-                <Menu
-                  id="links-menu"
-                  anchorEl={anchorSubmissionLinks}
-                  keepMounted
-                  open={Boolean(anchorSubmissionLinks)}
-                  onClose={() => setAnchorSubmissionLinks(null)}
-                >
-                  {submissionLinks.map(({ title, link }) => (
-                    <MenuItem key={title} selected={isActive(title)}>
-                      <Button
-                        color="inherit"
-                        component={RouterLink}
-                        to={`${link}`}
-                        key={link}
-                      >
-                        {title}
-                      </Button>
-                    </MenuItem>
-                  ))}
-                </Menu>
               </Grid>
               <Grid item>
                 <Typography
                   onClick={(e) => setAnchorPiecesLinks(e.currentTarget)}
+                  className={classes.individualPiece}
                 >
                   Individual pieces
                 </Typography>

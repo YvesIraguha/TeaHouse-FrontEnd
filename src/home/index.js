@@ -16,10 +16,10 @@ export class Home extends Component {
         <div className="description">
           <div id="about">
             <p>
-              In the eighteenth century, a tea house would be a forum for
-              intellectual encounters. They would read books and circulate
-              magazines, talk about ideas, discoveries, and science while
-              drinking their tea.
+              In the eighteenth century, a tea house was a forum for
+              intellectual encounters. They read books and circulated magazines,
+              talked about ideas, discoveries, and science while drinking their
+              tea.
             </p>
             <p>
               In the same idea of a tea house, this magazine is a space where

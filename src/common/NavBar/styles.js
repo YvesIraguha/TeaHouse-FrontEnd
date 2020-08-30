@@ -45,8 +45,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.light,
   },
   logo: {
-    width: theme.spacing(3),
-    height: theme.spacing(3),
+    width: theme.spacing(8),
+    height: theme.spacing(8),
     marginRight: theme.spacing(1),
   },
   sectionDesktop: {
@@ -54,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       display: "flex",
     },
+  },
+  individualPiece: {
+    textDecoration: "underline",
   },
 }));
 

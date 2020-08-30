@@ -1,7 +1,6 @@
 import React from "react";
 import "./index.css";
 import { Link } from "react-router-dom";
-
 import ShortStories from "./ShortStories";
 import Poems from "./Poems";
 import BookSeries from "./BookSeries";
@@ -21,7 +20,6 @@ export default () => (
     <ShortStories />
     <h2>Poems</h2>
     <Poems />
-    <h1> Submitting a Collection</h1>
     <p>
       Each poem in a chapbook must be the original work of the author.
       Individual poems might be previously published or unpublished, but the
