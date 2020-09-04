@@ -8,12 +8,12 @@ export const Item = ({ title, image, link }) => (
   </div>
 );
 
-const FooterItems = ({ firstItem, secondItem, thirdItem }) => {
+const FooterItems = ({ items }) => {
   return (
     <div>
-      <Item {...firstItem} />
-      <Item {...secondItem} />
-      <Item {...thirdItem} />
+      {items.map((content, index) => (
+        <Item {...content} key={index} />
+      ))}
     </div>
   );
 };

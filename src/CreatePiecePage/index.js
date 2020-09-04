@@ -19,28 +19,28 @@ class CreatePage extends Component {
     type: "Short story",
     author: "",
     errors: {},
-    editMode: false
+    editMode: false,
   };
   componentDidMount = async () => {
     const {
       fetchIndividualPiece,
       match: {
-        params: { id }
+        params: { id },
       },
-      history
+      history,
     } = this.props;
     if (id) {
       const response = await fetchIndividualPiece(id, history);
       const {
         data: {
-          individualPiece: { title, type, body, author }
-        }
+          individualPiece: { title, type, body, author },
+        },
       } = response;
       this.setState({ title, type, author, editMode: true, content: body });
     }
   };
 
-  handleEditorChange = content => {
+  handleEditorChange = (content) => {
     this.setState({ content });
   };
 
@@ -55,8 +55,8 @@ class CreatePage extends Component {
       editPiece,
       history,
       match: {
-        params: { id }
-      }
+        params: { id },
+      },
     } = this.props;
     const error = validateCreatedWork(content, title, author);
     if (error) {
@@ -68,7 +68,7 @@ class CreatePage extends Component {
     submitStoryOrPoem(content, title, type, author, history);
   };
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps = (nextProps) => {
     const { createStoryPoem } = nextProps;
     if (
       createStoryPoem.creationResponse &&
@@ -82,23 +82,30 @@ class CreatePage extends Component {
   render() {
     const { content, title, errors, author, editMode, type } = this.state;
     const {
-      createStoryPoem: { apiInProgress }
+      createStoryPoem: { apiInProgress },
     } = this.props;
-    const options = ["Short story", "Poem"];
+    const options = [
+      "Short story",
+      "Poem",
+      "Essay",
+      "Interview",
+      "Lit News",
+      "Gossip",
+    ];
     return (
       <div className="create-story-container">
         <Input
           placeholder="Title goes here"
           name="title"
           value={title}
-          onChange={e => this.onInputChange(e.target.name, e.target.value)}
+          onChange={(e) => this.onInputChange(e.target.name, e.target.value)}
           errors={errors}
         />
         <Input
           placeholder="Author's name goes here"
           name="author"
           value={author}
-          onChange={e => this.onInputChange(e.target.name, e.target.value)}
+          onChange={(e) => this.onInputChange(e.target.name, e.target.value)}
           errors={errors}
         />
         <Selector
@@ -124,10 +131,10 @@ class CreatePage extends Component {
 }
 
 const mapStateToProps = ({ createStoryPoem }) => ({
-  createStoryPoem
+  createStoryPoem,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   submitStoryOrPoem: (content, title, type, author, history) =>
     dispatch(createStoryPoemHandler(content, title, type, author, history)),
   editPiece: (pieceId, content, title, type, author, history) =>
@@ -135,7 +142,7 @@ const mapDispatchToProps = dispatch => ({
       editPieceActionHandler(pieceId, content, title, type, author, history)
     ),
   fetchIndividualPiece: (pieceId, history) =>
-    dispatch(individualPieceHandler(pieceId, history))
+    dispatch(individualPieceHandler(pieceId, history)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreatePage);

@@ -1,35 +1,44 @@
 .footer {
   background-color: #1c0a02;
   width: 100%;
-  justify-content: space-evenly;
   color: white;
   padding: 40px 0px;
   position: absolute;
   bottom: 0;
-  min-height: 6rem;
+  min-height: 10rem;
 }
 
-.footer .list_item {
+.row1 {
+  justify-content: space-evenly;
+}
+
+.list_item {
   align-items: center;
   margin: 10px;
 }
 
-.footer .list_item p,
-.footer .list_item a {
+.list_item p,
+.list_item a {
   margin-left: 5px;
   color: white;
   font-weight: 400;
   text-decoration: underline;
 }
 
-.footer .list_item img {
+.list_item img {
   margin-left: 5px;
   height: 20px;
   width: auto;
 }
 
+.social-media {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid white;
+  justify-content: space-evenly;
+}
 @media only screen and (max-width: 500px) {
-  .footer div {
+  .row1 div {
     width: 100%;
   }
   .footer {
