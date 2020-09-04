@@ -89,7 +89,7 @@ class CreatePage extends Component {
       "Poem",
       "Essay",
       "Interview",
-      "Lit News",
+      "Lit news",
       "Gossip",
     ];
     return (
