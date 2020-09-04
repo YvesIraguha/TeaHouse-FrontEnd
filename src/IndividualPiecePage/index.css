@@ -2,12 +2,13 @@
   width: 60%;
   font-size: larger;
   margin: 120px auto;
+  margin-bottom: 14em;
 }
 
 .piece-body p {
-  margin: 3em 1em;
+  margin: 5px 1em;
   text-align: justify;
-  line-height: 35px;
+  line-height: 27px;
 }
 
 .piece-content .head-separator {

@@ -1,5 +1,5 @@
 .story-poem-container {
-  width: 70vw;
+  width: 80vw;
   margin: 100px auto;
 }
 
@@ -14,7 +14,8 @@
   width: 23%;
   margin: 0.5% 2.5%;
   padding: 25px;
-  min-width: 200px;
+  min-width: 250px;
+  cursor: pointer;
 }
 .story-head {
   margin: 10px;
