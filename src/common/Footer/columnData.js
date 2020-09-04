@@ -1,8 +1,6 @@
 import envelope from "../../assets/images/email.svg";
 import placeholder from "../../assets/images/location.svg";
 import phone from "../../assets/images/phone-call.svg";
-import reading from "../../assets/images/reading.svg";
-import stories from "../../assets/images/short.svg";
 import folder from "../../assets/images/folder.svg";
 import submissions from "../../assets/images/submissions.svg";
 import rules from "../../assets/images/rules.svg";
@@ -40,8 +38,20 @@ export const column3 = [
 ];
 
 export const row4 = [
-  { title: "instagram", Icon: InstagramIcon, link: "/short-stories" },
-  { title: "twitter", Icon: TwitterIcon, link: "/poems" },
-  { title: "facebook", Icon: FacebookIcon, link: "/essays" },
-  { title: "Teahousemagazine 2020", Icon: CopyrightIcon },
+  {
+    title: "Tea House Magazine",
+    Icon: InstagramIcon,
+    link: "https://www.instagram.com/teahousemagazine/",
+  },
+  {
+    title: "Tea House Magazine",
+    Icon: TwitterIcon,
+    link: "https://twitter.com/TeaHouseMag",
+  },
+  {
+    title: "Tea House",
+    Icon: FacebookIcon,
+    link: "https://web.facebook.com/Tea-House-107723714401668",
+  },
+  { title: "Tea House Magazine 2020", Icon: CopyrightIcon },
 ];
