@@ -24,7 +24,7 @@ class Submissions extends Component {
     this.setState({ [name]: value });
   };
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps = (nextProps) => {
     const { submissionResponse } = nextProps;
     if (
       submissionResponse &&
@@ -37,7 +37,14 @@ class Submissions extends Component {
   render() {
     const { apiInProgress } = this.props;
     const { errors } = this.state;
-    const options = ["Short story", "Poem", "Book series", "Issues"];
+    const options = [
+      "Short story",
+      "Poem",
+      "Essay",
+      "Interview",
+      "Lit News",
+      "Gossip",
+    ];
     return (
       <div className="submit_section">
         <div className="inputs">
@@ -76,11 +83,11 @@ class Submissions extends Component {
   }
 }
 export const mapStateToProps = ({ submitWork }) => ({
-  ...submitWork
+  ...submitWork,
 });
 
-export const mapDispatchToProps = dispatch => ({
-  sendSubmission: submissionWork => dispatch(sendWork(submissionWork))
+export const mapDispatchToProps = (dispatch) => ({
+  sendSubmission: (submissionWork) => dispatch(sendWork(submissionWork)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Submissions);

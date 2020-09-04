@@ -4,7 +4,7 @@ import NavBar from "./Common/NavBar";
 import Footer from "./Common/Footer";
 import Home from "./Home";
 import DirectionsPage from "./DirectionsPage";
-import LogIn from "./Login";
+import LogIn from "./login";
 import CreatePiecePage from "./CreatePiecePage";
 import AllPiecesPage from "./ViewAllPieces";
 import NotFound from "./NotFound";
