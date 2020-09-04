@@ -21,7 +21,8 @@ export default () => (
   <Router>
     <div
       style={{
-        paddingBottom: "7rem",
+        paddingBottom: "14rem",
+        minHeight: "100vh",
       }}
     >
       <div>

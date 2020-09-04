@@ -1,40 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import FooterItems from "./FooterItems";
 import "./index.css";
-import envelope from "../../assets/images/email.svg";
-import placeholder from "../../assets/images/location.svg";
-import phone from "../../assets/images/phone-call.svg";
-import reading from "../../assets/images/reading.svg";
-import stories from "../../assets/images/short.svg";
-import folder from "../../assets/images/folder.svg";
-import submissions from "../../assets/images/submissions.svg";
-import rules from "../../assets/images/rules.svg";
+import { column1, column2, column3, row4 } from "./columnData";
 
 const Footer = () => (
-  <div className="footer row">
-    <FooterItems
-      firstItem={{ title: "Guidelines", image: rules, link: "/directions" }}
-      secondItem={{
-        title: "Submissions",
-        image: submissions,
-        link: "/submissions",
-      }}
-      thirdItem={{
-        title: "Issues",
-        image: folder,
-        link: "/book-series",
-      }}
-    />
-    <FooterItems
-      firstItem={{ title: "Stories", image: stories, link: "/short-stories" }}
-      secondItem={{ title: "Poems", image: reading, link: "/poems" }}
-      thirdItem={{ title: "+250788595704", image: phone }}
-    />
-    <FooterItems
-      firstItem={{ title: "teahouseeditor@gmail.com", image: envelope }}
-      secondItem={{ title: "Kigali, Rwanda", image: placeholder }}
-      thirdItem={{ title: "+250788595704", image: phone }}
-    />
+  <div className="footer">
+    <div className="row1 row">
+      <FooterItems items={column1} />
+      <FooterItems items={column2} />
+      <FooterItems items={column3} />
+    </div>
+
+    <div className="social-media row">
+      {row4.map(({ Icon, link, title }, index) => (
+        <div className="list_item row" key={index}>
+          <Icon color="white" size="small" />
+          {link ? <Link to={link}>{title}</Link> : <p>{title}</p>}
+        </div>
+      ))}
+    </div>
   </div>
 );
 

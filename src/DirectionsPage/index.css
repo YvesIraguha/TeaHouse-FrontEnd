@@ -1,7 +1,8 @@
 .submissions__container {
-  width: 36%;
-  margin: auto;
-  margin-bottom: 7rem;
+  width: 40%;
+  margin: 100px auto;
+  font-size: larger;
+  margin-bottom: 14rem;
 }
 /* .welcome__section {
   margin: auto;

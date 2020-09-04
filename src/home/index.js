@@ -35,10 +35,11 @@ export class Home extends Component {
         <div className="team_members__section">
           <h1>Founder/Editor</h1>
           <p>
-            Alain-Jules has work in The Carolina Quarterly, Lolwe, Jalada. It is
-            forthcoming through Wasafiri and 20.35 Africa: An Anthology of
-            Contemporary Poetry. He is pursuing an MFA in poetry at Texas State
-            University.
+            Alain-Jules has work in{" "}
+            <i>The Carolina Quarterly, Lolwe, Jalada.</i> It is forthcoming
+            through <i>Wasafiri and 20.35 Africa</i>: An Anthology of
+            Contemporary Poetry. He is pursuing an MFA in poetry at{" "}
+            <i>Texas State University.</i>
           </p>
         </div>
       </div>
