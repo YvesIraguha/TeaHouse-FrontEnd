@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import "./index.css";
 
 class Selector extends Component {
@@ -20,10 +19,10 @@ class Selector extends Component {
         <select
           name="type"
           value={value}
-          onChange={e => this.onInputChange(e)}
+          onChange={(e) => this.onInputChange(e)}
           className="selector_button"
         >
-          {options.map(option => (
+          {options.map((option) => (
             <option value={option} key={option}>
               {option}
             </option>

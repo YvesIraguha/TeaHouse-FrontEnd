@@ -41,6 +41,10 @@ export default () => (
           />
           <Route exact path="/short-stories" component={AllPiecesPage} />
           <Route exact path="/poems" component={AllPiecesPage} />
+          <Route exact path="/essays" component={AllPiecesPage} />
+          <Route exact path="/interviews" component={AllPiecesPage} />
+          <Route exact path="/lit-news" component={AllPiecesPage} />
+          <Route exact path="/gossip" component={AllPiecesPage} />
           <Route
             exact
             path="/individual-pieces/:id"

@@ -7,6 +7,7 @@ const categories = {
   "Lit news": "LIT NEWS",
   Gossip: "GOSSIPS",
 };
+
 const categoryToLink = {
   Poem: "/individual-pieces",
   "Short story": "/individual-pieces",
@@ -17,5 +18,15 @@ const categoryToLink = {
   Gossip: "/individual-pieces",
 };
 
+const linkToPieceType = {
+  "/poems": "Poem",
+  "/short-stories": "Short story",
+  "/interviews": "Interview",
+  "/essays": "Essay",
+  "/gossip": "Gossip",
+  "/lit-news": "Lit news",
+};
+
 export const mapCategoryToTitle = (category) => categories[category];
 export const mapCategoryToLink = (category) => categoryToLink[category];
+export const mapLinkToPieceType = (pathname) => linkToPieceType[pathname];

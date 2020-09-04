@@ -4,6 +4,7 @@ import StoryPoemCard from "./StoryPoemCard";
 import PageNumber from "../Common/PageNumber/PageNumber";
 import { connect } from "react-redux";
 import { allPiecesHandler } from "../redux/actionsCreators/allPiecesHandler";
+import { mapLinkToPieceType } from "../utils/categoryToTitle";
 import Loading from "../Common/Loading";
 import NoContent from "../Common/NoContent";
 
@@ -13,46 +14,46 @@ class AllPiecesPage extends Component {
     const {
       fetchAllPieces,
       location: { pathname },
-      history
+      history,
     } = this.props;
     const { page } = this.state;
-    const filter = pathname === "/poems" ? "Poem" : "Short story";
+    const filter = mapLinkToPieceType(pathname);
     fetchAllPieces(page, filter, history);
   };
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps = (nextProps) => {
     const {
       location: { pathname },
-      history
+      history,
     } = nextProps;
     const { fetchAllPieces } = this.props;
     if (pathname !== this.props.location.pathname) {
-      const filter = pathname === "/poems" ? "Poem" : "Short story";
+      const filter = mapLinkToPieceType(pathname);
       fetchAllPieces(1, filter, history);
     }
   };
 
-  loadMorePieces = direction => {
+  loadMorePieces = (direction) => {
     const {
       fetchAllPieces,
       location: { pathname },
-      history
+      history,
     } = this.props;
     const { page } = this.state;
     const nextPage = page + direction;
-    const filter = pathname === "/poems" ? "Poem" : "Short story";
+    const filter = mapLinkToPieceType(pathname);
     fetchAllPieces(nextPage, filter, history);
     this.setState({ page: nextPage });
   };
 
-  fetchOnePiece = pieceId => {
+  fetchOnePiece = (pieceId) => {
     const { history } = this.props;
     history.push(`/individual-pieces/${pieceId}`);
   };
 
   render() {
     const {
-      allPieces: { apiInProgress, allPiecesResponse }
+      allPieces: { apiInProgress, allPiecesResponse },
     } = this.props;
     const { page } = this.state;
     return (
@@ -89,9 +90,9 @@ class AllPiecesPage extends Component {
 }
 const mapStateToProps = ({ allPieces }) => ({ allPieces });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchAllPieces: (page, genre, history) =>
-    dispatch(allPiecesHandler(page, genre, history))
+    dispatch(allPiecesHandler(page, genre, history)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllPiecesPage);
