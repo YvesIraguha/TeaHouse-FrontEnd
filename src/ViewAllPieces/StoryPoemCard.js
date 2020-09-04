@@ -5,7 +5,7 @@ class StoryPoemCard extends Component {
   render() {
     const {
       piece: { title, author, body, id },
-      onClick
+      onClick,
     } = this.props;
 
     return (
@@ -15,7 +15,7 @@ class StoryPoemCard extends Component {
           <div className="head-separator" />
           <h3>{title.toUpperCase()}</h3>
         </div>
-        <div className="story-content">{convertToHtml(body.slice(0, 150))}</div>
+        <div className="story-content">{convertToHtml(body.slice(0, 250))}</div>
       </div>
     );
   }

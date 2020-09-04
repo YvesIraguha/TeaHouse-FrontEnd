@@ -4,6 +4,7 @@
 }
 .admin-page {
   display: flex;
+  margin-bottom: 14em;
 }
 .admin-navbar__item {
   align-items: center;
