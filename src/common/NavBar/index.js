@@ -20,7 +20,7 @@ const piecesLinks = [
   { title: "ESSAYS", link: "/essays" },
   { title: "INTERVIEWS", link: "/interviews" },
   { title: "LIT NEWS", link: "/lit-news" },
-  { title: "GOSSIP", link: "/gossips" },
+  { title: "GOSSIP", link: "/gossip" },
 ];
 
 const AppHeader = () => {

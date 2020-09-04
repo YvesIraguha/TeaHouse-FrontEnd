@@ -4,7 +4,7 @@ import NavBar from "./Common/NavBar";
 import Footer from "./Common/Footer";
 import Home from "./Home";
 import DirectionsPage from "./DirectionsPage";
-import LogIn from "./Login";
+import LogIn from "./login";
 import CreatePiecePage from "./CreatePiecePage";
 import AllPiecesPage from "./ViewAllPieces";
 import NotFound from "./NotFound";
@@ -41,6 +41,10 @@ export default () => (
           />
           <Route exact path="/short-stories" component={AllPiecesPage} />
           <Route exact path="/poems" component={AllPiecesPage} />
+          <Route exact path="/essays" component={AllPiecesPage} />
+          <Route exact path="/interviews" component={AllPiecesPage} />
+          <Route exact path="/lit-news" component={AllPiecesPage} />
+          <Route exact path="/gossip" component={AllPiecesPage} />
           <Route
             exact
             path="/individual-pieces/:id"
