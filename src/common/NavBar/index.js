@@ -17,10 +17,8 @@ import useStyles from "./styles";
 const piecesLinks = [
   { title: "STORIES", link: "/short-stories" },
   { title: "POEMS", link: "/poems" },
-  { title: "ESSAYS", link: "/essays" },
   { title: "INTERVIEWS", link: "/interviews" },
   { title: "LIT NEWS", link: "/lit-news" },
-  { title: "GOSSIP", link: "/gossip" },
 ];
 
 const AppHeader = () => {

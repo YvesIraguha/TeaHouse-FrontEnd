@@ -28,7 +28,7 @@ export default () => (
       Our issues will be tentatively an annual themed issue. Currently, there is
       no call for submission.
     </p>
-    <h1>Gossiping while Sipping on Tea!</h1>
+    {/* <h1>Gossiping while Sipping on Tea!</h1>
     <p>
       This is a section for gossip! It captures interesting news from the
       mainstream, boils it in a kettle, and serves it in mugs like tea. Welcome
@@ -44,6 +44,6 @@ export default () => (
       create our own fictionalized names. The series will be run by the editor
       or anyone who is interested, who, if so, should submit their play via the
       usual submissions form.]
-    </p>
+    </p> */}
   </div>
 );

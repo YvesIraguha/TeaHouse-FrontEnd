@@ -49,13 +49,11 @@ const AdminDashboard = ({ history }) => {
             onClick={changeActiveContent}
             type="Interview"
           />
-          <Item title="ESSAYS" onClick={changeActiveContent} type="Essay" />
           <Item
             title="LIT NEWS"
             onClick={changeActiveContent}
             type="Lit news"
           />
-          <Item title="GOSSIPING" onClick={changeActiveContent} type="Gossip" />
         </div>
         <div className="logout-btn" onClick={logOut}>
           <FontAwesomeIcon

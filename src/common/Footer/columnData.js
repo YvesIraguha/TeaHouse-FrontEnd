@@ -25,9 +25,7 @@ export const column1 = [
 export const column2 = [
   { title: "Stories", image: rules, link: "/short-stories" },
   { title: "Poems", image: rules, link: "/poems" },
-  { title: "Essays", image: rules, link: "/essays" },
   { title: "Interviews", image: rules, link: "/interviews" },
-  { title: "Gossip", image: rules, link: "/gossip" },
   { title: "Lit news", image: rules, link: "/lit-news" },
 ];
 
