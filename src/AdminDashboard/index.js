@@ -54,7 +54,6 @@ const AdminDashboard = ({ history }) => {
             onClick={changeActiveContent}
             type="Lit news"
           />
-          <Item title="GOSSIPING" onClick={changeActiveContent} type="Gossip" />
         </div>
         <div className="logout-btn" onClick={logOut}>
           <FontAwesomeIcon

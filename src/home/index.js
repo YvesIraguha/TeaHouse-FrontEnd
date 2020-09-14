@@ -33,7 +33,7 @@ export class Home extends Component {
           <MissionVision />
         </div>
         <div className="team_members__section">
-          <h1>Founder/Editor</h1>
+          <h1 className="founder">Founder/Editor</h1>
           <p>
             Alain-Jules has work in{" "}
             <i>The Carolina Quarterly, Lolwe, Jalada.</i> It is forthcoming
