@@ -49,6 +49,7 @@ const AdminDashboard = ({ history }) => {
             onClick={changeActiveContent}
             type="Interview"
           />
+          {/* <Item title="ESSAYS" onClick={changeActiveContent} type="Essay" /> */}
           <Item
             title="LIT NEWS"
             onClick={changeActiveContent}
