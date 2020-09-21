@@ -60,7 +60,7 @@ class Submissions extends Component {
           <UploadButton
             name="file"
             title="Select a file"
-            type=".pdf"
+            type=".pdf, .docx"
             onChangeHandler={this.onInputChangeHandler}
             error={errors.file}
           />
