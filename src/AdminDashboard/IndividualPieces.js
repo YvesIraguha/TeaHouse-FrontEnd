@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./index.css";
 import { allPiecesHandler } from "../redux/actionsCreators/allPiecesHandler";
 import { deleteIndividualPiece } from "../redux/actionsCreators/createDeleteStoryPoem";
@@ -13,13 +14,13 @@ import Grid from "@material-ui/core/Grid";
 
 const IndividualPieces = ({
   fetchAllPieces,
-  history,
   activeContent,
   deleteStoryPoem,
   deletedPiece,
   allPieces,
 }) => {
   const [page, setPage] = useState(1);
+  const history = useHistory();
   useEffect(() => {
     fetchAllPieces(page, activeContent, history);
   }, [activeContent, page, fetchAllPieces, history]);

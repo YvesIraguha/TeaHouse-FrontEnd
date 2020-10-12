@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./index.css";
 import { allCollectionsHandler } from "../redux/actionsCreators/allCollectionsHandler";
 import { connect } from "react-redux";
@@ -11,11 +12,11 @@ import Grid from "@material-ui/core/Grid";
 
 const Collections = ({
   fetchAllCollections,
-  history,
   activeContent,
   allCollections,
 }) => {
   const [page, setPage] = useState(1);
+  const history = useHistory();
   useEffect(() => {
     fetchAllCollections(page, activeContent, history);
   }, [activeContent, page, fetchAllCollections, history]);
