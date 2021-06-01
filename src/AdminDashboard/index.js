@@ -67,9 +67,9 @@ const AdminDashboard = ({ history }) => {
       </div>
       <div className="admin-content">
         {isCollection ? (
-          <Collections activeContent={activeContent} />
+          <Collections activeContent={activeContent} history={history} />
         ) : (
-          <IndividualPieces activeContent={activeContent} />
+          <IndividualPieces activeContent={activeContent} history={history} />
         )}
       </div>
       <NewPiece />
