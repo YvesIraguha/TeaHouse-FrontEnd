@@ -14,6 +14,7 @@
     "@tinymce/tinymce-react": "^3.3.2",
     "axios": "^0.19.0",
     "dotenv": "^8.2.0",
+    "env-cmd": "^10.1.0",
     "moment": "^2.24.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -27,11 +28,12 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:react": "react-scripts start",
+    "start": "env-cmd -f .env.local yarn run start:react",
     "build": "react-scripts build",
     "test": "react-scripts test -u",
     "eject": "react-scripts eject",
-    "predeploy": "yarn run build",
+    "predeploy": "env-cmd -f .env.prod yarn run build",
     "deploy": "aws s3 sync build/ s3://teahousemagazine.org --acl public-read --profile yves-teahouse"
   },
   "jest": {
